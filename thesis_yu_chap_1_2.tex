@@ -571,35 +571,156 @@ our analyses presented in Chapter~\ref{xx} and Chapter~\ref{xx}.
 
 
 \section{Aerosol modeling approaches}
-Application of diversified measuring techniques help advance our understanding of aerosol particles, and we know the observed particles are the consequence of multiple processes. By using numerical models, we can distinguish the underlining physical and chemical laws leading to the complexity of aerosol behaviour, and predict what will happen if certain processes change. Considering the wide ranges of species types and sizes for an aerosol population, it is hard for a single model to represent the complete processes the population can experience during its lifetime, from emission to deposition, and balance need to be reached between model accuracy and computational efficiency. This section summaries the current aerosol modeling approaches from simplistic bulk methods used in global models to comprehensive particle-resolved models used in box model, and we will focus on how these models deal with aerosol mixing state and its implication for aerosol related climate properties. 
+The application of a variety of aerosol measurement techniques helps
+advance our understanding of aerosol particles, and we know that the
+observed particles are the consequence of multiple chemical and
+physical processes. By using numerical models, we can isolate the
+underlying individual processes, and predict what will happen if
+certain processes change. Considering the wide range of chemical
+species and particle sizes in an aerosol population, it is hard for a
+single model to represent all possible processes the population can
+experience during its lifetime, from emission to deposition, and
+balance need to be reached between model accuracy and computational
+efficiency. This section summarizes the current aerosol modeling
+approaches from simplistic bulk methods used in some global models to
+comprehensive particle-resolved models used in box model. We will
+focus on how these models deal with aerosol mixing state and its
+implication for aerosol-related climate properties.
 
 \subsection{Bulk models}
-The simplest aerosol modeling approach is using bulk method. Aerosol population are represented by several common species mass concentration, including sulfate, nitrate, BC, organics, dust and sea salt, and these species are treated as external mixtures in the bulk without detail information about how the species mixed with each other. Rather than tracking the aerosol evolution through microphysical processes, this approach prescribes the aerosol size distribution from climatology data. This approach is computationally efficient and applied by several global models, such as GOCART \citep{chin2000atmospheric} and TM5 \citep{vignati2010sources}. 
+The simplest aerosol modeling approach is the so-called bulk
+method. Aerosol populations are represented by the mass concentrations
+of several common aerosol species, such as sulfate, BC, organic
+aerosol, dust and sea salt, and these species are treated as external
+mixtures in the bulk without detailed information about how the
+species may be mixed with each other. Rather than tracking the aerosol
+evolution through microphysical processes, this approach prescribes
+the aerosol size distribution from climatologal data. This approach is
+computationally very efficient and applied by several global models,
+such as GOCART \citep{chin2000atmospheric} and TM5
+\citep{vignati2010sources}.
+
+\textcolor{red}{Add the figure for the bulk model to figure 1.5. I've
+  put it in the figures directory.}
 
 \subsection{Modal models}
-A more advanced approach is representing the aerosol populations by several modes. Just as shown in Fig.~\ref{fig:chap1-aerosol-model}(a), modal model tracks the size distribution evolution of the modes. Each mode can contain a variety of species and mixing state of the population are represented by the modes. But inside each mode, all species are still assumed to internally mixed. Considering the wide range of particle diameters, it is convenient to use lognormal function to represent the number distribution of each mode as follows:
+A more advanced approach is representing the aerosol populations by
+several overlapping distributions, also called modes,as shown in
+Fig.~\ref{fig:chap1-aerosol-model}(a). A modal model tracks the size
+distribution evolution of the modes. Each mode can contain a variety
+of aerosol species. Within each mode, all species are assumed to be
+internally mixed. Since the modes can overlap in certain size ranges,
+mixing state can be represented at least in a simplified way,
+especially when many modes are used \citep{Bauer2008}
+\textcolor{red}{Add ref to MATRIX model}. Lognormal functions are
+typically used to represent the number distribution of each mode as
+follows:
 \begin{equation}
 \centering
     n({\rm log}D_p) = \sum_{i=1}^{m}\frac{N_i}{\sqrt{2\pi}{\rm log}\sigma_i}{\rm exp}(-\frac{({\rm log}D-{\rm log}{\overline{D}_i})^2}{2{\rm log}^2\sigma_i}),
 \end{equation}
-where $m$ is the number of modes, $N_i$ is the number concentration of mode $i$, $\overline{D}_{i}$ and $\sigma_i$ are for the geometric mean diameter and standard deviation of the distribution respectively. The number of modes can be varied among the models. Aitken, accumulation and coarse modes are the essential three modes used in global models, such as MADE used in ECHAM4 global climate model and CMAQ regional chemistry model \citep{lauer2005simulating, binkowski2003models}. Other models apply additional modes to better represent the hydrophilic and hydrophobic species. For example, MAM7 used in CAM5 global model apply additional primary carbonaceous mode, including emitted primary organic matter and BC, which has lower hygroscopicity than accumulation mode \citep{liu2012toward}. For the three parameters used to describe the lognormal distribution, standard deviation of each mode is prescribed, and number concentration and mean diameter change as particles evolve.
+where $m$ is the number of modes, $N_i$ is the total number
+concentration of mode $i$, $\overline{D}_{i}$ and $\sigma_i$ are the
+geometric mean diameter and geometric standard deviation of mode $i$,
+respectively.
+
+The number of modes can vary among different models. Aitken,
+accumulation and coarse modes are the essential three modes, and this
+configuration is for example used in the ECHAM4 global climate model
+and in the regional chemistry transport model
+\citep{lauer2005simulating,
+  binkowski2003models}. \textcolor{red}{better to split up the
+  references.} Other models introduce additional modes to better
+represent hydrophilic and hydrophobic species. For example, MAM7 used
+in the CAM5 global model applies an additional primary carbonaceous
+mode that represents primary organic matter and BC, which has lower
+hygroscopicity than the accumulation mode \citep{liu2012toward} that
+also contains sulfate and SOA. For the three parameters used to
+describe the lognormal distribution, standard deviation of each mode
+is typically prescribed, and total number concentration and geometric
+mean diameter change as the aerosol evolves.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.5]{chap1_figs/thesis_chap1_fig5.pdf}
-	\caption{Aerosol numerical approaches:(a) Modal model, (b) Section model, and (c) Particle-resolved model}
+	\caption{Aerosol numerical approaches:(a) Modal model, (b)
+          Section model, and (c) Particle-resolved model
+          \textcolor{red}{add one more panel for bulk (I added the
+            figure already to the repo}}
 	\label{fig:chap1-aerosol-model}
 \end{figure}
 
-\subsection{Sectional models}
-Similar to modal methods, sectional aerosol models are also distribution-based. Instead of tracking the population by different modes, this approach discrete the population to a certain number of size bins and then track the changes in each bin, as illustrated in Fig.~\ref{fig:chap1-aerosol-model}(b). Particles are internally mixed within the bins and externally mixed between the bins. These aerosol modules are widely applied to large-scale models. For example, MOSAIC with flexible size bin numbers is extensively used in WRF-Chem and proved to capture the summer particulate matter distribution well over Houston region \citep{zaveri2008model,fast2006evolution}. Initially with 30 bins resolving particles with diameter between 0.01 and 10 $\rm \mu m$, TOMAS sectional model is applied to several global chemistry models, such as GEOS-Chem, and improved its ability in simulating aerosol optical properties recently through more detail mixing state representation of BC-contained particles \citep{adams2002predicting,pierce2013weak,kodros2018size}.
+\textcolor{red}{Probably should write out the model acronyms (CAM,
+  MOSAIC, ...)}
 
-Most sectional models apply univariate distribution of aerosol properties with assumptions used to describe aerosol mixing state in each bin, and more advanced schemes have been developed to incorporate more particle details inside the size bin, especially BC mass fraction of the particles. Based on Model of Aerosol Dynamics, Reaction, Ionization, and Dissolution (MADRID) module, \citet{oshima2009aging} developed a two-dimensional sectional scheme MADRID-BC by adding another dimension for BC mass fraction and tracking the fraction changes due to condensation/evaporation processes. Through developing MOSAIC-MIX, \citet{ching2016three} further extended the sectional model representation by incorporating another dimension for hygroscopicity, and coagulation process had been added to evaluate its effects on BC mixing state. 
+\subsection{Sectional models}
+Similar to modal methods, sectional aerosol models are also
+distribution-based. Instead of tracking the population by different
+modes, this approach discretizes the distribution into a certain
+number of size bins and then track the changes in each bin, as
+illustrated in Fig.~\ref{fig:chap1-aerosol-model}(b). Particles are
+internally mixed within each bins and the composition can vary between
+bins. The sectional approach is widely applied to large-scale
+models. For example, the sectional model MOSAIC is extensively used in
+WRF-Chem with 4-bin and 8-bin versions available, and proved to
+capture the summer particulate matter distribution well over the
+Houston region \citep{zaveri2008model,fast2006evolution}. The TOMAS
+sectional model is applied to several global chemistry models, such as
+GEOS-Chem, and improved its ability in simulating aerosol optical
+properties recently through more detail mixing state representation of
+BC-contained particles
+\citep{adams2002predicting,pierce2013weak,kodros2018size}. TOMAS uses
+30 bins and covers the diameter range between 0.01 and 10 $\rm \mu m$.
+
+Most sectional models apply univariate distributions and use
+assumptions for the aerosol mixing state in each bin. Some more
+advanced schemes have been developed to incorporate more information
+within each size bin, especially for representing a variable BC mass
+fraction within each size bin. Based on the Model of Aerosol Dynamics,
+Reaction, Ionization, and Dissolution (MADRID) module,
+\citet{oshima2009aging} developed a two-dimensional sectional scheme
+MADRID-BC by adding another dimension for BC mass fraction and
+tracking the fraction changes due to condensation/evaporation
+processes. Through developing MOSAIC-MIX, \citet{ching2016three}
+further extended the sectional model representation by incorporating
+another dimension for hygroscopicity, and coagulation process had been
+added to evaluate its effects on BC mixing state.
 
 \subsection{Particle-resolved models}
-Even though modal and sectional models provide better representation of particle distribution than bulk models, aerosol mixing state are still simplified by using internal or external assumptions. A more advanced representation of aerosol mixing state is particle-resolved method, as illustrated in Fig.~\ref{fig:chap1-aerosol-model}(c). Rather than tracking particles by distribution, particle-resolved model applies Langrangian method to track the particles individually and with no assumptions about the components of the particle. Specifically, each particle is represented by a $A$-dimensional vector, where $A$ is the total species number. The first particle-resolved aerosol model was developed by \citet{Riemer2009} and it was coupled with MOSAIC module to include gas-particle partitioning and gas chemistry processes. The model was applied to investigate the aging process of BC-contained particles in a urban plume environment and the evolution of ship plume particles \citep{tian2014modeling, Ching2016}. Recently, PartMC-MOSAIC had been further coupled with WRF-chem to track particle evolution at large-scale domain \citep{curtis2017single}. However, MOSAIC only considered aerosol aging process for subsaturated environment (RH < 100\%). It can not be used to investigate the physical and chemical processes in a cloud environment. This is one of the goal for this thesis, and I achieved this by coupling an aqueous module Chemical Aqueous Phase Radical Mechanism (CAPRAM). 
+Even though modal and sectional models provide better representation
+of particle size distributions than bulk models, aerosol mixing state
+still needs to be represented in a simplified way by using internal or
+external assumptions. A more advanced representation of aerosol mixing
+state is the particle-resolved method, as illustrated in
+Fig.~\ref{fig:chap1-aerosol-model}(c). Rather than using distributions
+to represent the population, a particle-resolved model samples the
+population with discrete computational particles. Specifically, each
+particle is represented by an $A$-dimensional vector, where $A$ is the
+total species number. The first particle-resolved aerosol model for
+the ambient atmosphere was developed by \citet{Riemer2009} and it was
+coupled with the MOSAIC module to include gas-particle partitioning
+and gas chemistry processes. The model was applied to investigate the
+aging process of BC-contained particles in a urban plume environment
+and the evolution of ship plume particles \citep{tian2014modeling,
+  Ching2016}. Recently, PartMC-MOSAIC had been further coupled with
+WRF-chem to track the particle evolution for a large-scale domain
+\citep{curtis2017single}. However, MOSAIC only considered aerosol
+aging process for subsaturated environments (RH < 100\%). It can not
+be used to investigate the chemical processes in a cloud
+environment. Extending and applying the PartMC modeling framework to
+include aqueous phase chemistry is one of the goal for this
+thesis. More details about PartMC will be presented in
+Chapter~\ref{xx}.
 
-In summary, bulk model approach is the most simplified methods and an universal mixing state will apply for all the particles in the population. Modal and sectional models divide aerosol populations by modes and bins. Its ability to describe aerosol mixing state is limited by the number of modes or bins included in the models. With the particle-resolved approach, each particle is explicitly tracked and the mixing state of aerosol population is accurately represented.  
+In summary, the bulk model approach is the most simplified method with
+mixing state being represented by an external mixture of different
+particle types. Modal and sectional models represent aerosol
+populations by distributions. Their ability to describe aerosol mixing
+state is limited by the number of modes or bins included in the models
+and they still rely on assumptions for mixing state within modes or
+bins. With the particle-resolved approach, each computational particle
+is explicitly tracked and the mixing state of aerosol population is
+accurately represented.
 
 \section{Models for aqueous chemistry simulation }
 One of the topics for the thesis is to investigate the interactions between aerosol mixing state and aqueous chemistry. The previous section discussed the different approaches to simulate aerosol mixing state, and it is different story when comes to incorporating aqueous mechanism for models. From particle activation at manometer scale to stratocumulus structure over thousand kilometers, the magnitude of cloud processes involves around $10^{14}$ orders and it is hard for a single model to incorporate all the related processes. Models with aqueous processes can be divided into two groups: process model with explicit aerosol microphysics and complex aqueous chemical mechanisms, and large-scale model with simplified representation of cloud properties and processes. 
