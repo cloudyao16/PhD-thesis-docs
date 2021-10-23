@@ -723,11 +723,58 @@ is explicitly tracked and the mixing state of aerosol population is
 accurately represented.
 
 \section{Models for aqueous chemistry simulation }
-One of the topics for the thesis is to investigate the interactions between aerosol mixing state and aqueous chemistry. The previous section discussed the different approaches to simulate aerosol mixing state, and it is different story when comes to incorporating aqueous mechanism for models. From particle activation at manometer scale to stratocumulus structure over thousand kilometers, the magnitude of cloud processes involves around $10^{14}$ orders and it is hard for a single model to incorporate all the related processes. Models with aqueous processes can be divided into two groups: process model with explicit aerosol microphysics and complex aqueous chemical mechanisms, and large-scale model with simplified representation of cloud properties and processes. 
+One of the topics for the thesis is to investigate the impact if
+aqueous phase chemistry on aerosol mixing state. The previous section
+discussed different approaches to simulate aerosol composition and
+represent mixing state. This section summarizes how aqueous phase
+chemistry mechanisms are incorporated into models. From particle
+activation at nanometer scale to stratocumulus structures over
+thousand kilometers, cloud processes cover around $10^{14}$ orders of
+magnitude, and it is infeasible for a single model to incorporate all
+the related processes. Models with aqueous processes can be divided
+into two groups: process model with explicit aerosol microphysics and
+complex aqueous chemical mechanisms, and
+large-scale model with simplified representation of cloud properties
+and processes.
 
-For process models, such as box and parcel models, aerosol microphysics are well-resolved. Droplet activation is explicitly described by using K$\rm \ddot{o}$hler theory. Specifically, particles with critical supersaturation lower than maximum supersaturation reached in the environment are activated as droplets \citep{rothenberg2016metamodeling, ching2012impacts}. Detail aqueous chemistry processes can be incorporated to these cloud parcel models. An example is the cloud parcel model SPACCIM coupled with detail aqueous scheme CAPRAM (492 species and 1087 reactions in version 3.0), and it had been testified using FEBUKO observation data \citep{wolke2005spaccim}. Since particle size distributions are commonly described in process models, the modification of particles after cloud processes can also be captured. The limitation of these models is lacking the interactions with cloud macro dynamics.
+For process models, often used as box/parcel models, aerosol
+microphysics is usually well-resolved. Droplet activation is
+explicitly described by using K$\rm \ddot{o}$hler
+theory. Specifically, particles with critical supersaturation lower
+than maximum supersaturation reached in the environment are activated
+as droplets \citep{rothenberg2016metamodeling,
+  ching2012impacts}. Detailed aqueous chemistry processes can be
+incorporated into these cloud parcel models. An example is the cloud
+parcel model SPACCIM coupled with the detailed aqueous scheme CAPRAM
+(492 species and 1087 reactions in version 3.0). It has been
+successfully compared to measurements during the FEBUKO campaign
+\citep{wolke2005spaccim}. Since particle size distributions are
+commonly described in process models, the modification of the size
+distribution after cloud processes can also be captured. The
+limitation of these models is the lack of the interactions with the
+cloud dynamics. 
 
-It is hard to include such detail information for global models with coarse grids. Rather than resolving cloud microphysics through explicit equations, cloud properties are described by using cloud fraction, with other diagnosed meterological parameters, for each grid. Cloud droplet sizes are assumed to be certain sizes. For example, ECHAM5-HAM assumed two bins for the cloud droplets: one bin for particles with lower ion concentration and the other bin for high ion concentration. As for the effects of cloud droplets representation on cloud chemistry, \citet{barth2006importance}, by camparing sectional and single-size droplet parcel model, found simplified cloud droplet size representation will lead to biases in simulated formic acid and formaldehyde concentration. Simplified aqueous mechanisms are also used and the acidity, which is an important factor for aqueous chemistry, are fixed at constant value. For example, GEOS-Chem used a pH of 4.5 for $\rm SO_2$ oxidation reaction by $\rm O_3$\citep{park2004natural}. Furthermore, assumptions should be made to consider the redistribution of species produced from aqueous reactions. For example, in CMAQ, all the non-volatile aqueous-formed species are added to accumulation mode after cloud dissipates \citep{binkowski2003models, fahey2017framework}. 
+It is hard to include such detailed process information in global
+models where computational efficiency is very important. Rather than
+resolving cloud microphysics explixcitly, cloud properties are
+described in a highly parameterized way, by using cloud fraction, with
+other diagnosed meterological parameters, for each grid box. Cloud
+droplet sizes distributions are usually assumed. For example,
+ECHAM5-HAM assumed two bins for the cloud droplets: one bin for
+particles with lower ion concentration and the other bin for high ion
+concentration. As for the effects of cloud droplets representation on
+cloud chemistry, \citet{barth2006importance}, by comparing sectional
+and single-size droplet parcel model, found simplified cloud droplet
+size representation will lead to biases in simulated formic acid and
+formaldehyde concentration. Simplified aqueous mechanisms are also
+used and the acidity, which is an important factor for aqueous
+chemistry, are fixed at constant value. For example, GEOS-Chem used a
+pH of 4.5 for $\rm SO_2$ oxidation reaction by $\rm
+O_3$\citep{park2004natural}. Furthermore, assumptions need to be made
+to considering the distribution of species produced from aqueous
+reactions. For example, in CMAQ, all the non-volatile aqueous-formed
+species are added to accumulation mode after cloud dissipates
+\citep{binkowski2003models, fahey2017framework}.
  
 %\begin{table}
 %\setlength\extrarowheight{5pt}
