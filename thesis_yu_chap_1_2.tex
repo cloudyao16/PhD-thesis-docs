@@ -347,47 +347,229 @@ uncertainty or at least help quantify the uncertainty that is
 currently present.
 
 \section{Aerosol mixing state}
-Mixing state, which defines the distribution of chemical species among the particle population, is a helpful concept to describe aerosols \citep{winkler1973growth}. There are two mixing state extremes for an aerosol population: internal mixture and external mixture. As Fig.~\ref{fig:chap1-chi-climate}(a) shows, a population is considered to be completed internally mixed if each particle is made up of the same species mixtures. For a population with fully external mixture, each particle only contain one single specie. However, in real environment, particles rarely fall into these two categories and they are mostly in the intermediate state. In other words, the number of species and their percentages can differ between particles.
+The aerosol mixing state refers to the distribution of chemical
+species among a particle population and is a helpful framework to
+describe aerosols \citep{winkler1973growth}. We distinguish between
+two mixing state extremes: the fully internal mixture and the fully
+external mixture. As Fig.~\ref{fig:chap1-chi-climate}(a) schematically
+shows, a population is considered to be completely internally mixed if
+each particle is made up of the same species mixtures, which equals
+the bulk composition. For a population with fully external mixture,
+each particle only contains one single species. However, in the real
+ambient atmosphere, particles rarely fall into any of these two
+categories but most likely assume one of many possible intermediate
+mixing states. In other words, the number of species and their mass
+fractions can differ between particles.
 
-Hygroscopicity and optical properties, which are important factors for droplets formation and radiative behaviour, are varied for different species. Thus, aerosol population with different mixing state will produce varied climate-related properties, as illustrated in Fig.~\ref{fig:chap1-chi-climate}. Figure~\ref{fig:chap1-chi-climate}(a) depicts the effects of mixing state for aerosol activation potential. All three populations are with the same amount of ammonium sulfate and organic, but the species are distributed differently among the particles. For the internally mixed population, all the particles have the same amount of ammonium sulfate and organic. For the population with external mixture, each particle only contains one single species. In real environment, these two species can randomly distribute among the particles. If these three populations are exposed at the same supersaturation environment (ss = 0.3\%), the number of activated particles is varied. All the particles are activated in the population with internal mixture, and only half are activated in the externally mixed population. The activated particles number in real world case are between these two extremes. 
+Hygroscopicity and optical properties, which are important factors for
+droplets formation and the interaction with radiation, are both
+strongly dependint on the chemical species that the particle consists
+of. Thus, aerosol population with different mixing states may have
+different climate-related properties, as illustrated in
+Fig.~\ref{fig:chap1-chi-climate}. Figure~\ref{fig:chap1-chi-climate}(a)
+explains this for the example of cloud condensation nuclei
+activity. All three populations contain the same amount of ammonium
+sulfate and organic matter, but the two species are distributed
+differently among the particles. For the internally-mixed population,
+each particle has the same amount of ammonium sulfate and organic. For
+the externally-mixed population, each particle only contains one
+single species. In the real environment, these two species can be
+randomly distributed among the particles. If these three populations
+are exposed at the same supersaturation (e.g., a supersaturation of
+0.3\%), the number of activated particles will be different. All the
+particles are activated in the population with internal mixture, while
+only 50\% are activated in the externally mixed population. The
+activated particles number in real world case are between these two
+extremes.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.60]{chap1_figs/thesis_chap1_fig3.pdf}
-	\caption{Aerosol mixing state effects on (a) activation ability and (b) optical values. (a) is adapted from \cite{Riemer2019}.}
+	\caption{Aerosol mixing state effects on (a) activation
+          ability and (b) optical values. (a) is adapted from
+          \cite{Riemer2019}.}
 	\label{fig:chap1-chi-climate}
 \end{figure}
 
-The effects of mixing state on aerosol activation potential can be investigated through closure study. Aerosol/CCN closure study is conducted by comparing the observed and predicted CCN concentration at the same supersaturation level. The prediction is made by applying K$\ddot{\rm o}$hler theory, using the measured dry particle size distributions and components information as input, with assumptions in mixing state to examine its effects.  \citet{broekhuizen2006closure} performed the closure study for aerosol samples from downtown Toronto at 0.58\% supersaturation, and they found the internal mixture assumptions overpredicted the CCN concentrations by 0.12$\pm$0.05. Using the CCN sampled from 2010 CalNex field campaign, \citet{moore2012hygroscopicity} also found internal mixture resulted in 30--75\% overprediction of CCN concentration. 
+The effects of mixing state on aerosol activation potential has been
+investigated through closure studies. An aerosol/CCN closure study is
+conducted by comparing the observed and predicted CCN concentrations
+at a given supersaturation level. The prediction is usually made by
+applying K\"ohler theory, using the measured dry particle size
+distributions and chemical composition information as input, with
+assumptions in mixing state to examine its effects.
+\citet{broekhuizen2006closure} performed such a closure study for
+aerosol samples from downtown Toronto at 0.58\% supersaturation, and
+they found the internal mixture assumptions overpredicted CCN
+concentrations by 0.12$\pm$0.05 \textcolor{red}{what unit is
+  this?}. Using the CCN sampled from 2010 CalNex field campaign,
+\citet{moore2012hygroscopicity} also found internal mixture resulted
+in 30--75\% overprediction of CCN concentration. \textcolor{red}{There
+  is a paper by Barbara Ervens that would be good to cite here as
+  well.}
 
-As for the effects on aerosol optical properties, we can apply the same strategy as Fig~\ref{fig:chap1-chi-climate}(a) to explain. Figure~\ref{fig:chap1-chi-climate}(b) shows the populations with the same amount of absorbing species (BC) and non-absorbing species ($\rm NH_4HSO_4$), but with different mixing state. As a result, the optical properties, including single scattering albedo (SSA), ensemble scattering coefficients ($\beta_{\rm abs}$) and ensemble absorbing coefficients ($\beta_{\rm abs}$), are varied in the populations and can lead to different radiative forcing effects.
+As for the effects on aerosol optical properties, we can apply the
+same strategy as in Fig~\ref{fig:chap1-chi-climate}(a) to explain the
+relevance of mixing state. Figure~\ref{fig:chap1-chi-climate}(b) shows
+the populations with the same amount of absorbing species (BC) and
+non-absorbing species ($\rm NH_4HSO_4$), but with different mixing
+states. As a result, the optical properties, including single
+scattering albedo (SSA), volume scattering coefficients ($\beta_{\rm
+  abs}$) and volume absorption coefficients ($\beta_{\rm abs}$) are
+different and can lead to different radiative forcing.
 
-The effects of aerosol mixing state on its optical properties can be more complicated if considering the aerosol water absorbing ability and particle shapes. In a humidified environment, water update of a particle depends strongly on its composition because of varied hygroscopicity of the species, which is important for scattering \citep{MichelFlores2012, Zieger2013, Titos2014, Titos2016}. Studies showed, compared with dry environment, scattering ability can be enhanced by 1.6 at the environment with RH of 85\% \citep{Burgos2020}. As for particle shapes, the distribution of the diverse species in a particle is important in determining optical values. For particles with no strong absorber, i.e. BC, volume-mixing rule can be used to calculate the refractive index and when BC is contained in the particle, core-shell configuration is proved to be more accurate \citep{Bond2006}. The absorption enhancement of BC-contained particles due to its surrounding coatings are widely investigated \citep{Moffet2009,Liu2017, wu2020light}, and distribution of the non-absorbing species are found to be the main sources for the discrepancies between the simulated and observed optical values \citep{Fierce2016, Fierce2020}.
+The effects of aerosol mixing state on its optical properties can be
+more complicated if considering aerosol water uptake and particle
+shapes. In a humidified environment, water update of a particle
+depends strongly on its composition because of the dependence of
+hygroscopicity on the chemical species, which is important for
+scattering \citep{MichelFlores2012, Zieger2013, Titos2014,
+  Titos2016}. Studies showed, compared with a dry environment, the
+scattering ability can be enhanced by a factor of 1.6 at the
+environment with RH of 85\% \citep{Burgos2020}. As for particle
+shapes, the distribution of the diverse species {\rm within} a
+particle is important in determining optical values. For particles
+without strong absorber, i.e. BC, a volume-mixing rule can be used to
+calculate the overall refractive index of the particle. When the
+particle contains BC, assuming a core-shell configuration has been
+shown to be more accurate \citep{Bond2006} than assuming a well-mixed
+for which a volume-mixing rule can be used. The absorption enhancement
+of BC-contained particles due to its coatings have been widely
+investigated \citep{Moffet2009,Liu2017, wu2020light}. The distribution
+of the non-absorbing species over the population where found to be the
+main sources for the discrepancies between the simulated and observed
+optical values \citep{Fierce2016, Fierce2020}. That is, in order to
+simulate absorption enhancement correctly, it is important to know the
+coating thinkness for a given population of BC cores. In particular,
+assuming an internal mixture (where larger BC cores receive thicker
+coatings) leads to a systematic overestimation of the absorption
+enhancement.
+
+\textcolor{red}{Need to add something on more advanced optical models,
+  T-matrix and DDA.}
 
 \section{Aerosol mixing state evolution}  
-Aerosol mixing evolution is a complex procedure and several processes are involved. At the time of particles emitted from the sources, aerosol population can already be the mixture of different species. For example, BC emitted from diesel vehicles are mixed with organics and sulfate, and the sea-spray aerosols are the mixture of sodium chloride and organics \citep{cheung2010emissions, kirpes2018secondary}. Once emitted, mixing state can further be modified by condensation of low-volatility compounds, such as the sulfate produced from oxidation of $\rm SO_2$ by OH in gas-phase. %Heterogeneous reactions between gas-phase reactants and condensed-phase surface can be faster than reactions in gas-phase, and one important reaction is the ozone depletion by chlorine radials produced from heterogeneous reactions between chlorofluorocarbons and polar cloud surface \citep{davies2018heterogeneous}. 
-Coagulation between particles is an efficient process in changing particle number concentration and Brownian coagulation had been proved to the main reason for the 
-rapid evolution of soot particle size distribution near a highway emitting point \citep{jacobson2004evolution}. Coagulation process alone will make particles more similar and particle population will become more internally mixed \citep{Riemer2013a}. The processes outlined above are for the cloud-free environment, however, since the global cloud coverage is more than 0.6 on average \citep{stubenrauch2013assessment}, evolution in clouds is also an important course during the lifetime of aerosol populations.
+Aerosol mixing evolution in the atmosphere involves several
+processes. It is important to recognize that, at the time of emission,
+particles can already be a mixture of different species. For example,
+particles emitted from diesel engines are mixture of BC, primary
+organics and sulfate, and sea-spray aerosols are a mixture of sodium
+chloride and organics \citep{cheung2010emissions,
+  kirpes2018secondary}. Once emitted, the mixing state can be further
+modified by condensation of organic or inorganic low-volatility
+compounds.
+%Heterogeneous reactions between gas-phase reactants and
+%condensed-phase surface can be faster than reactions in gas-phase,
+%and one important reaction is the ozone depletion by chlorine radials
+%produced from heterogeneous reactions between chlorofluorocarbons and
+%polar cloud surface \citep{davies2018heterogeneous}.
+Coagulation between particles is an efficient process for changing
+particle number concentration, and Brownian coagulation was shown to
+be the main reason for the rapid evolution of soot particle size
+distribution near a highway \citep{jacobson2004evolution}. The
+coagulation process alone will make the particle composition more
+similar, and particle population undergoing coagulation will become
+more internally mixed \citep{Riemer2013a}.
 
-Figure~\ref{fig:chap1-aq-proc} shows the chemical and physical processes particles experience in fogs and clouds. When the atmosphere reach supersaturated, particles with critical supersaturation lower than the environment supersaturation are activated as cloud droplets and undergo nucleation scavenging. For these activated particles, the absorbed water facilitates the aqueous chemical reactions. Gas species dissolve in the cloud, and if both liquid and ice phase exist in the cloud, species partition between different phase occurs and the retention coefficients in liquid phase are varied. When cloud droplets grow to rain droplets, they fall out and precipitate. During the falling out procedure, some small interstial particles are collected by these large droplets and impaction scavenging occurs. For clouds with strong convection, gas and particle species are vertically redistributed by convective transport. 
+The processes of condensation and coagulation outlined above are
+relevant for a cloud-free environment, however, since the global cloud
+coverage is on average more than 60\%
+\citep{stubenrauch2013assessment}, the aerosol evolution in clouds is
+also an important contributor during the lifetime of aerosol
+populations, and motivates the work presented in Chapter~\ref{xx} of
+this thesis. Figure~\ref{fig:chap1-aq-proc} shows the chemical and
+physical processes particles experience in fogs and clouds. When the
+atmosphere reaches supersaturation, particles with critical
+supersaturation lower than the environment supersaturation are
+activated as cloud droplets and undergo nucleation scavenging. For
+these activated particles, the absorbed water facilitates aqueous
+chemical reactions. Gas species dissolve in the cloud droplet, and if
+both liquid and ice phases exist in the cloud, species partition
+between the two phases and the retention coefficients in the liquid
+phase are varied. When cloud droplets grow to rain droplets, they
+precipitate. During precipitation, small interstitial aerosol
+particles can be collected by these large droplets and impaction
+scavenging occurs. For clouds with strong convection, gas and particle
+species are vertically redistributed by convective transport.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=1.0]{chap1_figs/thesis_chap1_fig4.jpeg}
-	\caption{Processes schematic invovled in fogs and clouds, adapted from \cite{ervens2015modeling}.}
+	\caption{Chemical and physical processes involved in fogs and
+          clouds, adapted from \cite{ervens2015modeling}.}
 	\label{fig:chap1-aq-proc}
 \end{figure}
 
-Aqueous environment provides an efficient medium for sulfate formation. Globally, more than 50\% of sulfate forms through in-cloud oxidation and the formation rates of aqueous reactions, $\rm SO_2$ oxidation by $\rm H_2O_2$ and $\rm O_3$, are more effective than through OH oxidation in gas phase \citep{kreidenweis2003modification, rasch2000description}. Other aqueous sulfate formation mechanisms, such as the reactions catalyzed by Transition Metal Ions (TMI), can also be important and it is confirmed to be the dominant pathway for the sulfate formation in the samples collected during HCCT-2010 field campaign \citep{harris2012sulfur, harris2013enhanced}. 
+The aqueous phase in clouds provides an efficient medium for sulfate
+formation. Globally, more than 50\% of sulfate forms through in-cloud
+oxidation and the formation rates of aqueous reactions, $\rm SO_2$
+oxidation by $\rm H_2O_2$ and $\rm O_3$, are more effective than
+through OH oxidation in gas phase \citep{kreidenweis2003modification,
+  rasch2000description}. Other aqueous sulfate formation mechanisms,
+such as the reactions catalyzed by Transition Metal Ions (TMI), can
+also be important. For example, reaction cycles involving TMI have
+been shown to be the dominant pathway for sulfate formation in the
+samples collected during HCCT-2010 field campaign
+\citep{harris2012sulfur, harris2013enhanced}.
 
-%Reaction rates of aqueous processes rely on cloud properties and the importance of different pathways differs at various cloud types.  \citet{straub2007chemical}, analyzing the marine stratocumulus cloud samples collected over eastern Pacific Ocean during DYCOMS-II field campaign, found $\rm SO_2$ oxidized by $\rm H_2O_2$ is the dominant reaction for sulfate production.
-Recently, more emphasis transfers to the role of aqueous reactions for SOA formation. Globally, SOA produced from aqueous pathway can reach to 20--30 Tg·$\rm yr^{-1}$. Glyoxal, methylglyoxal, glycolaldehyde and acetic acid can act as the precursors for aqueous SOA \citep{liu2012global}. As for the oxidants, besides hydroxyl radical, which is the dominant oxidant for SOA formation at gas phase, aqueous environment can provide several other efficient oxidants, such as peroxyl radicals, peroxides and triplet excited states of organic compounds ($^{3}\textrm{C}^*$) \citep{mcneill2015aqueous, ervens2011secondary}. Using simulated sunlight UV, \citet{smith2014secondary} found phenols can be rapidly oxidized by $^{3}\textrm{C}^*$ to produce low-volatility SOA . 
+%Reaction rates of aqueous processes rely on cloud properties and the
+%importance of different pathways differs at various cloud types.
+%\citet{straub2007chemical}, analyzing the marine stratocumulus cloud
+%samples collected over eastern Pacific Ocean during DYCOMS-II field
+%campaign, found $\rm SO_2$ oxidized by $\rm H_2O_2$ is the dominant
+%reaction for sulfate production.
+In addition to sulfate, aqueous reactions can also form SOA. Globally,
+SOA produced from aqueous pathway can reach to 20--30 Tg·$\rm
+yr^{-1}$. Glyoxal, methylglyoxal, glycolaldehyde and acetic acid can
+act as the precursors for aqueous SOA \citep{liu2012global}. As for
+the oxidants, besides hydroxyl radical, which is the dominant oxidant
+for SOA formation at gas phase, aqueous environment can provide
+several other efficient oxidants, such as peroxyl radicals, peroxides
+and triplet excited states of organic compounds ($^{3}\textrm{C}^*$)
+\citep{mcneill2015aqueous, ervens2011secondary}. Using simulated
+sunlight UV, \citet{smith2014secondary} found phenols can be rapidly
+oxidized by $^{3}\textrm{C}^*$ to produce low-volatility SOA .
 
-Aerosol size distribution evolves after the formation of aqueous inorgaincs and organics. Hoppel minima, which describes the CCN concentration gap between two particle distribution modes peak at 0.02--0.03 and 0.08-0.15~$\rm \mu m$ respectively,  was found by \citet{hoppel1986effect} when analyzing the particles processed by nonprecipitation clouds. This phenomena has further been observed for the particles at different region, such as VOCALS campaign over west Chilean coast at Arica and MASE experiment over central California coast \citep{kleinman2012aerosol, hudson2015cloud}. Besides the aqueous aerosol formation, particle size distribution also changes due to coagulation between interstitial particles and cloud droplets. \citet{pierce2015importance} found this process can reduce total particle number concentration by 10--15\% globally. 
+The aerosol size distribution evolves after the formation of aqueous
+inorganic and organic species. The characteristic ``Hoppel minimum''
+describes the gap between two particle distribution modes at
+approximately 0.02--0.03 and 0.08--0.15~$\rm \mu m$
+\citet{hoppel1986effect} evident in particle populations processed by
+non-precipitating clouds. After being described for the first time by
+\citet{hoppel1985effect}, this phenomena has further been observed for
+aerosol populations in different regions, such as during the VOCALS
+campaign over west Chilean coast and the MASE campaign at the central
+California coast \citep{kleinman2012aerosol, hudson2015cloud}. Besides
+the formation of secondary aerosol through aqueous phase reactions,
+particle size distributions also changes due to coagulation between
+interstitial particles and cloud
+droplets. \citet{pierce2015importance} found that this process can
+reduce total particle number concentration by 10--15\% globally.
 
-Evolution of mixing state affects aerosol climate-related properties. \citet{Ching2016} found, for those already aged BC-contained particles, increased BC emission can result in more cloud droplet number concentrations. Optical Aerosol optical properties are altered as mixing state evolves, especially for BC-contained particles. The enhancement of optical absorption abilities of BC-contained particles due to the surrounding coatings are widely confirmed by models and laboratory \citep{Moffet2009,Liu2017,wu2020light,Fierce2020}.
+The evolution of mixing state in turn affects the aerosols'
+climate-related properties. \citet{Ching2016} found that for polluted
+environments where BC-containing particles age quickly, increased BC
+emissions result in larger cloud droplet number concentrations (even
+though fresh BC particles are poor CCN). Aerosol optical properties
+are altered as mixing state evolves, especially for BC-contained
+particles. As mentioned above, the absorption enhancement of
+BC-containing particles due to coatings of non-absorbing species are
+widely confirmed by models, laboratory studies and field observations
+\citep{Moffet2009,Liu2017,wu2020light,Fierce2020}.
 
-Considering the importance of mixing state for describing an aerosol population, qualitative description using the terms, such as internal or external mixture, can potentially lead to uncertainties in quantifying the effects of mixing state. \citet{Riemer2013a}, based on the theory of information-theoretic entropy, developed index $\chi$ to quantify aerosol population mixing state. The index $\chi$ is the ratio between average particle diversity $D_{\alpha}$ and bulk diversity $D_{\gamma}$. By using particle mass measurement data, these metrics were successfully proved to be capable of explaining the aerosol aging processes \citep{Healy2014}.  
+Considering the importance of mixing state for describing an aerosol
+population, a qualitative description using the terms, such as
+internal or external mixture, are limited in quantifying the effects
+of mixing state. \citet{Riemer2013a}, based on the theory of
+information-theoretic entropy, developed the index $\chi$ to quantify
+aerosol population mixing state. The index $\chi$ is the ratio between
+average particle diversity $D_{\alpha}$ and bulk diversity
+$D_{\gamma}$. By using particle mass measurement data, these metrics
+were successfully proved to be capable of explaining the aerosol aging
+processes \citep{Healy2014}. They are also an important framework for
+our analyses presented in Chapter~\ref{xx} and Chapter~\ref{xx}.
+
+
 \section{Aerosol modeling approaches}
 Application of diversified measuring techniques help advance our understanding of aerosol particles, and we know the observed particles are the consequence of multiple processes. By using numerical models, we can distinguish the underlining physical and chemical laws leading to the complexity of aerosol behaviour, and predict what will happen if certain processes change. Considering the wide ranges of species types and sizes for an aerosol population, it is hard for a single model to represent the complete processes the population can experience during its lifetime, from emission to deposition, and balance need to be reached between model accuracy and computational efficiency. This section summaries the current aerosol modeling approaches from simplistic bulk methods used in global models to comprehensive particle-resolved models used in box model, and we will focus on how these models deal with aerosol mixing state and its implication for aerosol related climate properties. 
 
