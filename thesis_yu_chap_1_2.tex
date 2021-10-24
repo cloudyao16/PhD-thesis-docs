@@ -949,28 +949,45 @@ simulations. The role of TMI pathway is further explored in
 Chapter~\ref{chap2.5}. Findings are summarized in
 Chapter~\ref{chap2.6}.
 
-\section{Model description and simulations setup}
+\textcolor{red}{For the thesis we need to use the word chapters, not
+  sections.}
+
+\section{Model description and simulation setup}
 \label{chap2.2}
-Following the two-step strategy described in \citet{ching2012impacts},
-I designed the cloud chemistry experiment by exposing aerosol
-populations in a cloud environment, as figure~\ref{chap2-fig1-frame}
-illustrates. For the first step, Isimulated urban plume scenarios that
-produced populations with a wide variety of aerosol mixing states
-using a particle-resolved model PartMC-MOSAIC in a cloud-free
-environment. These simulated aerosol populations were then used as the
-input for cloud parcel simulations, including aqueous chemistry, in
-step 2. Details of PartMC-MOSAIC, cloud parcel model and aqueous
-chemistry are described in the following sections.
+The model simulations presented in Chapter~\ref{xx} and~\ref{xx}
+follow the two-step strategy described in \citet{ching2012impacts} and
+illustrated in Figure~\ref{chap2-fig1-frame}. For the first step, I
+simulated urban plume scenarios in a cloud-free environment using
+PartMC-MOSAIC. The purpose of these simulations was to produce many
+aerosol populations with a wide variety of aerosol mixing
+states. These simulated aerosol populations were then used as the
+input for cloud parcel simulations, including aqueous-phase chemistry,
+in Step 2. Details about PartMC-MOSAIC, the cloud parcel model and the
+aqueous-phase chemistry are described in the following sections.
 
 \begin{figure}[ht]
     \centering 
     \includegraphics[scale=0.4]{chap2_figs/chap2-fig1-frame.pdf}
-    \caption{Two-step cloud chemistry experiment framework}
+    \caption{Two-step particle-resolved modeling framework. Step 1 is
+      the simulation of an urban plume scenario in a cloud-free
+      environment. Step 2 is the cloud parcel simulation using output
+      from the Step-1 urban plume simulations as input.}
     \label{chap2-fig1-frame}
 \end{figure}
 
-\subsection{Particle-resolved model PartMC-MOSAIC}
-PartMC-MOSAIC (Particle Monte Carlo-Model for Simulating Aerosol Interactions and Chemistry) is a Lagrangian box model which simulates the evolution of individual particles by different processes. The evolution is simulated in a well-mixed computational volume and the particle spatial positions are not stored. Compositions of each particle are explicitly tracked by representing the particle as an $A$-dimension vector $\vec{\mu}^i \in \mathbb{R}^A$ with components ($\vec{\mu}_1^i,\vec{\mu}_2^i,...,\vec{\mu}_A^i$), where $\vec{\mu}_a^i$ is the mass of species $a$ in particle $i$, with $a$ = $1,...,A$ and $i$ = $1,...,N$. The evolution for aerosol number concentration with species mass $\mu$ at time $t$, $n(\vec{\mu},t)$, is described by: 
+\subsection{The particle-resolved aerosol model PartMC-MOSAIC}
+PartMC-MOSAIC (Particle Monte Carlo-Model for Simulating Aerosol
+Interactions and Chemistry) is a Lagrangian box model which simulates
+the evolution of individual computational particles in the ambient
+atmosphere. The evolution is simulated assuming a well-mixed
+computational volume and the particles' spatial positions are not
+stored. The composition of each particle are tracked by representing
+the particle as an $A$-dimension vector $\vec{\mu}^i \in \mathbb{R}^A$
+with components ($\vec{\mu}_1^i,\vec{\mu}_2^i,...,\vec{\mu}_A^i$),
+where $\vec{\mu}_a^i$ is the mass of species $a$ in particle $i$, with
+$a$ = $1,...,A$ and $i$ = $1,...,N$. The evolution for aerosol number
+concentration with species mass $\mu$ at time $t$, $n(\vec{\mu},t)$,
+is described by:
 \begin{equation}
 \begin{aligned}
  \frac{\partial n(\vec{\mu},t)}{\partial t} &= \underbrace{\frac{1}{2}\int_0^{\mu_1}\int_0^{\mu_2}...\int_0^{\mu_A} K(\vec{\mu}',\vec{\mu}-\vec{\mu}')n(\vec{\mu}',t)n(\vec{u}-\vec{u}',t)d{\mu_1}'d{\mu_2}'...d{\mu_A}'}_\text{coagulation gain}\\
@@ -979,17 +996,78 @@ PartMC-MOSAIC (Particle Monte Carlo-Model for Simulating Aerosol Interactions an
 \end{aligned}
 \label{eq:partmc}
 \end{equation}
-where $K$ is the coagulation rate between the particles, $\dot{n}_{\rm emit}(\vec{\mu},t)$ is the emitting distribution of species $\vec{\mu}$, $\lambda_{\rm dil}$ is the dilution rate with background species concentration $n_{\rm back}$, $c_i$ is the gas to particle conversion rate, $I_i$ is the gas species condensation flux, $c_{\rm w}$ is the gas to water conversion rate and $I_{\rm w}$ is the water condensation flux. More details of the equation can refer to \citet{Riemer2009}.
+where $K$ is the coagulation rate between the particles, $\dot{n}_{\rm
+  emit}(\vec{\mu},t)$ is the emitting distribution of species
+$\vec{\mu}$, $\lambda_{\rm dil}$ is the dilution rate with background
+species concentration $n_{\rm back}$, $c_i$ is the gas to particle
+conversion rate, $I_i$ is the gas species condensation flux, $c_{\rm
+  w}$ is the gas to water conversion rate and $I_{\rm w}$ is the water
+condensation flux.
 
-The evolution processes involved in the equation~\ref{eq:partmc} alter the aerosol population in two mechanisms. By adding or removing particles from the population, emission, dilution and coagulation processes modify the number concentration of the population and these processes are accomplished by PartMC with a stochastic Monte Carlo approach. While on the other hand, composition of each particle can be altered by species condensation and evaporation, which are explicitly simulated by state-of-art aerosol chemistry module MOSAIC. In MOSAIC, gas phase reactions are accomplished by carbon bond mechanism CBM-Z, 77~species and 142~reactions are included \citep{Zaveri1999}. Key aerosol species are treated, including $\rm SO_4^{2-}$, $\rm NO_3^-$, $\rm NH_4^+$, BC, primary organic aerosol (POA) and secondary organic aerosol (SOA). SOA treatment is based on SORGAM scheme \citep{schell2001modeling}. In current version, model includes four SOA species (ARO1, ARO2, ALK1, OLE1) oxidized from anthropogenic volatile organic compounds (VOCs) and four other SOA species (LIM1, LIM2, API1, API2) oxidized from biogenic VOCs \citep{ching2012impacts}. Activity coefficients of electrolytes and ions in aqueous solutions are estimated by multicomponent Taylor expansion method (MTEM), and intraparticle solid-liquid partitioning are treated by Multicomponent Equilibrium Solver for Aerosols (MESA) \citep{zaveri2005computationally}. However, MOSAIC only considered the reactions occurred in an unsaturated environment (RH < 100\%) and therefore we were not able to address the change within the cloud. This is the contribution of this work. 
+The evolution processes represented in equation~\ref{eq:partmc} alter
+the aerosol population by two mechanisms. By adding or removing
+particles from the population, emission, dilution and coagulation
+processes modify the number concentration of the population and these
+processes are accomplished by PartMC with a stochastic Monte Carlo
+approach. In addition, the composition of each particle can be altered
+by species condensation and evaporation, which are simulated by the
+state-of-art aerosol chemistry module MOSAIC. In MOSAIC, gas phase
+reactions are represented by the arbon bond mechanism CBM-Z, with
+77~species and 142~reactions included \citep{Zaveri1999}. Key aerosol
+species are treated, including $\rm SO_4^{2-}$, $\rm NO_3^-$, $\rm
+NH_4^+$, BC, primary organic aerosol (POA) and secondary organic
+aerosol (SOA). The SOA treatment is based on the SORGAM scheme
+\citep{schell2001modeling}. In the current version, the model includes
+four SOA species (ARO1, ARO2, ALK1, OLE1) formed from anthropogenic
+volatile organic compounds (VOCs) precursors, and four other SOA
+species (LIM1, LIM2, API1, API2) formed from biogenic VOCs
+\citep{ching2012impacts}. Activity coefficients of electrolytes and
+ions in aqueous solutions are estimated by the multicomponent Taylor
+expansion method (MTEM), and intraparticle solid-liquid partitioning
+is treated by the Multicomponent Equilibrium Solver for Aerosols
+(MESA) \citep{zaveri2005computationally}. However, MOSAIC only
+considers the reactions occurring in an environment that is
+subsaturated with respect to water vapor (RH < 100\%) and therefore we
+were not able to address the changes to aerosol composition during a
+cloud exists. This is the contribution of this work.
 
-PartMC-MOSAIC had been applied to analyze the particle evolution at different environment. For example, \citet{Zaveri2010a} found particle optical absorption increased by 40\% during a 48-hour idealized urban plume condition due to the aging of BC-contained particles. \citet{tian2014modeling} used the model to investigate the processes responsible for the particle number concentration change in a ship plume environment and evaluated the effects of different aging process on particle CCN properties. PartMC-MOSAIC was also used as a benchmark model to quantify the errors in aerosol optical and microphysical properties introduced by simplified mixing state assumptions commonly used in other aerosol models \citep{Zaveri2010a, ching2012impacts, Fierce2017}. PartMC-MOSAIC was further coupled with a cloud parcel model to investigate the effects of mixing state on cloud droplet properties \citep{ching2012impacts, Ching2016}, and the cloud parcel model will be discussed in detail in section~\ref{section:cloud-parcel-model} because this model was applied for the research both in  this chapter and chapter~3. 
+PartMC-MOSAIC was applied to analyze the particle evolution at
+different environments. For example, \citet{Zaveri2010a} found that
+aerosol absorption of sunlight increased by 40\% during a 48-hour
+idealized urban plume condition due to the aging of BC-containing
+particles. \citet{tian2014modeling} used the model to investigate the
+processes responsible for the particle number concentration change in
+a ship plume and evaluated the effects of different aging processes on
+particle CCN properties. PartMC-MOSAIC was also used as a benchmark
+model to quantify the errors in aerosol optical and microphysical
+properties introduced by simplified mixing state assumptions commonly
+used in other aerosol models \citep{Zaveri2010a, ching2012impacts,
+  Fierce2017}. PartMC-MOSAIC was further coupled with a cloud parcel
+model to investigate the effects of mixing state on cloud droplet
+properties \citep{ching2012impacts, Ching2016}. The cloud parcel model
+will be discussed in more detail in
+section~\ref{section:cloud-parcel-model} because this model was
+applied for the research both in this chapter and chapter~3.
 
 \subsection{Cloud parcel model}
 \label{section:cloud-parcel-model}
-The cloud parcel model coupled with PartMC-MOSAIC is an zero-dimensional adiabatic model. It simulates the particle activation and condensation growth in a rising air parcel and tracks the changes of environment saturation due to the growth of particles and temperature change. Specifically, for a population with $N$ particles of diameter $D_i$, both the growth rate of $D_i$ and the change of environment saturation $S_v$ are diagnosed, which sums to $N$ + 1 state variables to be numerically solved by the model. To focus on the effects of chemical compositions on cloud droplets formation, entrainment, surface tension effects on droplets growth are not included in the model. This section briefly introduces the main equations solved by the parcel model. See \citet{ching2012impacts} for more detailed description of the model. 
+PartMC can be used as a zero-dimensional adiabatic cloud parcel model
+\citep{Ching2012}. It simulates particle activation and condensational
+growth in a cooling air parcel and tracks the changes of environmental
+saturation due to the growth of particles and the temperature
+change. Specifically, for a population with $N$ particles of diameter
+$D_i$, both the growth rate of $D_i$ and the change of environment
+saturation $S_v$ are predicted, which sums to $N + 1$ state variables
+to be numerically solved by the model. In the current version of the
+model entrainment and surface tension effects on droplets growth are
+not included. This section briefly introduces the main equations
+solved by the parcel model. See \citet{ching2012impacts} for a more
+detailed description of the model.
 
-During the condensational growth process, the chemical compositions of particle are assumed to be constant and only the water content of the particle alters. The growth rate of particle $i$ is calculated as
+In \citet{Ching2012} the chemical composition of the particles
+particle is assumed to be constant and only the water content of the
+particle changes during the condensational growth process. The growth
+rate of particle $i$ is calculated as
 \begin{equation}
 \centering
 \frac{dD_i}{dt} = \frac{G}{D_i}(S_{\rm v}-S_{\rm eq})
@@ -1015,22 +1093,68 @@ The water activity is calculated by using the parameter $\kappa$ derived by \cit
 a_{{\rm w},i} = \frac{v_i^{\rm w}}{v_i^{\rm w} + \kappa_i v_i^{\rm dry}},
 \label{eq:activity coeff}    
 \end{equation}
-where $v_i^{\rm w}$ and $v_i^{\rm dry}$ are the volume of water and all the other dry components in particle $i$, respectively. $\kappa_i$ is volume-weighted $\kappa$ of the non-water species. In current model, we used $\kappa$ of 0.65 for ammonium-sulfate-nitrate system, SOA with $\kappa$ = 0.1 and POA with $\kappa$ = 0.001. BC is assumed to be hyrophobic and has $\kappa$ of 0. 
+where $v_i^{\rm w}$ and $v_i^{\rm dry}$ are the volume of water and
+all the other dry components in particle $i$, respectively. $\kappa_i$
+is volume-weighted $\kappa$ of the non-water species. We used $\kappa$
+of 0.65 for ammonium-sulfate-nitrate system, SOA with $\kappa$ = 0.1
+and POA with $\kappa$ = 0.001. BC is assumed to be hyrophobic and has
+$\kappa$ of 0.
 
-Rather than describing the rising parcel using a constant updraft velocity \citep{Seinfeld2016,rothenberg2016metamodeling}, this parcel model prescribed a constant temperature lapse rate, following the strategy used in \citet{majeed2001microphysics}, to avoid dealing with radiative heating effects and latent heat budget. Pressure is also assumed to be constant. In light of these considerations, the change of environment saturation can be given by
+\textcolor{red}{Inconsistent use of ``we'' and ``I''}
+
+Rather than describing the rising parcel using a constant updraft
+velocity \citep{Seinfeld2016,rothenberg2016metamodeling}, this parcel
+model prescribes a constant temperature lapse rate, following the
+strategy used in \citet{majeed2001microphysics} to avoid dealing with
+radiative heating effects and the latent heat budget. Pressure is also
+assumed to be constant. In light of these considerations, the change
+of environment saturation can be given by
 \begin{equation}
     \centering
     \frac{dS_{\rm v}}{dt} = -\sum_{i=1}^{N}\frac{\pi \rho_{\rm w} RT}{2M_{\rm w}P^0V_{\rm comp}}D_i^2\frac{dD_i}{dt} - \frac{1}{P^0}\frac{\partial P^0}{\partial T}S_{\rm v}\frac{dT}{dt}
 \end{equation}
-where the first term describes the effects due to the radius change of all $N$ particles and the second term is about the temperature change. $V_{\rm comp}$ is the computational volume. 
+where the first term describes the effects due to the diameter change
+of all $N$ particles and the second term represents the temperature
+change. $V_{\rm comp}$ is the computational volume.
 
-This coupled model had been applied to investigate the importance of aerosol mixing state for predicting cloud droplets number concentration (CDNC). \citet{ching2012impacts} found, neglecting particle species heterogeneity in size bins resulted in errors in CDNC up to 34\% at the environment with cooling rate of 0.5~\unit{K/min}. By conducting ensemble cloud parcel simulations, \citet{Ching2016} further demonstrated that ignoring BC mixing state can lead to CNDC error of $-$12\% to $+$45\%.
+PartMC was applied as cloud parcel model to investigate the importance
+of aerosol mixing state for predicting cloud droplets number
+concentration (CDNC). \citet{ching2012impacts} found that neglecting
+particle species heterogeneity in size bins resulted in errors in CDNC
+of up to 34\% with a cooling rate of 0.5~\unit{K/min}. By conducting
+ensemble cloud parcel simulations, \citet{Ching2016} further
+demonstrated that ignoring BC mixing state can lead to CNDC errors of
+$-$12\% to $+$45\%.
 
 %The coupled model had been used to evaluate the relative importance of particle size and compositions for cloud droplet concentration. 
 
 \subsection{Aqueous chemistry model}
 \label{section:aq-chem-model}
-In this work, PartMC-MOSAIC was further coupled with an aqueous chemistry module based reduced Chemical Aqueous Phase Radical Mechanism(CAPRAM) version 2.4. The full mechanism in CAPRAM 2.4 includes 439 reactions and 147 species, and a reduced version is also provided to be more computationally efficient, which includes 183 reactions and 113 species \citep{Ervens2003}. The reduced version also contains a comprehensive aqueous mechanism, and deals with the reactions between OH, $\rm HO_2$, $\rm NO_3$, $\rm SO_4$, $\rm Cl_2$,$\rm Br_2$ and $\rm CO_3$ with inorganic (TMI, $\rm NO_3^-$ , $\rm Cl^-$, $\rm Br^-$) and organic reactants with less than two atoms. The constants for thermodynamic and kinetic reactions are listed in Table~\ref{tab:capram}. When coupling CAPRAM with PartMC-MOSAIC, the original gas phase chemistry mechanism, regional atmospheric chemistry modeling (RACM), used in CAPRAM 2.4 is now replaced with CBM-Z in PartMC-MOSAIC. 
+In this work, PartMC was further enhanced with an aqueous chemistry
+module based on the reduced Chemical Aqueous Phase Radical Mechanism
+(CAPRAM) version 2.4. The full mechanism in CAPRAM 2.4 includes 439
+reactions and 147 species, and the reduced version is also provided to
+be more computationally efficient, which includes 183 reactions and
+113 species \citep{Ervens2003}. The reduced version also contains a
+comprehensive aqueous mechanism, and deals with the reactions between
+OH, $\rm HO_2$, $\rm NO_3$, $\rm SO_4$, $\rm Cl_2$,$\rm Br_2$ and $\rm
+CO_3$ with inorganic (TMI, $\rm NO_3^-$ , $\rm Cl^-$, $\rm Br^-$) and
+organic reactants with less than two atoms. The constants for
+thermodynamic and kinetic reactions are listed in
+Table~\ref{tab:capram}. When coupling CAPRAM with PartMC, the original
+gas phase chemistry mechanism, regional atmospheric chemistry modeling
+(RACM), used in CAPRAM 2.4 is now replaced with CBM-Z in
+PartMC-MOSAIC.
+
+\textcolor{red}{Supply github repo where the code is}
+
+\textcolor{red}{How does equation 2.1 need to be modified now that
+  aq. phase chemistry is considered? I think it would be good to add
+  the gas phase equation to equation 2.1 -- since PartMC-MOSAIC solves
+  both of them.}
+
+
+\textcolor{red}{The monodisperse settings should go after section 2.3. Should be part of section 2.4. Because section 2.3 is not monodisperse, is it?}
 
 \subsection{Ensemble monodisperse settings}
 This work is the first application of particle-resolved cloud chemistry model, and I used relative simple aerosol description, that is the monodisperse distribution, to investigate aqueous sulfate processes. More complex populations with lognormal distribution and the role of other cloud processes, such as coagulation between interstitial particles and cloud droplets, are explored in next chapter. 
