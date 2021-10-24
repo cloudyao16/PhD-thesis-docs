@@ -1245,24 +1245,27 @@ OH was supplied as emissions at the rate of $2\times 10^{-8}$
 \label{chap2.3}
 Before applying the comprehensive particle-resolved aqueous chemistry
 model to study the role of different aqueous sulfate pathways, I first
-evaluated it by comparing with the models used in
+evaluated it by comparing with the results in
 \cite{kreidenweis2003modification}(hereafter, KS2003). In KS2003,
-several bulk and size-resolved models were used to simulate aqueous
-sulfate formation in an adiabatic updraft cloud environment. They
+several bulk and size-resolved aqueous chemistry models were used to
+simulate aqueous sulfate formation in an adiabatic cloud parcel. They
 found significant differences in $\rm SO_2$ oxidation rates between
 size-resolved and bulk models. This model comparison work provides a
 benchmark for checking aqueous sulfate mechanisms, and I used the same
 simulation setting in that work to verify our particle-resolved
-aqueous chemistry approach. Physical and chemical conditions,
-including the updraft velocity, temperature change, initial species
-concentration and chemical equations are all set to the same with
-values used in KS2003, as listed in table~\ref{setting}. In the models
-used in KS2003, cloud formed by a constant updraft velocity. But in
-our model, as mentioned before, we predefined the temperature lapse
-rate. In order to get the same updraft velocity, we obtained the
-temperature values of constant updraft velocity at 0.5 from pyrcel
-model, a zero-dimensional adiabatic cloud parcel model
-\citep{rothenberg2016metamodeling}.
+aqueous chemistry approach. Physical and chemical parameters,
+including initial temperature, species concentration and chemical
+reactions are all set to the same with values used in KS2003, as
+listed in table~\ref{setting}. An important structural difference
+between the models used in KS2003 and the PartMC cloud parcel model is
+that in KS2003, a constant updraft velocity was prescribed. In
+contrast, in PartMCC as mentioned before, we predefined the
+temperature lapse rate. In order to simulate effectively the same
+updraft velocity, we obtained the temperature values of constant
+updraft velocity at 0.5 m/s from the pyrcel model, a zero-dimensional
+adiabatic cloud parcel model \citep{rothenberg2016metamodeling}
+\textcolor{red}{for each timestep of 60 s (correct?) And what did we
+  do for pressure?}.
 
 \begin{table}[ht]
 \centering
@@ -1287,86 +1290,105 @@ model, a zero-dimensional adiabatic cloud parcel model
 \end{table}
 
 Figure~\ref{chap2:ks2003}(a) shows the simulated cloud liquid water
-content (LWC). PartMC simulated higher LWC changing rate and it may
-result from the different cloud parcel model settings. As mentioned
-before, we prescribed a constant temperature lapse rate. But for
-models used in KS2003, a constant updraft velocity was described. In
-current simulation, the input temperature profile produced updraft
-velocity close to 0.5~\unit{m/s}, but still with some fluctuations
-around 0.1~\unit{m/s}, and this can be the main reason for the LWC
-differences. Another possible factor is the treatment of droplet
-surface temperature $T$, which is used to calculate droplet growth
-rate and it is common for models to assume $T$ equals to environment
-temperature $T_\infty$. But in our model, we did not use this
-assumption and the different treatments may also result in the
-calculated LWC differences.
+content (LWC). PartMC simulated a somewhat larger increase in LWC
+changing rate and it may result from the different cloud parcel model
+settings. As mentioned before, we prescribed a constant temperature
+lapse rate. But for models used in KS2003, a constant updraft velocity
+was described. In current simulation, the input temperature profile
+produced updraft velocity close to 0.5~\unit{m/s}, but still with some
+fluctuations around 0.1~\unit{m/s}, and this can be the main reason
+for the LWC differences. \textcolor{red}{Didn't we do a whole bunch of
+  simulations, with slightly different temperature profiles to bound
+  the profile of KS2003?}
+
+Another possible factor is the treatment of droplet surface
+temperature $T$, which is used to calculate droplet growth rate and it
+is common for models to assume $T$ equals to environment temperature
+$T_\infty$. But in our model, we did not use this assumption and the
+different treatments may also result in the calculated LWC
+differences. \textcolor{red}{didn't you check this and it turned out
+  to not make a difference? I think we can just say this.}
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.5]{chap2_figs/chap2_fig1_profile.pdf}
-    \caption{Vertical profile differences of (a) liquid water content and (b) Gas $\rm SO_2$ concentration (c) Bulk pH between KS2003 and PartMC.}
+    \caption{Vertical profile differences of (a) liquid water content
+      and (b) Gas $\rm SO_2$ concentration (c) Bulk pH between KS2003
+      and PartMC.}
     \label{chap2:ks2003}
 \end{figure}
 
-The simulated $\rm SO_2$(g) depleting rate is almost consistent
+The simulated decrease in $\rm SO_2$(g) mixing ratio is very similar
 between PartMC and KS2003 (Fig.~\ref{chap2:ks2003}(b)), with $\rm
 SO_2$(g) mixing ratio decreasing from 0.2 to 0.025~ppb after 40
 minutes, indicating PartMC is capable of simulating of aqueous sulfate
 formation processes. The bulk acidity calculated by PartMC also shows
 similar profile with the models in KS2003 but with higher values
 (Fig.~\ref{chap2:ks2003}(c)). Considering the different simulation
-approaches, we are expecting the differences between bulk or
-size-binned based pH and our particle-resolved pH.
+approaches, we expect some differences between bulk or size-binned
+based pH and our particle-resolved pH. \textcolor{red}{How was the
+  bulk pH calculated? a volume weighted average?}
 
-Since sulfate aqueous formation pathways are highly acidity dependent,
-especially through $\rm O_3$, where reaction rates increase
-exponentially with increasing pH, the acidity differences imply
-noticeable changes in sulfate production. At the end of simulation,
-PartMC simulated sulfate concentration of 207 ppb, higher than the
-$\sim$175 in size-resolved models and $\sim$145 in bulk models. As
-explained in KS2003, the excess produced sulfate in the size-resolved
-models are found to be associated with higher simulated pH and more
-sulfate formed from $\rm O_3$ oxidation pathway. This explanation is
-still applicable for our current findings.
+Since the sulfate aqueous formation rate by $\rm O_3$ increases
+exponentially with increasing pH, any differences in acidity
+differences will propagate into sulfate production. At the end of the
+simulation, PartMC simulated a sulfate mixing ratio of 207 ppb, higher
+than the $\sim$175 in size-resolved models and $\sim$145 in bulk
+models. As explained in KS2003, the excess produced sulfate in the
+size-resolved models are found to be associated with higher simulated
+pH and more sulfate formed from $\rm O_3$ oxidation pathway. This
+explanation applies to our simulation results as well.
 
 In summary, this comparison simulation proved our particle-resolved
 aqueous model is capable of capturing the sulfate aqueous chemical
-processes.  With more detail particle information, our
+processes.  With more detailed particle information, our
 particle-resolved approach may also provide more comprehensive
 understanding of different sulfate formation pathways, and this is
 explored in our next section.
 %\begin{figure}
 \section{Contribution of different aqueous sulfate formation pathways}
 \label{chap2.4}
-This section explored the important factors for higher aqueous sulfate
-formation by analyzing the 243 aerosol populations in $P_{\rm ref}$.
-Figure~\ref{chap2:ens_three} shows the sulfate mixing ratio in the
-ensemble scenarios, and values are categorized by different
-factors. There are clear sulfate formation separations between the
-cases with different ammonia gas mixing ratio, and cases with more
-sulfate production are associated with high ammonia environment. But
-this separation is not clear for other three considered factors,
-because cases with higher sulfate formation can be with all the three
-levels of temperature lapse rate, $\rm H_2O_2(g)$ and $\rm
-O_3(g)$mixing ratio. This phenomena indicates ammonia gas
-concentration is a determined factor for aqueous sulfate formation in
-current simulated scenarios. Next, we will look into the underlying
-theories.
+This section explores the sensitivity of sulfate formation to selected
+input parameters by analyzing the 243 aerosol populations in $P_{\rm
+  ref}$.  Figure~\ref{chap2:ens_three} shows the sulfate mixing ratio
+for all scenarios, stratified by the four different input parameters.
+\textcolor{red}{I just noticed that in the table we also had SO2 --
+  should we add SO2 here too? Maybe the SO2 helps explain the spread
+  more?}
+
+A clear separation exists between the cases with different initial
+ammonia gas mixing ratio, where higher sulfate production is
+associated with higher initial ammonia mixing ratio. However, this
+separation is not as clear for the other three parameters. Cases with
+higher sulfate formation are seen with all the three levels of
+temperature lapse rate, $\rm H_2O_2(g)$ and $\rm O_3(g)$ mixing
+ratio. This phenomena indicates that the ammonia gas phase mixing
+ratio is a determining factor for aqueous sulfate formation in the
+simulated scenarios under consideration. Next, we will look into the
+underlying mechanism.
+
+\textcolor{red}{I'm thinking that the initial gas phase conditions
+  might be a bit misleading. It all depends on what actually is in the
+  aqueous phase, and because there are so many reactions, it can come
+  out as the same. But in any case, I think this is important to
+  realize, it's more complicated than we initially thought. We may
+  want to add a few sentences along these lines.}
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.6]{chap2_figs/chap2_fig2_mono_ensemble.pdf}
     \caption{Sulfate time series categorized by four different
       settings in $P_{\rm ref}$: (a) initial $\rm NH_3(g)$ mixing
       ratio, (b) temperature lapse rate, (c) initial $\rm H_2O_2(g)$
-      mixing ratio, and (d) $\rm O_3(g)$ mixing ratio. The three
-      colors and symbols are for the low, medium and high levels of
-      each parameter.}
+      mixing ratio, and (d) initial $\rm O_3(g)$ mixing ratio. The
+      three colors and symbols are for the low, medium and high levels
+      of each parameter.}
     \label{chap2:ens_three}
 \end{figure}
 
-The dissolved $\rm SO_2$ in cloud can appear in three S(IV) forms:
-$\rm SO_2\cdot H_2O$, $\rm HSO_3^-$ and $\rm SO_3^{2-}$. In this work,
-I analyzed four key oxidation pathways which transfer these S(IV)
-species to S(VI):
+\textcolor{red}{I would start with gas phase SO2...}  The dissolved
+$\rm SO_2$ in the cloud droplets can appear in three S(IV) forms: $\rm
+SO_2\cdot H_2O$, $\rm HSO_3^-$ and $\rm SO_3^{2-}$. S(IV) is then
+oxidized to S(VI) (sulfate). Here, I analyzed four key oxidation
+pathways which transfer the S(IV) species to S(VI):
 \begin{align}
 \centering
     &\ce{HSO3^- + H2O2{(aq)} + H^+ -> SO4^{2-} + 2H^+ + [H2O](aq)}\\
@@ -1376,34 +1398,34 @@ species to S(VI):
 \label{eq:chem-eq}
 \end{align}
 This section will focus on the discussion of the first three oxidation
-pathways and transition pathway reaction (2.9) will be discussed in
-next section.
+pathways and transition pathway reaction (2.9) \textcolor{red}{don't
+  hardcode equation numbers} will be discussed in next section.
 
 Figure~\ref{chap2:su-acidity} shows the relationship between sulfate
 mixing ratio and particle acidity at 3~\unit{min}. For the cases with
-same $\rm SO_2(g)$, sulfate mixing ratio is higher for those with
-higher $\rm NH_3(g)$. This is because of the higher pH values for
-these cases. Considering the cases with $\rm SO_2(g)$ of 5~\unit{ppb}
-and $\rm O_3(g)$ of 50~\unit{ppb}(the cases in the red boxes of
-Fig~\ref{chap2:su-acidity}), the only differences for these cases are
-$\rm NH_3(g)$ values. I found for all these three lapse rates, when
-$\rm NH_3(g)$ increased from 2 to 6~\unit{ppb}, pH increased from 5.0
-to over 5.5 and sulfate mixing ratio increased from 1~\unit{ppb} to
-more than 2.5~\unit{ppb}. This is because the increased reaction rates
-of $\rm O_3$ pathways (Fig.~\ref{chap2:reac-rates}). In
-Fig.~\ref{chap2:reac-rates}, I also found for cases with 10~\unit{ppb}
-$\rm SO_2$, $\rm H_2O_2$ reaction rates are almost constant at all
-$\rm NH_3$ levels. The different responses of $\rm O_3$ and $\rm
-H_2O_2$ pathways are consistent with what \citet{Seinfeld2016}
-found. For $\rm O_3$ pathways, high pH leads to high S(IV) solubility
-and reaction rates increased. The reactions are self-limiting because
-the produced sulfate will increase acidity. For $\rm H_2O_2$ pathway,
-it is insensitive to pH because of the canceling effects between
-increased S(IV) concentration and reduced reaction constants. I also
-noticed for the cases with 2~\unit{ppb} $\rm SO_2$, reaction rates are
-smaller for those with higher $\rm NH_3$ and pH. These are the $\rm
-SO_2(g)$-limited cases and the less dissolved $\rm SO_2$ are
-responsible for this.
+the same initial $\rm SO_2(g)$, the sulfate mixing ratio is higher for
+higher initial $\rm NH_3(g)$. Considering the cases with $\rm SO_2(g)$
+of 5~\unit{ppb} and $\rm O_3(g)$ of 50~\unit{ppb} (the cases in the
+red boxes of Fig~\ref{chap2:su-acidity}), the only differences for
+these cases are the initial $\rm NH_3(g)$ values. For all three
+cooling rates, when $\rm NH_3(g)$ increased from 2 to 6~\unit{ppb}, pH
+increased from 5.0 to over 5.5 and sulfate mixing ratio increased from
+1~\unit{ppb} to more than 2.5~\unit{ppb}. This is because the reaction
+rates of the $\rm O_3$ pathways increase for higher pH
+(Fig.~\ref{chap2:reac-rates}). Fig.~\ref{chap2:reac-rates} also shows
+that for cases with 10~\unit{ppb} $\rm SO_2$, $\rm H_2O_2$ reaction
+rates are almost constant at all $\rm NH_3$ levels. The different
+responses of $\rm O_3$ and $\rm H_2O_2$ pathways are consistent with
+the descriptions in \citet{Seinfeld2016}. For $\rm O_3$ pathways, high
+pH leads to high S(IV) solubility and reaction rates increased. The
+reactions are self-limiting because the produced sulfate will increase
+acidity and decrease pH. In contrast, the $\rm H_2O_2$ pathway is
+insensitive to pH because of the canceling effects between increased
+S(IV) concentration and reduced reaction constants. For the cases with
+2~\unit{ppb} initial $\rm SO_2$, the reaction rates are smaller for
+the cases with higher $\rm NH_3$ and pH. These are $\rm
+SO_2(g)$-limited cases and less dissolved $\rm SO_2$ is responsible
+for this.
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.55]{chap2_figs/chap2_fig4_sulfate_pH_3min.pdf}
@@ -1421,28 +1443,30 @@ responsible for this.
 \end{figure}
 
 As for the sensitivity to temperature, there is no significant
-differences for cases with different temperature lapse rates
-(Fig~\ref{chap2:reac-rates}). As \citet{Seinfeld2016} proposed, the
+differences for cases with different cooling rates
+(Fig~\ref{chap2:reac-rates}). As \citet{Seinfeld2016} described, the
 effects of temperature on reaction rates are the balancing effects
-between two factors. For one hand, lower temperature leads to higher
-solubility and higher reactions rates. For the other hand, reaction
-constants decreased with lower temperature. Thus, when temperature
+between two factors. On the hand, lower temperature leads to higher
+solubility and higher reactions rates. On the other hand, reaction
+constants decrease with lower temperature. Thus, when temperature
 changes, the behaviour of reactions rates are determined by which
-factor is dominant.
+factor is dominant.  \textcolor{red}{I would have thought that the
+  cooling rate is important because it determined LWC, and therefore
+  pH... but we don't see this?}
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.55]{chap2_figs/chap2_fig6_sulfate_pH.pdf}
-    \caption{Correlation between aqueous sulfate formation pathway
-      rates and particle acidity at 3~min. (a) is for cases with
-      temperature lapse rate of $-0.3$~\unit{K/min}. (b) is for cases
-      with temperature lapse rate of $-0.4$~\unit{K/min}. (c) is for
-      cases with temperature lapse rate of $-0.5$~\unit{K/min}. Symbol
-      types are for different oxidation pathways: circle is for $\rm
-      H_2O_2+ HSO_3^-$, diamond is for $\rm O_3+ HSO_3^-$ and triangle
-      is for $\rm O_3+ SO_3^{2-}$. Color is for $\rm SO_2(g)$ level
-      and Symbol size represents $\rm NH_3(g)$ level. All the cases in
-      the figure are with $\rm O_3(g)$ = 50~\unit{ppb} and $\rm
-      H_2O_2(g)$ = 0.5~\unit{ppb}.}
+    \caption{Relationship between aqueous sulfate formation rates and
+      particle acidity at $t=3$~min. (a) temperature lapse rate of
+      $-0.3$~\unit{K/min}. (b) temperature lapse rate of
+      $-0.4$~\unit{K/min}. (c) temperature lapse rate of
+      $-0.5$~\unit{K/min}. Symbol types are for different oxidation
+      pathways: circle is for $\rm H_2O_2+ HSO_3^-$, diamond is for
+      $\rm O_3+ HSO_3^-$ and triangle is for $\rm O_3+
+      SO_3^{2-}$. Color is for $\rm SO_2(g)$ level and Symbol size
+      represents $\rm NH_3(g)$ level. All the cases in the figure are
+      with $\rm O_3(g) = 50$~\unit{ppb} and $\rm H_2O_2(g) =
+      0.5$~\unit{ppb}.}
     \label{chap2:reac-rates}
 \end{figure}
 
@@ -1477,16 +1501,17 @@ factor is dominant.
 %    \label{chap2:rates-stats}
 %\end{figure}
 
-Based on analysis for the cases in $P_{\rm ref}$, I found the aqueous
-sulfate formation are most sensitive to the $\rm SO_2(g)$ and $\rm
-NH_3(g)$ mixing ratios. Cases with most sulfate formation were for the
-cases with high $\rm NH_3(g)$ values and this can be explained by the
-higher oxidation rates of $\rm SO_3^{2-}$ by $\rm O_3(aq)$. Cases with
-higher $\rm NH_3(g)$ but lower sulfate production were because of
-lower $\rm SO_2(g)$, and sulfate formation was $\rm
-SO_2(g)$-limited. I also concluded that our particle-resolved aqueous
-approach was capable of simulating the complex response of $\rm O_3$
-and $\rm H_2O_2$ pathways to temperature and acidity changes.
+Based on analysis for the cases in $P_{\rm ref}$, we can conclude that
+the aqueous sulfate formation is most sensitive to the initial $\rm
+SO_2(g)$ and initial $\rm NH_3(g)$ mixing ratios. Cases with most
+sulfate formation were for the cases with high $\rm NH_3(g)$ values
+and this can be explained by the higher oxidation rates of $\rm
+SO_3^{2-}$ by $\rm O_3(aq)$. Cases with higher $\rm NH_3(g)$ but lower
+sulfate production were because of a lower supply of $\rm SO_2(g)$,
+making sulfate formation was $\rm SO_2(g)$-limited. Overall, our
+particle-resolved aqueous chemistry model is capable of simulating the
+expected response of $\rm O_3$ and $\rm H_2O_2$ pathways to
+temperature and acidity changes.
 
 \section{Contribution of TMI pathways}
 \label{chap2.5}
