@@ -1515,30 +1515,35 @@ temperature and acidity changes.
 
 \section{Contribution of TMI pathways}
 \label{chap2.5}
-In this section, I will analyze the other 243 cases containing iron
-components in $P_{\rm TMI}$ and explore the contributions of TMI
-catalyzed reactions. Figure~\ref{chap2:iron-conc}(a) shows the time
-series of $\rm Fe^{2+}$, $\rm Fe^{3+}$ and OH(aq) mass concentration
-in the ensemble cases. $\rm Fe^{2+}$ varies between $10^{-11}$ and
-$10^{-7}$ and $\rm Fe^{3+}$ ranges between $10^{-7}$ and
-$10^{-6}$~\unit{M}, both are in the same order with the values in
-\citep{Deguillaume2005}. By adding TMI, the median sulfate mixing
-ratio in $P_{\rm TMI}$ significantly increased from 2~\unit{ppb} to
+This section presents the 243 cases containing iron components in
+$P_{\rm TMI}$ and explore the contributions of TMI catalyzed
+reactions. Figure~\ref{chap2:iron-conc}(a) shows the time series of
+$\rm Fe^{2+}$, $\rm Fe^{3+}$ and OH(aq) median mass concentration
+\textcolor{red}{Is mass concentration the right term?}
+
+$\rm Fe^{2+}$ varies between $10^{-11}$ and $10^{-7}$ and $\rm
+Fe^{3+}$ ranges between $10^{-7}$ and $10^{-6}$~\unit{M}, both are in
+the same order with the values in \citep{Deguillaume2005}. By adding
+TMI, the median sulfate mixing ratio in $P_{\rm TMI}$ significantly
+increased from 2~\unit{ppb} to
 5~\unit{ppb}. Figure~\ref{chap2:iron-contri} further explores the
 contribution ratio changes of different aqueous sulfate pathways after
-adding TMI in the population.
+adding TMI to the population.
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.55]{chap2_figs/chap2_with_tmi_fixOH_mass.pdf}
-    \caption{Time series of (a) $\rm Fe^{2+}$, $\rm Fe^{3+}$ and $\rm OH(aq)$ (b) Sulfate mixing ratio in $P_{\rm ref}$ and $P_{\rm TMI}$. Values are the median of all the ensemble cases in $P_{\rm TMI}$. }
+    \caption{Time series of (a) $\rm Fe^{2+}$, $\rm Fe^{3+}$ and $\rm
+      OH(aq)$ (b) Sulfate mixing ratio in $P_{\rm ref}$ and $P_{\rm
+        TMI}$. Values are the median of all the cases in the ensemble
+      $P_{\rm TMI}$. }
     \label{chap2:iron-conc}
 \end{figure}
 
 Oxidation of $\rm HSO_3^-$ by $\rm O_3$ and $\rm H_2O_2$ are the
 dominant pathways for aqueous sulfate formation in $P_{\rm ref}$
 (Fig.~\ref{chap2:iron-contri}(a)). These two pathways in total
-contributed to more than 90\% of sulfate formation along the
-simulation period, and there is minimum contribution of TMI
+contributed to more than 90\% of sulfate formation over the simulation
+period, and there is minimum \textcolor{red}{no?} contribution of TMI
 pathways. But in $P_{\rm TMI}$, these two pathways are dominant at the
 first 2 minutes and sulfate formation through the reaction between
 $\rm SO_4^-$ and water is dominant afterwards
@@ -1552,14 +1557,15 @@ ratio can be more than 20\% at the end of simulation.
     \label{chap2:iron-contri}
 \end{figure}
 
-It is worth mention that gas OH emitted at a constant rate for the
-cases $P_{\rm TMI}$, while there is no emission in $P_{\rm
-  ref}$. Based on current simulation setting, we can not distinguish
-the role of OH and TMI for the increased sulfate production rates in
-$P_{\rm TMI}$. Further simulations are needed to validate the current
-findings. But what we can still learn from current result is there
-exists some conditions where sulfate formation through TMI pathways
-can be important.
+It is worth a reminder that OH(g) was emitted at a constant rate for
+the cases $P_{\rm TMI}$, while there was no emission of OH(g) in
+$P_{\rm ref}$. Based on current simulation settings, we can not
+distinguish the role of OH and TMI for the increased sulfate
+production rates in $P_{\rm TMI}$.  However, we can still learn from
+the current result is conditions exist where sulfate formation through
+TMI pathways can be important, and PartMC is able to capture this.
+
+\textcolor{red}{Don't start sentences with but}
 
 \section{Conclusion}
 \label{chap2.6}
