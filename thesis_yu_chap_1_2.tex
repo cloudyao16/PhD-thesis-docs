@@ -1454,6 +1454,9 @@ factor is dominant.  \textcolor{red}{I would have thought that the
   cooling rate is important because it determined LWC, and therefore
   pH... but we don't see this?}
 
+\textcolor{red}{Figure 2.6 would also benefit from a red box guiding
+  the eye.}
+
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.55]{chap2_figs/chap2_fig6_sulfate_pH.pdf}
     \caption{Relationship between aqueous sulfate formation rates and
@@ -1495,11 +1498,12 @@ factor is dominant.  \textcolor{red}{I would have thought that the
 %$\rm NH_3(g)$. This is the $\rm SO_2(g)$-limited cases we mentioned
 %above.
 
-%\begin{figure}[ht]
-%    \centering \includegraphics[scale=0.55]{chap2_figs/chap2_fig5_sulfate_rates_3min.pdf}
-%    \caption{Statistics of three aqueous sulfate formation pathway rates:$\rm H_2O_2$ + $\rm HSO_3^-$(a), $\rm O_3$ + $\rm HSO_3^-$(b), $\rm O_3$ + $\rm SO_3^{2-}$. Cases are grouped by $\rm NH_3(g)$ and $\rm SO_2$.}
-%    \label{chap2:rates-stats}
-%\end{figure}
+%\begin{figure}[ht] \centering
+%    \includegraphics[scale=0.55]{chap2_figs/chap2_fig5_sulfate_rates_3min.pdf} \caption{Statistics
+%    of three aqueous sulfate formation pathway rates:$\rm H_2O_2$ +
+%    $\rm HSO_3^-$(a), $\rm O_3$ + $\rm HSO_3^-$(b), $\rm O_3$ + $\rm
+%    SO_3^{2-}$. Cases are grouped by $\rm NH_3(g)$ and $\rm
+%    SO_2$.}  \label{chap2:rates-stats} \end{figure}
 
 Based on analysis for the cases in $P_{\rm ref}$, we can conclude that
 the aqueous sulfate formation is most sensitive to the initial $\rm
@@ -1569,23 +1573,24 @@ TMI pathways can be important, and PartMC is able to capture this.
 
 \section{Conclusion}
 \label{chap2.6}
-In this work, I coupled particle-resolved PartMC-MOSAIC with a
-comprehensive aqueous chemistry module CAPRAM2.4 to investigate the
-role of different aqueous sulfate formation pathways.  Model was
-evaluated by size-resolved and bulk aqueous models, and our model
-reproduced the similar $\rm SO_2$(g) and acidity profiles.
+For the work presented in this chapter, I used particle-resolved model
+PartMC as cloud parcel model with a comprehensive aqueous chemistry
+module CAPRAM2.4 to investigate the role of different aqueous sulfate
+formation pathways.  The model was evaluated by results from
+size-resolved and bulk aqueous models from the literature, and our
+model reproduced similar $\rm SO_2$(g) and acidity profiles.
 
-I designed a reference scenario at various gas conditions to
-investigate the most efficient aqueous sulfate formation pathways.  I
-found cases with high $\rm NH_3(g)$ and $\rm SO_2(g)$ produced the
-most sulfate, and it can be explained by efficient oxidizing reactions
-between $\rm SO_3^{2-}$ and $\rm O_3(aq)$ because of the higher
-pH. Our particle-resolved aqueous model was proved to be capable of
-simulating the complicated responses of $\rm O_3$ and $\rm H_2O_2$
-pathways to pH. Analysis of another ensemble scenario with TMI shows
-S(IV) reactions catalyzed by TMI can contribute up to 20\% of the
-sulfate production, and the ratio was consistent with the values found
-by \citet{alexander2009transition}.
+I designed an ensemble of scenarios to investigate the response of
+sulfate formation to varying input parameters. As expected, cases with
+high $\rm NH_3(g)$ and $\rm SO_2(g)$ produced the most sulfate. This
+can be explained by efficient oxidizing reactions between $\rm
+SO_3^{2-}$ and $\rm O_3(aq)$ because of the higher pH that exists when
+$\rm NH_3(g)$ is supplied. Our particle-resolved aqueous chemistry
+model reproduces the expected responses of $\rm O_3$ and $\rm H_2O_2$
+pathways to pH. Analysis of another ensemble scenario with TMI present
+shows S(IV) reactions catalyzed by TMI can contribute up to 20\% of
+the sulfate production, and the fraction was consistent with the
+values found by \citet{alexander2009transition}.
 
 %%%Limitations%%%
 Currently, I used monodisperse aerosol populations for analysis and in
@@ -1598,10 +1603,19 @@ connect Fe soluble fraction and OH(g) emitting rates with aerosol
 sources to confirm the conditions most favorable for TMI-catalyzed
 reactions.
 
-\backmatter
-\renewcommand{\bibname}{References}
-\bibliographystyle{copernicus}
-\bibliography{thesis_ref}
+\textcolor{red}{I think the use of monodisperse aerosol for the
+  purpose of this chapter is appropriate and not a limitation.  The
+  need for OH emissions is an artefact of not having entrainment (I
+  think) and/or gas phase chemistry happening at the same time. If we
+  had entrainment, then fresh OH would be supplied from outside the
+  cloud (maybe) and if we had gas phase chemistry going on, OH would
+  be produced. However the way we do it right now is that we start
+  with a given gas initial condition and that gets used up and only aq
+  chem. is going on.}
+
+
+  \backmatter \renewcommand{\bibname}{References}
+  \bibliographystyle{copernicus} \bibliography{thesis_ref}
 \end{document}
 
 \appendix
