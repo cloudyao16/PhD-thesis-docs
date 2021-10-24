@@ -1130,12 +1130,12 @@ $-$12\% to $+$45\%.
 
 \subsection{Aqueous chemistry model}
 \label{section:aq-chem-model}
-In this work, PartMC was further enhanced with an aqueous chemistry
-module based on the reduced Chemical Aqueous Phase Radical Mechanism
-(CAPRAM) version 2.4. The full mechanism in CAPRAM 2.4 includes 439
-reactions and 147 species, and the reduced version is also provided to
-be more computationally efficient, which includes 183 reactions and
-113 species \citep{Ervens2003}. The reduced version also contains a
+PartMC was further enhanced with an aqueous chemistry module based on
+the reduced Chemical Aqueous Phase Radical Mechanism (CAPRAM) version
+2.4. The full mechanism in CAPRAM 2.4 includes 439 reactions and 147
+species, and the reduced version is also provided to be more
+computationally efficient, which includes 183 reactions and 113
+species \citep{Ervens2003}. The reduced version also contains a
 comprehensive aqueous mechanism, and deals with the reactions between
 OH, $\rm HO_2$, $\rm NO_3$, $\rm SO_4$, $\rm Cl_2$,$\rm Br_2$ and $\rm
 CO_3$ with inorganic (TMI, $\rm NO_3^-$ , $\rm Cl^-$, $\rm Br^-$) and
@@ -1143,10 +1143,15 @@ organic reactants with less than two atoms. The constants for
 thermodynamic and kinetic reactions are listed in
 Table~\ref{tab:capram}. When coupling CAPRAM with PartMC, the original
 gas phase chemistry mechanism, regional atmospheric chemistry modeling
-(RACM), used in CAPRAM 2.4 is now replaced with CBM-Z in
-PartMC-MOSAIC.
+(RACM), used in CAPRAM 2.4 was replaced with CBM-Z in PartMC-MOSAIC.
 
-\textcolor{red}{Supply github repo where the code is}
+\textcolor{red}{Should there be more description here? At least as
+  much as we have in the paper? Also, MOSAIC is not running when we
+  have aq. chem. running, which is why we run out of OH.}
+
+\textcolor{red}{Supply github repo where the code is. I wonder if we
+  should acknowledge Matt Dawson's work in getting the CAPRAM code
+  into PartMC.}
 
 \textcolor{red}{How does equation 2.1 need to be modified now that
   aq. phase chemistry is considered? I think it would be good to add
@@ -1154,18 +1159,47 @@ PartMC-MOSAIC.
   both of them.}
 
 
-\textcolor{red}{The monodisperse settings should go after section 2.3. Should be part of section 2.4. Because section 2.3 is not monodisperse, is it?}
+\textcolor{red}{The monodisperse settings section should go after
+  section 2.3. Should be part of section 2.4. Because section 2.3 is
+  not monodisperse, is it?}
 
-\subsection{Ensemble monodisperse settings}
-This work is the first application of particle-resolved cloud chemistry model, and I used relative simple aerosol description, that is the monodisperse distribution, to investigate aqueous sulfate processes. More complex populations with lognormal distribution and the role of other cloud processes, such as coagulation between interstitial particles and cloud droplets, are explored in next chapter. 
+\subsection{Setup of idealized simulations using monodisperse aerosol}
+To explore sensitivities of sulfate formation to the input parameters
+(initial mixing ratios of selected gases and the cooling rate), I used
+an idealized setup with monodisperse distributions for the initial
+aerosol population. The purpose of these simulations is to confirm the
+expected dependence of sulfate formation rates on pH and on the
+presence of TMI.
 
-The goal of this chapter will focus on the following questions: (1) Is particle-resolved approach capable of capturing the various roles of aqueous sulfate formation pathways under different environment? (2) What is the role of TMI pathway for aqueous sulfate formation? 
-
-To answer the first question, I created a reference scenario ensemble by exposing the monodisperse aerosol populations at different chemical and physical environment, denoted as $P_{\rm ref}$. I set the initial particle size at 100 \unit{nm} composed of ammonium sulfate. Emission and dilution were not included in current simulations. Four important gas species for aqueous sulfate formation, including $\rm O_3$, $\rm H_2O_2$, $\rm NH_3$ and $\rm SO_2$, were perturbed at low, medium and high polluted levels, as listed in table~\ref{TMI-setting}. The $\rm O_3$ and $\rm SO_2$ values of these three levels were based on the national wide urban measurements in China \citep{wang2014spatial}, and $\rm NH_3$ levels were determined from the observations of Houston, U.S. \citep{nowak2010airborne} and Seoul, Korea \citep{phan2013analysis}. The values for $\rm H_2O_2$ were based on the measurements in Guangzhou, China \citep{hua2008atmospheric}. I also set three different temperature rates to provide cloud environment with varied liquid water content, and the corresponded cloud updraft velocity were 1.1, 1.5 and 1.8\unit{m\;s^{-1}} respectively, which represented the conditions of strong convective stratus \citep{peng2005importance}. In total, I simulated $3^5$ = 243 cases in this ensemble scenario.
+The reference scenario ensemble exposed the monodisperse aerosol
+populations to different initial conditions denoted as $P_{\rm
+  ref}$. The initial particle size was 100 \unit{nm}, composed of
+ammonium sulfate. Emission and dilution were not included. The initial
+mixing ratios of $\rm O_3$, $\rm H_2O_2$, $\rm NH_3$ and $\rm SO_2$,
+were perturbed at low, medium and high polluted levels, as listed in
+table~\ref{TMI-setting}. \textcolor{red}{The gas species $\rm O_3$ and
+  $\rm H_2O_2$ were selected because ... explain why you selected
+  these.}  The range of mixing ratios for the different gas phase
+species are consistent with observations in the ambient
+atmosphere. The $\rm O_3$ and $\rm SO_2$ values were based on the
+national wide urban measurements in China \citep{wang2014spatial}, and
+$\rm NH_3$ levels were determined from the observations of Houston,
+U.S. \citep{nowak2010airborne} and Seoul, Korea
+\citep{phan2013analysis}. The values for $\rm H_2O_2$ were based on
+the measurements in Guangzhou, China \citep{hua2008atmospheric}. The
+three different cooling rates provided conditions with different
+liquid water content. The corresponded cloud updraft velocity were
+1.1, 1.5 and 1.8\unit{m\;s^{-1}} respectively, which represented the
+conditions of strong convective stratus
+\citep{peng2005importance}. \textcolor{red}{this correspondence of
+  cooling rate and updraft velocity is only at the beginning,
+  correct?} A total of $3^5$ = 243 cases were run using all possible
+combinations of input values to create this ensemble of scenarios.
 
 \begin{table}[ht]
 \centering
-\caption{Settings for $P_{\rm ref}$ ensemble simulation}
+\caption{Settings for the initial conditions of the ensemble of
+  scenarios denoted by $P_{\rm ref}$}
 \label{TMI-setting}
 \begin{tabular}{c  c c  c}
 \hline
@@ -1180,15 +1214,32 @@ $\frac{dT}{dt}$ &$-$0.3 &$ -$0.4&$-$0.5\\
 \end{tabular}
 \end{table}
 
-The initial RH was 99\% and the simulation lasted 20 minutes. As showed in Fig.~\ref{chap2:ensemrh}, cases with higher temperature lapse rates experienced more rapid increase of liquid water content, while the reached maximum supersaturation were close between the cases. Cloud formed in the first minute and the maximum supersaturation was 0.2\%. 
+The initial RH was 99\% and each simulation time was 20~minutes. As
+shown in Fig.~\ref{chap2:ensemrh}, cases with larger cooling rate
+experienced more rapid increase of liquid water content, while the
+maximum supersaturation was close for all cases. Cloud droplets formed
+in the first minute and the maximum supersaturation was 0.2\%.
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.55]{chap2_figs/chap2_mono_lwc_rh.pdf}
-    \caption{Time series of (a) liquid waeter content and (b) relative humidity in the ensemble scenarios. Blue, orange and green lines are for the cases with temperature lapse rate of --0.3 \unit{K/min}, --0.4 \unit{K/min} and --0.5 \unit{K/min} respectively.}
+    \caption{Time series of (a) liquid water content and (b) relative
+      humidity in the ensemble of scenarios in $P_{\rm ref}$.}
     \label{chap2:ensemrh}
 \end{figure}
 
-In order to answer the second question, I created another sensitivity scenario ensemble, denoted as $P_{\rm TMI}$ by adding $\rm Fe(II)$ and $\rm Fe(III)$ in the initial aerosol population. I set the mass fraction of $\rm Fe(II)$ and $\rm Fe(III)$ to be 0.05 and 0.01. \citet{deguillaume2004role} found aqueous hydroxide is important for TMI oxidation pathways and the concentration is in the order of $\rm 10^{-13}$~\unit{M}. I achieved this by emitting gas OH at the rate of $2\times 10^{-8}$ \unit{mole/m^2/s}. I also applied the same perturbed parameters as in $P_{\rm sul}$, which results in another 243 cases for $P_{\rm TMI}$. 
+To explore the sensitivity of sulfate formation to the presence of
+TMI, another scenario ensemble was created, denoted as $P_{\rm TMI}$,
+by adding $\rm Fe(II)$ and $\rm Fe(III)$ in the initial aerosol
+population, with mass fractions of $\rm Fe(II)$ and $\rm Fe(III)$ to
+be 0.05 and 0.01. \textcolor{red}{Where do the Fe mass fractions come
+  from?} Otherwise the setup was the same as for $P_{\rm ref}$, which
+resulted in another 243 cases for $P_{\rm TMI}$. An important lesson
+of the $P_{\rm TMI}$ simulations was that aqueous hydroxide needs to
+be present for TMI oxidation pathways to proceed, with typical
+concentrations on the order of $\rm 10^{-13}$~\unit{M}
+\citet{deguillaume2004role}. Since OH was quickly depleted, additional
+OH was supplied as emissions at the rate of $2\times 10^{-8}$
+\unit{mole/m^2/s} to maintain the level of OH in the aqueous phase.
 
 \section{Sulfate mechanism verification}
 \label{chap2.3}
