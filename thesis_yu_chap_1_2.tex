@@ -877,24 +877,90 @@ global models.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Particle-resolved modeling of aqueous-phase chemistry}
 
-This chapter presented the application of PartMC as a particle-resolved aqueous-phase chemistry model. In this work, I first described PartMC-MOSAIC model, and the coupled cloud parcel and aqueous chemistry module. Then, I evaluated the coupled model by comparing with other size-resolved and bulk cloud chemistry models. Furthermore, I designed ensemble scenarios to investigate the efficiency of different aqueous sulfate formation pathways. Another group of ensemble scenarios are conducted by adding transition metal ions (TMI) in the population to determine the efficiency of sulfur oxidation reactions catalyzed by TMI. 
+This chapter presents the application of PartMC as a particle-resolved
+cloud paracel model that includes aqueous-phase chemistry. I first
+describe the PartMC model framework, and the coupled cloud parcel and
+aqueous chemistry module as it is used in Chapters~\ref{xx} and
+{xx}. Then, I present a comparison to other size-resolved and bulk
+cloud chemistry models. Furthermore, I show results from an ensemble
+of idealized scenarios that were designed to confirm the sensitivity
+of aqueous sulfate formation to the concentrations of oxidants and to
+transition metal ions.
 
 \label{chap2:mon}
 %%% Suggested section heads:
 \section{Introduction}
 
-Clouds cover around 70$\%$ of the earth \citep{Stubenrauch2013}. The coexistence of species multi-phases in the cloud provides a favorite medium for the interactions between different phases \citep{Deguillaume2005}. Gas can transfer to the liquid droplets through thermodynamic processes and undergoes heterogeneous chemistry, which in return affect the particle activation potentials \citep{Farmer2015, Henning2014}. Oxidation of dissolved gases in the aqueous phase can contribute to a large fraction of particle species, especially for the secondary inorganic and organic species. Globally, over 50\% of sulfate are produced through aqueous reactions \citep{Philip2014, Roth2016}. The goal of this work is to investigate the roles of different aqueous sulfate formation pathways. 
+Clouds cover around 70$\%$ of the earth \citep{Stubenrauch2013}
+\textcolor{red}{I think before you said 60\%} and create an
+environment for multiphase reactions to occur
+\citep{Deguillaume2005}. Gas phase species are taken up by cloud
+droplets and undergo aqueous-phase chemistry. Oxidation of dissolved
+gases in the aqueous phase can contribute to a large fraction of
+secondary inorganic and organic aerosol. Globally, over 50\% of
+sulfate is produced through aqueous reactions in clouds
+\citep{Philip2014, Roth2016}. If the cloud evaporates, an aerosol
+population is released that has different cloud condensation nuclei
+properties and optical properties compared to the aerosol that formed
+the cloud \citep{Farmer2015, Henning2014}.
 
-Particles with different composition and size experience different net effects from aqueous chemical processing. First, per-particle properties affect cloud processes by determining which particle can be activated as cloud droplets. The activation potential of particles is determined by its size and compositions, and CCN closure studies indicated the simplified assumptions of particle mixture in the population can lead to simulated CCN concentration bias \citep{Broekhuizen2006, Bhattu2015}. Second, particle diversity affects aqueous reaction rates. Aqueous sulfate formation reactions are highly pH-dependent, and the reaction rates for particles with different acidity can vary in several orders. For example, transition metal ions (TMI), including Fe and Mn ions, which are mostly originated from mineral dust \citep{alexander2009transition}, can catalyze aqueous sulfate oxidation reactions. The related pathways can become dominant when pH is larger than 6.0 \citep{Seinfeld2006a}. It had been proved that at some cloud events, $\rm SO_2$ oxidation reactions catalyzed by coarse mineral dust TMI can be more efficient than $\rm H_2O_2$ pathway \citep{Harris2013a, Harris2014}. 
+Particles with different composition and size experience different
+effects from aqueous-phase chemical processing. First, particle size
+and composition determine which particles can be activated and form
+cloud droplets. Second, some aqueous-phase sulfate formation reactions
+are highly pH-dependent, and the reaction rates for particles with
+different acidity can vary by several orders or magnitude. For
+example, transition metal ions (TMI), including Fe and Mn ions, which
+mostly originate from mineral dust \citep{alexander2009transition},
+catalyze aqueous sulfate oxidation reactions. The related pathways
+become dominant when the pH is larger than 6.0
+\citep{Seinfeld2006a}. It had been shown that at some cloud events,
+the $\rm SO_2$ oxidation reaction catalyzed by coarse mineral dust TMI
+can be more efficient than the oxidation by $\rm H_2O_2$
+\citep{Harris2013a, Harris2014}.
 
-Despite the importance of particle heterogeneity in aqueous chemistry, most regional or global models used simplified assumptions to simulate aqueous processes. For global chemistry model GEOS-Chem, less than 10 dissolved species are used to calculate acidity \citep{alexander2012isotopic}.
-For regional model CMAQ, cloud chemistry processes are tracked by three lognormal modes, neglecting the heterogeneity inside each mode \citep{fahey2017framework}. In this work, I applied the particle-resolved model PartMC-MOSAIC \citep{Riemer2009, Zaveri2010a}, which can track particles individually. This approach is well-suited for this problem because it can track the evolution of compositions and sizes of individual aerosol particles without averaging their composition within size bins or modes. The model had been widely used to study particle aging processes in cloud-free environment \citep{ching2012impacts, Ching2016}, and in current work, I first applied the model with cloud chemistry processes. 
+Despite the potential importance of particle heterogeneity in
+aqueous-phase chemistry, most regional or global models use simplified
+assumptions to simulate aqueous processes. The global chemistry
+transport model GEOS-Chem usesless than 10 dissolved species calculate
+acidity \citep{alexander2012isotopic}. The regional chemical transport
+model CMAQ tracks cloud chemistry processes for three lognormal modes,
+neglecting the heterogeneity within each mode
+\citep{fahey2017framework}. In this work, I applied the
+particle-resolved model PartMC-MOSAIC \citep{Riemer2009, Zaveri2010a},
+which tracks individual computational particles. The model has been
+widely used to study aerosol aging processes in a cloud-free
+environment \citep{ching2012impacts, Ching2016}
+\textcolor{red}{Joseph's paper are not the best papers to cite here
+  because they actually do deal with clouds. Use some others}. It has
+also been used as a cloud parcel model to investigate the impact of
+aerosol mixing state on cloud droplet formation \textcolor{red}{Add
+  Joseph's cloud parcel papers here.}. However, the model did not have
+the capability to simulate aerosol aging due to aqueous-phase
+chemistry within clouds. This is the focus of this thesis.
 
-This work was structured as follows: Section~\ref{chap2.2} described the models used in current work and Sect.~\ref{chap2.3} evaluated the particle-resolved aqueous chemistry model by comparing with other widely-used models. Section~\ref{chap2.4} investigated the role of different aqueous sulfate formation pathways by analyzing the ensemble cases and the role of TMI pathway is further explored in Sect.~\ref{chap2.5}. Findings were concluded in Sect.~\ref{chap2.6}. 
+The remainder of this chapter is structured as
+follows. Chapter~\ref{chap2.2} describes the PartMC modeling framework
+used for this thesis. Chapter~\ref{chap2.3} compares results from the
+particle-resolved aqueous-phase chemistry model with results from
+existing literature. Chapter~\ref{chap2.4} explores the sensitivity of
+sulfate formation to input parameters using an ensemble of idealized
+simulations. The role of TMI pathway is further explored in
+Chapter~\ref{chap2.5}. Findings are summarized in
+Chapter~\ref{chap2.6}.
 
 \section{Model description and simulations setup}
 \label{chap2.2}
-Following the two-step strategy described in \citet{ching2012impacts}, I designed the cloud chemistry experiment by exposing aerosol populations in a cloud environment, as figure~\ref{chap2-fig1-frame} illustrates. For the first step, Isimulated urban plume scenarios that produced populations with a wide variety of aerosol mixing states using a particle-resolved model PartMC-MOSAIC in a cloud-free environment. These simulated aerosol populations were then used as the input for cloud parcel simulations, including aqueous chemistry, in step 2. Details of PartMC-MOSAIC, cloud parcel model and aqueous chemistry are described in the following sections.
+Following the two-step strategy described in \citet{ching2012impacts},
+I designed the cloud chemistry experiment by exposing aerosol
+populations in a cloud environment, as figure~\ref{chap2-fig1-frame}
+illustrates. For the first step, Isimulated urban plume scenarios that
+produced populations with a wide variety of aerosol mixing states
+using a particle-resolved model PartMC-MOSAIC in a cloud-free
+environment. These simulated aerosol populations were then used as the
+input for cloud parcel simulations, including aqueous chemistry, in
+step 2. Details of PartMC-MOSAIC, cloud parcel model and aqueous
+chemistry are described in the following sections.
 
 \begin{figure}[ht]
     \centering 
