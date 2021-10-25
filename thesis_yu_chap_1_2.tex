@@ -142,30 +142,145 @@ To my family
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction and motivation}
 \label{chapter1}
-Aerosol particles are solid or liquid matter suspended in the air, and it receives tremendous focus recently because of the ongoing COVID-19 pandemic caused by SARS-Cov-2 virus, which is airborne and dominant by aerosol transmission \citep{prather2020reducing,zhang2020identifying, miller2021transmission, greenhalgh2021ten}. Actually, as a part of air pollutants, the health effects of aerosol particles, especially fine particulate matter with diameter less than 2.5~$\rm \mu m$ ($\rm PM_{2.5}$), have been investigated tremendously \citep{bell2007spatial, fann2012estimating}. Around 141\,000 premature death in North America due to cardiopulmonary and lung cancer is associated with $\rm PM_{2.5}$ \citep{anenberg2010estimate}. Besides its crucial impacts on health, aerosol particles can also change weather and climate through interacting with solar radiation and clouds, and there still exists large uncertainties to quantify these impacts \citep{IPCC_CHAPTER7, seinfeld2016improving, fan2016review, bellouin2020bounding}. 
+Aerosols are solid or liquid particles suspended in air. They recently
+received tremendous attention by the public because of the ongoing
+Covid-19 pandemic caused by the SARS-Cov-2 virus, which is airborne
+and transmitted by aerosols
+\citep{prather2020reducing,zhang2020identifying,
+  miller2021transmission, greenhalgh2021ten}. However, aerosol
+particles have been recognized as an important component of air
+pollutants even before the Covid-19 pandemic. The health effects of
+aerosol particles, especially those with diameters less than 2.5~$\rm
+\mu m$ ($\rm PM_{2.5}$), have been investigated for several decades
+\citep{bell2007spatial, fann2012estimating} \textcolor{red}{add an
+  early citation here, maybe the six city study by Dockery et al,
+  1993}. Around 141\,000 premature deaths in North America due to
+cardiopulmonary and lung cancer are associated with $\rm PM_{2.5}$
+\citep{anenberg2010estimate}. \textcolor{red}{add some statement about
+  deaths worldwide (WHO number)}.
 
-The interaction between aerosols and climate can be demonstrated in two ways. On the one hand, aerosol particles can directly alter the earth's radiative balance by scattering and absorbing incoming solar radiation, known as aerosol-radiation interactions (ari). On the other hand, aerosol indirectly affect climate by influencing cloud properties, such as droplets number concentration and cloud life, and this effect is known as aerosol-cloud interactions (aci). Unlike the greenhouse gases, particles are typically with short lifetime and highly varied in space and time, making the interactions remain the largest uncertainties for future climate prediction. This dissertation contributes to understand aerosol climate effects by quantifying cloud chemical processes and aerosol optical properties. This chapter gives a general background about aerosol properties, aerosol climate forcing, aerosol mixing state, mixing state evolution, model representation for aerosol and aqueous processes.  
+Besides its crucial impacts on health, aerosol particles also impact
+weather and climate through interacting with solar radiation and
+clouds. Large uncertainties still exist regarding quantifying these
+impacts \citep{IPCC_CHAPTER7, seinfeld2016improving, fan2016review,
+  bellouin2020bounding}. The interaction between aerosols and climate
+manifests itself in two ways. On the one hand, aerosol particles
+directly alter the Earth's radiative balance by scattering and
+absorbing incoming solar radiation, known as aerosol-radiation
+interactions (ari). On the other hand, aerosol indirectly affect
+climate by influencing cloud properties, such as droplets number
+concentration and cloud life, and this effect is known as
+aerosol-cloud interactions (aci). Unlike greenhouse gases, aerosols
+typically have a short lifetime of only several days, and their
+concentrations and properties vary strongly in space and time, causing
+the interactions to have the large uncertainties in our predictions of
+the future climate.
+
+This dissertation focuses on two specific aspects within the large
+topic of aerosol climate effects. The first is to quantify the changes
+that aerosol particles experience as a result of aqueous phase
+chemistry within clouds. The second is to quantify the error in
+aerosol optical properties that is incurred by simplified aerosol
+representations, common in current chemical transport models. We
+approach both topics from a particle-resolved modeling
+perspective. This chapter provides background about aerosol
+properties, aerosol climate forcing, aerosol mixing state, mixing
+state evolution, model representation for aerosol and aqueous
+processes, and formulates the research questions of this work.
 
 \section{Aerosol properties}
 \label{cha1-1:aerosol-defi}
 %Definition of aerosol particles.
-Aerosol particles can be directly emitted from different sources, or formed secondary from gas precursors. The major components of particles are inorganic species, carbonaceous species, sea salt and mineral dust. These species can originate from natural or anthropogenic sources, and the formation pathways are also varied. Sea salt particles are generated primarily over ocean region through mechanical processes and strongly depend on wind speed \citep{jaegle2011global, monahan1986model}. Dust is another primary natural species originated from desert regions and can affect remotely through long-range transport \citep{van2018mysterious,yu2021observation}. The dominant pathway of inorganic species are secondary through either nucleation or gas-to-particle partitioning. For example, sulfate can form through nucleation of sulfuric acid with the presence of water vapor \citep{sipila2010role}, and it can also be produced through oxidation of $\rm SO_2$ by OH in gas phase or $\rm H_2O_2$ and $\rm O_3$ in aqueous phase \citep{shao2019heterogeneous, zheng2020multiphase}. Primary and secondary are both prevalent pathways for organics formation. Black carbon (BC) and primary organic aerosol (POA) are usually co-emitted from combustion of fossil fuel and biofuel \citep{bond2007historical}. Formation of secondary organic aerosol (SOA) involves partitioning with semivolatile species, oligomerization and aqueous chemistry \citep{zhu2017mechanism, lim2010aqueous, griffin2013sources, mcneill2015aqueous}. Observed particles are commonly the mixture of different species. 
-Figure~\ref{fig:chap1-mixing} shows the transmission electron microscopy (TEM) images of carbonaceous-bearing particles collected in urban Shanghai in 2010, and we can find some particles are mixture of two species (a, b, c), others are mixture of more than three species (f, g, h, i).  
+Aerosol particles can be directly emitted from a variety of sources
+(primary aerosol) , or formed in the atmosphere from gas precursors
+(secondary aerosol). The major components of particles are inorganic
+species, carbonaceous species, sea salt and mineral dust
+\textcolor{red}{This list doesn't make sense. Sea salt and mineral
+  dust are inorganic species.} These species can originate from
+natural or anthropogenic sources, and the formation pathways also
+depend on the aerosol type. Sea salt particles are generated over
+ocean regions through mechanical processes \textcolor{red}{mechanical
+  processes sounds mysterious. Just say wave breaking and bubble
+  bursting}. Dust is another primary particle type originating mainly
+from desert regions and can impact regions at great distances from the
+source regions through long-range transport
+\citep{van2018mysterious,yu2021observation}. The flux of sea salt and
+of mineral dust particles into the atmosphere strongly depends on wind
+speed \citep{jaegle2011global, monahan1986model} \textcolor{red}{I
+  added mineral dust to this sentence since it applies to both. Add a
+  reference for mineral dust}.
+
+Several inorganic aerosol species are secondary in nature, and formed
+through either nucleation or gas-to-particle partitioning. For
+example, sulfate can form through nucleation of sulfuric acid in the
+presence of water vapor \citep{sipila2010role}, and it can also be
+produced through oxidation of $\rm SO_2$ by OH in gas phase or $\rm
+H_2O_2$ and $\rm O_3$ in the aqueous phase
+\citep{shao2019heterogeneous,
+  zheng2020multiphase}. \textcolor{red}{add something about nitrate
+  and ammonium} Black carbon (BC) and primary organic aerosol (POA)
+are usually co-emitted from combustion of fossil fuel and biofuel
+\citep{bond2007historical}. The formation of secondary organic aerosol
+(SOA) involves partitioning of semivolatile species, oligomerization
+\textcolor{red}{can you explain what oligomerization is?} and aqueous
+chemistry \citep{zhu2017mechanism, lim2010aqueous, griffin2013sources,
+  mcneill2015aqueous}.
+
+It is important to note that particles in the atmosphere are commonly
+mixture of different species \textcolor{red}{add a few citations
+  here.}. As an example, Figure~\ref{fig:chap1-mixing} shows
+transmission electron microscopy (TEM) images of particles collected
+in urban Shanghai in 2010.  can Some particles are mixture of two
+species (a, b, c), while others are mixture of more than three species
+(f, g, h, i).
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.40]{chap1_figs/thesis_chap1_fig2.png}
-	\caption{TEM images of C-bearing particles collected from urban Shanghai, adapted from \cite{fu2012morphology}.}
+	\caption{TEM images of carbonaceous particles collected from
+          urban Shanghai, adapted from \cite{fu2012morphology}.}
 	\label{fig:chap1-mixing}
 \end{figure}
 
 %Aerosol particles diameters range from several nanometers to over 10 $\rm \mu m$.  
 
-Aerosol diameters vary from molecular aggregates with several nanometers to dust particles with several micrometers \citep{MCMURRY200320}. It is common to represent aerosol size distribution by three modes: Nuclei mode (0.01 -- 0.1 $\rm \mu m$), accumulation mode (0.1 -- 2 $\rm \mu m$) and coarse mode (2 -- 10 $ \rm \mu m$). Nuclei-mode particles are commonly observed near combustion sources, especially roadside atmosphere, and characterized by high number concentration, which can engender efficient coagulation and result in short lifetime for these particles \citep{fushimi2008atmospheric}. Accumulation-mode particles contain most of the secondary species, such as sulfate, nitrate and organics \citep{zhang2005time}, and they can also be produced from coagulation of the nuclei-mode particles. As for coarse-mode particles, it is hard to grow such large by coagulation alone between small particles \citep{friedlander1991scavenging, lee2005size}. They are mostly originated from natural sources and produced by mechanical forces. They suspended shortly in the air due to rapid gravitational settling. 
+In addition to exhibiting great diversity with respect to composition,
+aerosol particle diameters vary from small molecule clusters of
+several nanometers to large particles of several micrometers
+\citep{MCMURRY200320}. It is common to represent the aerosol size
+distribution by three size ranges, called ``modes'': The nuclei mode
+(0.01--0.1 $\rm \mu m$), the accumulation mode (0.1--2 $\rm \mu m$)
+and the coarse mode (2--10 $ \rm \mu m$). Nuclei-mode particles are
+commonly observed near combustion sources, especially the roadside
+atmosphere, and characterized by high number concentration, which
+causes efficient coagulation and results in short lifetime of these
+particles \citep{fushimi2008atmospheric}. Accumulation-mode particles
+contain most of the secondary species, such as sulfate, nitrate and
+organics \citep{zhang2005time}, and they can also be produced from the
+growth of nuclei-mode particles by coagulation and
+condensation. \textcolor{red}{what about the lifetime of accumulation
+  mode particles?} As for coarse-mode particles, it is hard to grow
+such large particles from accumulation model
+\citep{friedlander1991scavenging, lee2005size}. They mostly originate
+from natural sources and produced by mechanical processes, and their
+lifetime is short in the atmosphere due to rapid gravitational
+settling.
 
 \section{Aerosol climate forcing}
 \label{cha1-2:aerosl-climate}
-Aerosol can change radiation balance of Earth system through direct interactions with shortwave and longwave radiation. Globally, average net effects change of direct aerosol effective radiative forcing between 1750 and 2005 is estimated to be $-0.45$ $\rm W$ $\rm m^{-2}$, as shown in Fig.~\ref{fig:chap1-aerosol-climate}. Estimation of the effects relies on the properties of aerosol population, such as size and chemical components, and the wide variety of aerosol particles at different regions leads to spatial variation of this effect. For example, directive radiative forcing over top of atmosphere over Africa is around $-12$ $\rm W$ $\rm m^{-2}$, while it can reach +$30$ $\rm W$ $\rm m^{-2}$ over polluted Indo-Gangetic Plains \citep{subba2020recent}. 
+Aerosol impact the radiation balance of Earth system through direct
+interactions with shortwave and longwave radiation. The globally
+averaged direct aerosol effective radiative forcing between 1750 and
+2005 \textcolor{red}{2011?} \textcolor{red}{Should use the latest IPCC
+  report!} is estimated to be $-0.45$ $\rm W$ $\rm m^{-2}$, as shown
+in Fig.~\ref{fig:chap1-aerosol-climate}. Estimation of radiative
+forcing relies on the properties of aerosol population, such as size
+and chemical components. The large variation of aerosols in different
+regions leads to spatial variation of this effect. For example, while
+the direct radiative forcing at the top of atmosphere over Africa is
+around $-12$ $\rm W$ $\rm m^{-2}$, it can reach $+30$ $\rm W$ $\rm
+m^{-2}$ over the polluted Indo-Gangetic Plains
+\citep{subba2020recent}.
 
 \begin{figure}
 	\centering
@@ -174,91 +289,492 @@ Aerosol can change radiation balance of Earth system through direct interactions
 	\label{fig:chap1-aerosol-climate}
 \end{figure}
 
-As a condensation nuclei, aerosol particles can also indirectly affect climate through interactions with cloud, and the estimated effective radiative forcing from this interaction is $-0.45$~\unit{W\;m^{-2}}(Fig.~\ref{fig:chap1-aerosol-climate}). There are many processes involved in the interactions and they can be illustrated by two main effects: cloud albedo and lifetime effects. Cloud albedo effects, first proposed by \citet{twomey1977influence}, describe the changes of cloud number concentration and surface area at environment with different aerosol loading, and it had been supported by ambient observations. \citet{kaufman2005effect}, by analyzing satellite observation over Atlantic ocean, found liquid clouds coverage in the polluted environment is higher by 0.2$-$0.4 than clean environment, and with smaller droplets. Field observations also confirme that more cloud condensation nuclei (CCN) generate more cloud droplets with smaller sizes in liquid clouds \citep{jia2019distinct,kleinman2012aerosol}. Cloud lifetime effect is the mechanism that the increase of aerosol number concentration will result in smaller cloud droplets and inhibiting precipitation development. Considering smaller droplets are hard to trigger coagulation coalescence, this effect is theoretically reasonable if only considering precipitation initiation. However, several observations and model studies suggested this effect can be problematic under different cloud environment due to the unclear relation between initial cloud droplet size and evolving precipitation efficiency \citep{stevens2009untangling}. 
+By serving as cloud condensation nuclei, aerosol particles also
+indirectly affect climate through interactions with cloud, and the
+estimated effective radiative forcing from this interaction is
+$-0.45$~\unit{W\;m^{-2}}, similar to the effective direct radiative
+forcing (Fig.~\ref{fig:chap1-aerosol-climate}). There are many
+processes involved in the interactions, which can be summarized by two
+main effects: the cloud albedo and the lifetime
+effects. \textcolor{red}{Is this what the bar in figure 1.2 includes?}
+Cloud albedo effects, first proposed by \citet{twomey1977influence},
+describe the changes of cloud droplet number concentration and surface
+area as the number concentration of aerosol particles changes, which
+was supported by ambient observations. \citet{kaufman2005effect}, by
+analyzing satellite observation over Atlantic ocean, found liquid
+clouds coverage in the polluted environment is higher by 0.2$--$0.4
+\textcolor{red}{unit?}  than clean environment, and with smaller
+droplets. Field observations also confirm that more cloud condensation
+nuclei (CCN) generate more cloud droplets with smaller sizes in liquid
+clouds
+\citep{jia2019distinct,kleinman2012aerosol}. \textcolor{red}{You need
+  to be careful here. The cloud albedo effect assumes no changes in
+  liquid water content. So the 2005 paper by Kaufman may not be
+  relevant.}
+
+The cloud lifetime effect describes the mechanism that the increase of
+aerosol number concentration not only results in smaller cloud
+droplets but that this inhibits the precipitation development. This
+effect is plausible if only the initiation of precipitation is
+considered. However, several observation and modeling studies
+suggested that it is hard to find clear evidence for this effect due
+to the unclear relation between initial cloud droplet size and
+evolving precipitation efficiency \citep{stevens2009untangling}
+\textcolor{red}{what does unclear mean here?}.
 % May do not need to mention this because we are not going to talk about it. 
 %The physical understanding of interactions with liquid cloud improves substantially in past decades, but the interactions with ice and mix-phased clouds is still poor constrained. 
 
-As we can see from Fig.~\ref{fig:chap1-aerosol-climate}, there still exists large discrepancies in the aerosol related radiative forcing amplitudes among different models. For radiative forcing from aerosol radiation interaction, the estimated 5 to 95\% confidence ranges from $- 0.95$ to $+ 0.05$ $\rm W$ $\rm m^{-2}$, while the range is from $-1.2$ to $0.0$ $\rm W$ $\rm m^{-2}$ for aerosol-cloud interaction. The sources of the uncertainty lie in the fact that there are multiple scale processes are involved, from particles as small as 10~nm to 1000~km stratocumulus clouds. Many processes are still unclear, such as aerosol interaction with mix-phase and ice clouds, simple parameterization schemes are applied to describe these processes in the models. Even for those processes that are well-constrained, it is challenging to incorporate all these processes in a single model \citep{seinfeld2016improving,bellouin2020bounding}. By interacting with electromagnetic radiation, and acting as an nuclei for cloud formation, particles are fundamental for quantifying these forcing and accurate description of aerosols can help reduce the model uncertainly. 
+As we can see from Fig.~\ref{fig:chap1-aerosol-climate}, large
+differences still exist among different models in the magnitude of the
+aerosol-related radiative forcing. For the radiative forcing from
+aerosol radiation interaction, the estimated 5 to 95\% confidence
+interval ranges from $-0.95$ to $+ 0.05$ $\rm W$ $\rm m^{-2}$, while
+the range is from $-1.2$ to $0.0$ $\rm W$ $\rm m^{-2}$ for the
+radiative forcing due to aerosol-cloud interaction. The sources of the
+uncertainty lie in the fact that the processes involved cover a large
+range of scales, from particles as small as 10~nm to 1000~km
+stratocumulus clouds. Many processes are still not well-understood on
+a fundamental level, such as aerosol interaction with mixed-phase and
+ice clouds, and simple parameterization schemes are applied to
+describe these processes in the models. But even for the processes
+that are well-understood on a microscale level, it is challenging to
+incorporate all them in a large-scale model
+\citep{seinfeld2016improving,bellouin2020bounding}. By interacting
+with electromagnetic radiation, and acting as an nuclei for cloud
+formation, particles are fundamental for determining radiative forcing
+and an accurate description of aerosols can help reduce the model
+uncertainty or at least help quantify the uncertainty that is
+currently present.
 
 \section{Aerosol mixing state}
-Mixing state, which defines the distribution of chemical species among the particle population, is a helpful concept to describe aerosols \citep{winkler1973growth}. There are two mixing state extremes for an aerosol population: internal mixture and external mixture. As Fig.~\ref{fig:chap1-chi-climate}(a) shows, a population is considered to be completed internally mixed if each particle is made up of the same species mixtures. For a population with fully external mixture, each particle only contain one single specie. However, in real environment, particles rarely fall into these two categories and they are mostly in the intermediate state. In other words, the number of species and their percentages can differ between particles.
+The aerosol mixing state refers to the distribution of chemical
+species among a particle population and is a helpful framework to
+describe aerosols \citep{winkler1973growth}. We distinguish between
+two mixing state extremes: the fully internal mixture and the fully
+external mixture. As Fig.~\ref{fig:chap1-chi-climate}(a) schematically
+shows, a population is considered to be completely internally mixed if
+each particle is made up of the same species mixtures, which equals
+the bulk composition. For a population with fully external mixture,
+each particle only contains one single species. However, in the real
+ambient atmosphere, particles rarely fall into any of these two
+categories but most likely assume one of many possible intermediate
+mixing states. In other words, the number of species and their mass
+fractions can differ between particles.
 
-Hygroscopicity and optical properties, which are important factors for droplets formation and radiative behaviour, are varied for different species. Thus, aerosol population with different mixing state will produce varied climate-related properties, as illustrated in Fig.~\ref{fig:chap1-chi-climate}. Figure~\ref{fig:chap1-chi-climate}(a) depicts the effects of mixing state for aerosol activation potential. All three populations are with the same amount of ammonium sulfate and organic, but the species are distributed differently among the particles. For the internally mixed population, all the particles have the same amount of ammonium sulfate and organic. For the population with external mixture, each particle only contains one single species. In real environment, these two species can randomly distribute among the particles. If these three populations are exposed at the same supersaturation environment (ss = 0.3\%), the number of activated particles is varied. All the particles are activated in the population with internal mixture, and only half are activated in the externally mixed population. The activated particles number in real world case are between these two extremes. 
+Hygroscopicity and optical properties, which are important factors for
+droplets formation and the interaction with radiation, are both
+strongly dependint on the chemical species that the particle consists
+of. Thus, aerosol population with different mixing states may have
+different climate-related properties, as illustrated in
+Fig.~\ref{fig:chap1-chi-climate}. Figure~\ref{fig:chap1-chi-climate}(a)
+explains this for the example of cloud condensation nuclei
+activity. All three populations contain the same amount of ammonium
+sulfate and organic matter, but the two species are distributed
+differently among the particles. For the internally-mixed population,
+each particle has the same amount of ammonium sulfate and organic. For
+the externally-mixed population, each particle only contains one
+single species. In the real environment, these two species can be
+randomly distributed among the particles. If these three populations
+are exposed at the same supersaturation (e.g., a supersaturation of
+0.3\%), the number of activated particles will be different. All the
+particles are activated in the population with internal mixture, while
+only 50\% are activated in the externally mixed population. The
+activated particles number in real world case are between these two
+extremes.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.60]{chap1_figs/thesis_chap1_fig3.pdf}
-	\caption{Aerosol mixing state effects on (a) activation ability and (b) optical values. (a) is adapted from \cite{Riemer2019}.}
+	\caption{Aerosol mixing state effects on (a) activation
+          ability and (b) optical values. (a) is adapted from
+          \cite{Riemer2019}.}
 	\label{fig:chap1-chi-climate}
 \end{figure}
 
-The effects of mixing state on aerosol activation potential can be investigated through closure study. Aerosol/CCN closure study is conducted by comparing the observed and predicted CCN concentration at the same supersaturation level. The prediction is made by applying K$\ddot{\rm o}$hler theory, using the measured dry particle size distributions and components information as input, with assumptions in mixing state to examine its effects.  \citet{broekhuizen2006closure} performed the closure study for aerosol samples from downtown Toronto at 0.58\% supersaturation, and they found the internal mixture assumptions overpredicted the CCN concentrations by 0.12$\pm$0.05. Using the CCN sampled from 2010 CalNex field campaign, \citet{moore2012hygroscopicity} also found internal mixture resulted in 30--75\% overprediction of CCN concentration. 
+The effects of mixing state on aerosol activation potential has been
+investigated through closure studies. An aerosol/CCN closure study is
+conducted by comparing the observed and predicted CCN concentrations
+at a given supersaturation level. The prediction is usually made by
+applying K\"ohler theory, using the measured dry particle size
+distributions and chemical composition information as input, with
+assumptions in mixing state to examine its effects.
+\citet{broekhuizen2006closure} performed such a closure study for
+aerosol samples from downtown Toronto at 0.58\% supersaturation, and
+they found the internal mixture assumptions overpredicted CCN
+concentrations by 0.12$\pm$0.05 \textcolor{red}{what unit is
+  this?}. Using the CCN sampled from 2010 CalNex field campaign,
+\citet{moore2012hygroscopicity} also found internal mixture resulted
+in 30--75\% overprediction of CCN concentration. \textcolor{red}{There
+  is a paper by Barbara Ervens that would be good to cite here as
+  well.}
 
-As for the effects on aerosol optical properties, we can apply the same strategy as Fig~\ref{fig:chap1-chi-climate}(a) to explain. Figure~\ref{fig:chap1-chi-climate}(b) shows the populations with the same amount of absorbing species (BC) and non-absorbing species ($\rm NH_4HSO_4$), but with different mixing state. As a result, the optical properties, including single scattering albedo (SSA), ensemble scattering coefficients ($\beta_{\rm abs}$) and ensemble absorbing coefficients ($\beta_{\rm abs}$), are varied in the populations and can lead to different radiative forcing effects.
+As for the effects on aerosol optical properties, we can apply the
+same strategy as in Fig~\ref{fig:chap1-chi-climate}(a) to explain the
+relevance of mixing state. Figure~\ref{fig:chap1-chi-climate}(b) shows
+the populations with the same amount of absorbing species (BC) and
+non-absorbing species ($\rm NH_4HSO_4$), but with different mixing
+states. As a result, the optical properties, including single
+scattering albedo (SSA), volume scattering coefficients ($\beta_{\rm
+  abs}$) and volume absorption coefficients ($\beta_{\rm abs}$) are
+different and can lead to different radiative forcing.
 
-The effects of aerosol mixing state on its optical properties can be more complicated if considering the aerosol water absorbing ability and particle shapes. In a humidified environment, water update of a particle depends strongly on its composition because of varied hygroscopicity of the species, which is important for scattering \citep{MichelFlores2012, Zieger2013, Titos2014, Titos2016}. Studies showed, compared with dry environment, scattering ability can be enhanced by 1.6 at the environment with RH of 85\% \citep{Burgos2020}. As for particle shapes, the distribution of the diverse species in a particle is important in determining optical values. For particles with no strong absorber, i.e. BC, volume-mixing rule can be used to calculate the refractive index and when BC is contained in the particle, core-shell configuration is proved to be more accurate \citep{Bond2006}. The absorption enhancement of BC-contained particles due to its surrounding coatings are widely investigated \citep{Moffet2009,Liu2017, wu2020light}, and distribution of the non-absorbing species are found to be the main sources for the discrepancies between the simulated and observed optical values \citep{Fierce2016, Fierce2020}.
+The effects of aerosol mixing state on its optical properties can be
+more complicated if considering aerosol water uptake and particle
+shapes. In a humidified environment, water update of a particle
+depends strongly on its composition because of the dependence of
+hygroscopicity on the chemical species, which is important for
+scattering \citep{MichelFlores2012, Zieger2013, Titos2014,
+  Titos2016}. Studies showed, compared with a dry environment, the
+scattering ability can be enhanced by a factor of 1.6 at the
+environment with RH of 85\% \citep{Burgos2020}. As for particle
+shapes, the distribution of the diverse species {\rm within} a
+particle is important in determining optical values. For particles
+without strong absorber, i.e. BC, a volume-mixing rule can be used to
+calculate the overall refractive index of the particle. When the
+particle contains BC, assuming a core-shell configuration has been
+shown to be more accurate \citep{Bond2006} than assuming a well-mixed
+for which a volume-mixing rule can be used. The absorption enhancement
+of BC-contained particles due to its coatings have been widely
+investigated \citep{Moffet2009,Liu2017, wu2020light}. The distribution
+of the non-absorbing species over the population where found to be the
+main sources for the discrepancies between the simulated and observed
+optical values \citep{Fierce2016, Fierce2020}. That is, in order to
+simulate absorption enhancement correctly, it is important to know the
+coating thinkness for a given population of BC cores. In particular,
+assuming an internal mixture (where larger BC cores receive thicker
+coatings) leads to a systematic overestimation of the absorption
+enhancement.
+
+\textcolor{red}{Need to add something on more advanced optical models,
+  T-matrix and DDA.}
 
 \section{Aerosol mixing state evolution}  
-Aerosol mixing evolution is a complex procedure and several processes are involved. At the time of particles emitted from the sources, aerosol population can already be the mixture of different species. For example, BC emitted from diesel vehicles are mixed with organics and sulfate, and the sea-spray aerosols are the mixture of sodium chloride and organics \citep{cheung2010emissions, kirpes2018secondary}. Once emitted, mixing state can further be modified by condensation of low-volatility compounds, such as the sulfate produced from oxidation of $\rm SO_2$ by OH in gas-phase. %Heterogeneous reactions between gas-phase reactants and condensed-phase surface can be faster than reactions in gas-phase, and one important reaction is the ozone depletion by chlorine radials produced from heterogeneous reactions between chlorofluorocarbons and polar cloud surface \citep{davies2018heterogeneous}. 
-Coagulation between particles is an efficient process in changing particle number concentration and Brownian coagulation had been proved to the main reason for the 
-rapid evolution of soot particle size distribution near a highway emitting point \citep{jacobson2004evolution}. Coagulation process alone will make particles more similar and particle population will become more internally mixed \citep{Riemer2013a}. The processes outlined above are for the cloud-free environment, however, since the global cloud coverage is more than 0.6 on average \citep{stubenrauch2013assessment}, evolution in clouds is also an important course during the lifetime of aerosol populations.
+Aerosol mixing evolution in the atmosphere involves several
+processes. It is important to recognize that, at the time of emission,
+particles can already be a mixture of different species. For example,
+particles emitted from diesel engines are mixture of BC, primary
+organics and sulfate, and sea-spray aerosols are a mixture of sodium
+chloride and organics \citep{cheung2010emissions,
+  kirpes2018secondary}. Once emitted, the mixing state can be further
+modified by condensation of organic or inorganic low-volatility
+compounds.
+%Heterogeneous reactions between gas-phase reactants and
+%condensed-phase surface can be faster than reactions in gas-phase,
+%and one important reaction is the ozone depletion by chlorine radials
+%produced from heterogeneous reactions between chlorofluorocarbons and
+%polar cloud surface \citep{davies2018heterogeneous}.
+Coagulation between particles is an efficient process for changing
+particle number concentration, and Brownian coagulation was shown to
+be the main reason for the rapid evolution of soot particle size
+distribution near a highway \citep{jacobson2004evolution}. The
+coagulation process alone will make the particle composition more
+similar, and particle population undergoing coagulation will become
+more internally mixed \citep{Riemer2013a}.
 
-Figure~\ref{fig:chap1-aq-proc} shows the chemical and physical processes particles experience in fogs and clouds. When the atmosphere reach supersaturated, particles with critical supersaturation lower than the environment supersaturation are activated as cloud droplets and undergo nucleation scavenging. For these activated particles, the absorbed water facilitates the aqueous chemical reactions. Gas species dissolve in the cloud, and if both liquid and ice phase exist in the cloud, species partition between different phase occurs and the retention coefficients in liquid phase are varied. When cloud droplets grow to rain droplets, they fall out and precipitate. During the falling out procedure, some small interstial particles are collected by these large droplets and impaction scavenging occurs. For clouds with strong convection, gas and particle species are vertically redistributed by convective transport. 
+The processes of condensation and coagulation outlined above are
+relevant for a cloud-free environment, however, since the global cloud
+coverage is on average more than 60\%
+\citep{stubenrauch2013assessment}, the aerosol evolution in clouds is
+also an important contributor during the lifetime of aerosol
+populations, and motivates the work presented in Chapter~\ref{xx} of
+this thesis. Figure~\ref{fig:chap1-aq-proc} shows the chemical and
+physical processes particles experience in fogs and clouds. When the
+atmosphere reaches supersaturation, particles with critical
+supersaturation lower than the environment supersaturation are
+activated as cloud droplets and undergo nucleation scavenging. For
+these activated particles, the absorbed water facilitates aqueous
+chemical reactions. Gas species dissolve in the cloud droplet, and if
+both liquid and ice phases exist in the cloud, species partition
+between the two phases and the retention coefficients in the liquid
+phase are varied. When cloud droplets grow to rain droplets, they
+precipitate. During precipitation, small interstitial aerosol
+particles can be collected by these large droplets and impaction
+scavenging occurs. For clouds with strong convection, gas and particle
+species are vertically redistributed by convective transport.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=1.0]{chap1_figs/thesis_chap1_fig4.jpeg}
-	\caption{Processes schematic invovled in fogs and clouds, adapted from \cite{ervens2015modeling}.}
+	\caption{Chemical and physical processes involved in fogs and
+          clouds, adapted from \cite{ervens2015modeling}.}
 	\label{fig:chap1-aq-proc}
 \end{figure}
 
-Aqueous environment provides an efficient medium for sulfate formation. Globally, more than 50\% of sulfate forms through in-cloud oxidation and the formation rates of aqueous reactions, $\rm SO_2$ oxidation by $\rm H_2O_2$ and $\rm O_3$, are more effective than through OH oxidation in gas phase \citep{kreidenweis2003modification, rasch2000description}. Other aqueous sulfate formation mechanisms, such as the reactions catalyzed by Transition Metal Ions (TMI), can also be important and it is confirmed to be the dominant pathway for the sulfate formation in the samples collected during HCCT-2010 field campaign \citep{harris2012sulfur, harris2013enhanced}. 
+The aqueous phase in clouds provides an efficient medium for sulfate
+formation. Globally, more than 50\% of sulfate forms through in-cloud
+oxidation and the formation rates of aqueous reactions, $\rm SO_2$
+oxidation by $\rm H_2O_2$ and $\rm O_3$, are more effective than
+through OH oxidation in gas phase \citep{kreidenweis2003modification,
+  rasch2000description}. Other aqueous sulfate formation mechanisms,
+such as the reactions catalyzed by Transition Metal Ions (TMI), can
+also be important. For example, reaction cycles involving TMI have
+been shown to be the dominant pathway for sulfate formation in the
+samples collected during HCCT-2010 field campaign
+\citep{harris2012sulfur, harris2013enhanced}.
 
-%Reaction rates of aqueous processes rely on cloud properties and the importance of different pathways differs at various cloud types.  \citet{straub2007chemical}, analyzing the marine stratocumulus cloud samples collected over eastern Pacific Ocean during DYCOMS-II field campaign, found $\rm SO_2$ oxidized by $\rm H_2O_2$ is the dominant reaction for sulfate production.
-Recently, more emphasis transfers to the role of aqueous reactions for SOA formation. Globally, SOA produced from aqueous pathway can reach to 20--30 Tg·$\rm yr^{-1}$. Glyoxal, methylglyoxal, glycolaldehyde and acetic acid can act as the precursors for aqueous SOA \citep{liu2012global}. As for the oxidants, besides hydroxyl radical, which is the dominant oxidant for SOA formation at gas phase, aqueous environment can provide several other efficient oxidants, such as peroxyl radicals, peroxides and triplet excited states of organic compounds ($^{3}\textrm{C}^*$) \citep{mcneill2015aqueous, ervens2011secondary}. Using simulated sunlight UV, \citet{smith2014secondary} found phenols can be rapidly oxidized by $^{3}\textrm{C}^*$ to produce low-volatility SOA . 
+%Reaction rates of aqueous processes rely on cloud properties and the
+%importance of different pathways differs at various cloud types.
+%\citet{straub2007chemical}, analyzing the marine stratocumulus cloud
+%samples collected over eastern Pacific Ocean during DYCOMS-II field
+%campaign, found $\rm SO_2$ oxidized by $\rm H_2O_2$ is the dominant
+%reaction for sulfate production.
+In addition to sulfate, aqueous reactions can also form SOA. Globally,
+SOA produced from aqueous pathway can reach to 20--30 Tg·$\rm
+yr^{-1}$. Glyoxal, methylglyoxal, glycolaldehyde and acetic acid can
+act as the precursors for aqueous SOA \citep{liu2012global}. As for
+the oxidants, besides hydroxyl radical, which is the dominant oxidant
+for SOA formation at gas phase, aqueous environment can provide
+several other efficient oxidants, such as peroxyl radicals, peroxides
+and triplet excited states of organic compounds ($^{3}\textrm{C}^*$)
+\citep{mcneill2015aqueous, ervens2011secondary}. Using simulated
+sunlight UV, \citet{smith2014secondary} found phenols can be rapidly
+oxidized by $^{3}\textrm{C}^*$ to produce low-volatility SOA .
 
-Aerosol size distribution evolves after the formation of aqueous inorgaincs and organics. Hoppel minima, which describes the CCN concentration gap between two particle distribution modes peak at 0.02--0.03 and 0.08-0.15~$\rm \mu m$ respectively,  was found by \citet{hoppel1986effect} when analyzing the particles processed by nonprecipitation clouds. This phenomena has further been observed for the particles at different region, such as VOCALS campaign over west Chilean coast at Arica and MASE experiment over central California coast \citep{kleinman2012aerosol, hudson2015cloud}. Besides the aqueous aerosol formation, particle size distribution also changes due to coagulation between interstitial particles and cloud droplets. \citet{pierce2015importance} found this process can reduce total particle number concentration by 10--15\% globally. 
+The aerosol size distribution evolves after the formation of aqueous
+inorganic and organic species. The characteristic ``Hoppel minimum''
+describes the gap between two particle distribution modes at
+approximately 0.02--0.03 and 0.08--0.15~$\rm \mu m$
+\citet{hoppel1986effect} evident in particle populations processed by
+non-precipitating clouds. After being described for the first time by
+\citet{hoppel1985effect}, this phenomena has further been observed for
+aerosol populations in different regions, such as during the VOCALS
+campaign over west Chilean coast and the MASE campaign at the central
+California coast \citep{kleinman2012aerosol, hudson2015cloud}. Besides
+the formation of secondary aerosol through aqueous phase reactions,
+particle size distributions also changes due to coagulation between
+interstitial particles and cloud
+droplets. \citet{pierce2015importance} found that this process can
+reduce total particle number concentration by 10--15\% globally.
 
-Evolution of mixing state affects aerosol climate-related properties. \citet{Ching2016} found, for those already aged BC-contained particles, increased BC emission can result in more cloud droplet number concentrations. Optical Aerosol optical properties are altered as mixing state evolves, especially for BC-contained particles. The enhancement of optical absorption abilities of BC-contained particles due to the surrounding coatings are widely confirmed by models and laboratory \citep{Moffet2009,Liu2017,wu2020light,Fierce2020}.
+The evolution of mixing state in turn affects the aerosols'
+climate-related properties. \citet{Ching2016} found that for polluted
+environments where BC-containing particles age quickly, increased BC
+emissions result in larger cloud droplet number concentrations (even
+though fresh BC particles are poor CCN). Aerosol optical properties
+are altered as mixing state evolves, especially for BC-contained
+particles. As mentioned above, the absorption enhancement of
+BC-containing particles due to coatings of non-absorbing species are
+widely confirmed by models, laboratory studies and field observations
+\citep{Moffet2009,Liu2017,wu2020light,Fierce2020}.
 
-Considering the importance of mixing state for describing an aerosol population, qualitative description using the terms, such as internal or external mixture, can potentially lead to uncertainties in quantifying the effects of mixing state. \citet{Riemer2013a}, based on the theory of information-theoretic entropy, developed index $\chi$ to quantify aerosol population mixing state. The index $\chi$ is the ratio between average particle diversity $D_{\alpha}$ and bulk diversity $D_{\gamma}$. By using particle mass measurement data, these metrics were successfully proved to be capable of explaining the aerosol aging processes \citep{Healy2014}.  
+Considering the importance of mixing state for describing an aerosol
+population, a qualitative description using the terms, such as
+internal or external mixture, are limited in quantifying the effects
+of mixing state. \citet{Riemer2013a}, based on the theory of
+information-theoretic entropy, developed the index $\chi$ to quantify
+aerosol population mixing state. The index $\chi$ is the ratio between
+average particle diversity $D_{\alpha}$ and bulk diversity
+$D_{\gamma}$. By using particle mass measurement data, these metrics
+were successfully proved to be capable of explaining the aerosol aging
+processes \citep{Healy2014}. They are also an important framework for
+our analyses presented in Chapter~\ref{xx} and Chapter~\ref{xx}.
+
+
 \section{Aerosol modeling approaches}
-Application of diversified measuring techniques help advance our understanding of aerosol particles, and we know the observed particles are the consequence of multiple processes. By using numerical models, we can distinguish the underlining physical and chemical laws leading to the complexity of aerosol behaviour, and predict what will happen if certain processes change. Considering the wide ranges of species types and sizes for an aerosol population, it is hard for a single model to represent the complete processes the population can experience during its lifetime, from emission to deposition, and balance need to be reached between model accuracy and computational efficiency. This section summaries the current aerosol modeling approaches from simplistic bulk methods used in global models to comprehensive particle-resolved models used in box model, and we will focus on how these models deal with aerosol mixing state and its implication for aerosol related climate properties. 
+The application of a variety of aerosol measurement techniques helps
+advance our understanding of aerosol particles, and we know that the
+observed particles are the consequence of multiple chemical and
+physical processes. By using numerical models, we can isolate the
+underlying individual processes, and predict what will happen if
+certain processes change. Considering the wide range of chemical
+species and particle sizes in an aerosol population, it is hard for a
+single model to represent all possible processes the population can
+experience during its lifetime, from emission to deposition, and
+balance need to be reached between model accuracy and computational
+efficiency. This section summarizes the current aerosol modeling
+approaches from simplistic bulk methods used in some global models to
+comprehensive particle-resolved models used in box model. We will
+focus on how these models deal with aerosol mixing state and its
+implication for aerosol-related climate properties.
 
 \subsection{Bulk models}
-The simplest aerosol modeling approach is using bulk method. Aerosol population are represented by several common species mass concentration, including sulfate, nitrate, BC, organics, dust and sea salt, and these species are treated as external mixtures in the bulk without detail information about how the species mixed with each other. Rather than tracking the aerosol evolution through microphysical processes, this approach prescribes the aerosol size distribution from climatology data. This approach is computationally efficient and applied by several global models, such as GOCART \citep{chin2000atmospheric} and TM5 \citep{vignati2010sources}. 
+The simplest aerosol modeling approach is the so-called bulk
+method. Aerosol populations are represented by the mass concentrations
+of several common aerosol species, such as sulfate, BC, organic
+aerosol, dust and sea salt, and these species are treated as external
+mixtures in the bulk without detailed information about how the
+species may be mixed with each other. Rather than tracking the aerosol
+evolution through microphysical processes, this approach prescribes
+the aerosol size distribution from climatologal data. This approach is
+computationally very efficient and applied by several global models,
+such as GOCART \citep{chin2000atmospheric} and TM5
+\citep{vignati2010sources}.
+
+\textcolor{red}{Add the figure for the bulk model to figure 1.5. I've
+  put it in the figures directory.}
 
 \subsection{Modal models}
-A more advanced approach is representing the aerosol populations by several modes. Just as shown in Fig.~\ref{fig:chap1-aerosol-model}(a), modal model tracks the size distribution evolution of the modes. Each mode can contain a variety of species and mixing state of the population are represented by the modes. But inside each mode, all species are still assumed to internally mixed. Considering the wide range of particle diameters, it is convenient to use lognormal function to represent the number distribution of each mode as follows:
+A more advanced approach is representing the aerosol populations by
+several overlapping distributions, also called modes,as shown in
+Fig.~\ref{fig:chap1-aerosol-model}(a). A modal model tracks the size
+distribution evolution of the modes. Each mode can contain a variety
+of aerosol species. Within each mode, all species are assumed to be
+internally mixed. Since the modes can overlap in certain size ranges,
+mixing state can be represented at least in a simplified way,
+especially when many modes are used \citep{Bauer2008}
+\textcolor{red}{Add ref to MATRIX model}. Lognormal functions are
+typically used to represent the number distribution of each mode as
+follows:
 \begin{equation}
 \centering
     n({\rm log}D_p) = \sum_{i=1}^{m}\frac{N_i}{\sqrt{2\pi}{\rm log}\sigma_i}{\rm exp}(-\frac{({\rm log}D-{\rm log}{\overline{D}_i})^2}{2{\rm log}^2\sigma_i}),
 \end{equation}
-where $m$ is the number of modes, $N_i$ is the number concentration of mode $i$, $\overline{D}_{i}$ and $\sigma_i$ are for the geometric mean diameter and standard deviation of the distribution respectively. The number of modes can be varied among the models. Aitken, accumulation and coarse modes are the essential three modes used in global models, such as MADE used in ECHAM4 global climate model and CMAQ regional chemistry model \citep{lauer2005simulating, binkowski2003models}. Other models apply additional modes to better represent the hydrophilic and hydrophobic species. For example, MAM7 used in CAM5 global model apply additional primary carbonaceous mode, including emitted primary organic matter and BC, which has lower hygroscopicity than accumulation mode \citep{liu2012toward}. For the three parameters used to describe the lognormal distribution, standard deviation of each mode is prescribed, and number concentration and mean diameter change as particles evolve.
+where $m$ is the number of modes, $N_i$ is the total number
+concentration of mode $i$, $\overline{D}_{i}$ and $\sigma_i$ are the
+geometric mean diameter and geometric standard deviation of mode $i$,
+respectively.
+
+The number of modes can vary among different models. Aitken,
+accumulation and coarse modes are the essential three modes, and this
+configuration is for example used in the ECHAM4 global climate model
+and in the regional chemistry transport model
+\citep{lauer2005simulating,
+  binkowski2003models}. \textcolor{red}{better to split up the
+  references.} Other models introduce additional modes to better
+represent hydrophilic and hydrophobic species. For example, MAM7 used
+in the CAM5 global model applies an additional primary carbonaceous
+mode that represents primary organic matter and BC, which has lower
+hygroscopicity than the accumulation mode \citep{liu2012toward} that
+also contains sulfate and SOA. For the three parameters used to
+describe the lognormal distribution, standard deviation of each mode
+is typically prescribed, and total number concentration and geometric
+mean diameter change as the aerosol evolves.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.5]{chap1_figs/thesis_chap1_fig5.pdf}
-	\caption{Aerosol numerical approaches:(a) Modal model, (b) Section model, and (c) Particle-resolved model}
+	\caption{Aerosol numerical approaches:(a) Modal model, (b)
+          Section model, and (c) Particle-resolved model
+          \textcolor{red}{add one more panel for bulk (I added the
+            figure already to the repo}}
 	\label{fig:chap1-aerosol-model}
 \end{figure}
 
-\subsection{Sectional models}
-Similar to modal methods, sectional aerosol models are also distribution-based. Instead of tracking the population by different modes, this approach discrete the population to a certain number of size bins and then track the changes in each bin, as illustrated in Fig.~\ref{fig:chap1-aerosol-model}(b). Particles are internally mixed within the bins and externally mixed between the bins. These aerosol modules are widely applied to large-scale models. For example, MOSAIC with flexible size bin numbers is extensively used in WRF-Chem and proved to capture the summer particulate matter distribution well over Houston region \citep{zaveri2008model,fast2006evolution}. Initially with 30 bins resolving particles with diameter between 0.01 and 10 $\rm \mu m$, TOMAS sectional model is applied to several global chemistry models, such as GEOS-Chem, and improved its ability in simulating aerosol optical properties recently through more detail mixing state representation of BC-contained particles \citep{adams2002predicting,pierce2013weak,kodros2018size}.
+\textcolor{red}{Probably should write out the model acronyms (CAM,
+  MOSAIC, ...)}
 
-Most sectional models apply univariate distribution of aerosol properties with assumptions used to describe aerosol mixing state in each bin, and more advanced schemes have been developed to incorporate more particle details inside the size bin, especially BC mass fraction of the particles. Based on Model of Aerosol Dynamics, Reaction, Ionization, and Dissolution (MADRID) module, \citet{oshima2009aging} developed a two-dimensional sectional scheme MADRID-BC by adding another dimension for BC mass fraction and tracking the fraction changes due to condensation/evaporation processes. Through developing MOSAIC-MIX, \citet{ching2016three} further extended the sectional model representation by incorporating another dimension for hygroscopicity, and coagulation process had been added to evaluate its effects on BC mixing state. 
+\subsection{Sectional models}
+Similar to modal methods, sectional aerosol models are also
+distribution-based. Instead of tracking the population by different
+modes, this approach discretizes the distribution into a certain
+number of size bins and then track the changes in each bin, as
+illustrated in Fig.~\ref{fig:chap1-aerosol-model}(b). Particles are
+internally mixed within each bins and the composition can vary between
+bins. The sectional approach is widely applied to large-scale
+models. For example, the sectional model MOSAIC is extensively used in
+WRF-Chem with 4-bin and 8-bin versions available, and proved to
+capture the summer particulate matter distribution well over the
+Houston region \citep{zaveri2008model,fast2006evolution}. The TOMAS
+sectional model is applied to several global chemistry models, such as
+GEOS-Chem, and improved its ability in simulating aerosol optical
+properties recently through more detail mixing state representation of
+BC-contained particles
+\citep{adams2002predicting,pierce2013weak,kodros2018size}. TOMAS uses
+30 bins and covers the diameter range between 0.01 and 10 $\rm \mu m$.
+
+Most sectional models apply univariate distributions and use
+assumptions for the aerosol mixing state in each bin. Some more
+advanced schemes have been developed to incorporate more information
+within each size bin, especially for representing a variable BC mass
+fraction within each size bin. Based on the Model of Aerosol Dynamics,
+Reaction, Ionization, and Dissolution (MADRID) module,
+\citet{oshima2009aging} developed a two-dimensional sectional scheme
+MADRID-BC by adding another dimension for BC mass fraction and
+tracking the fraction changes due to condensation/evaporation
+processes. Through developing MOSAIC-MIX, \citet{ching2016three}
+further extended the sectional model representation by incorporating
+another dimension for hygroscopicity, and coagulation process had been
+added to evaluate its effects on BC mixing state.
 
 \subsection{Particle-resolved models}
-Even though modal and sectional models provide better representation of particle distribution than bulk models, aerosol mixing state are still simplified by using internal or external assumptions. A more advanced representation of aerosol mixing state is particle-resolved method, as illustrated in Fig.~\ref{fig:chap1-aerosol-model}(c). Rather than tracking particles by distribution, particle-resolved model applies Langrangian method to track the particles individually and with no assumptions about the components of the particle. Specifically, each particle is represented by a $A$-dimensional vector, where $A$ is the total species number. The first particle-resolved aerosol model was developed by \citet{Riemer2009} and it was coupled with MOSAIC module to include gas-particle partitioning and gas chemistry processes. The model was applied to investigate the aging process of BC-contained particles in a urban plume environment and the evolution of ship plume particles \citep{tian2014modeling, Ching2016}. Recently, PartMC-MOSAIC had been further coupled with WRF-chem to track particle evolution at large-scale domain \citep{curtis2017single}. However, MOSAIC only considered aerosol aging process for subsaturated environment (RH < 100\%). It can not be used to investigate the physical and chemical processes in a cloud environment. This is one of the goal for this thesis, and I achieved this by coupling an aqueous module Chemical Aqueous Phase Radical Mechanism (CAPRAM). 
+Even though modal and sectional models provide better representation
+of particle size distributions than bulk models, aerosol mixing state
+still needs to be represented in a simplified way by using internal or
+external assumptions. A more advanced representation of aerosol mixing
+state is the particle-resolved method, as illustrated in
+Fig.~\ref{fig:chap1-aerosol-model}(c). Rather than using distributions
+to represent the population, a particle-resolved model samples the
+population with discrete computational particles. Specifically, each
+particle is represented by an $A$-dimensional vector, where $A$ is the
+total species number. The first particle-resolved aerosol model for
+the ambient atmosphere was developed by \citet{Riemer2009} and it was
+coupled with the MOSAIC module to include gas-particle partitioning
+and gas chemistry processes. The model was applied to investigate the
+aging process of BC-contained particles in a urban plume environment
+and the evolution of ship plume particles \citep{tian2014modeling,
+  Ching2016}. Recently, PartMC-MOSAIC had been further coupled with
+WRF-chem to track the particle evolution for a large-scale domain
+\citep{curtis2017single}. However, MOSAIC only considered aerosol
+aging process for subsaturated environments (RH < 100\%). It can not
+be used to investigate the chemical processes in a cloud
+environment. Extending and applying the PartMC modeling framework to
+include aqueous phase chemistry is one of the goal for this
+thesis. More details about PartMC will be presented in
+Chapter~\ref{xx}.
 
-In summary, bulk model approach is the most simplified methods and an universal mixing state will apply for all the particles in the population. Modal and sectional models divide aerosol populations by modes and bins. Its ability to describe aerosol mixing state is limited by the number of modes or bins included in the models. With the particle-resolved approach, each particle is explicitly tracked and the mixing state of aerosol population is accurately represented.  
+In summary, the bulk model approach is the most simplified method with
+mixing state being represented by an external mixture of different
+particle types. Modal and sectional models represent aerosol
+populations by distributions. Their ability to describe aerosol mixing
+state is limited by the number of modes or bins included in the models
+and they still rely on assumptions for mixing state within modes or
+bins. With the particle-resolved approach, each computational particle
+is explicitly tracked and the mixing state of aerosol population is
+accurately represented.
 
 \section{Models for aqueous chemistry simulation }
-One of the topics for the thesis is to investigate the interactions between aerosol mixing state and aqueous chemistry. The previous section discussed the different approaches to simulate aerosol mixing state, and it is different story when comes to incorporating aqueous mechanism for models. From particle activation at manometer scale to stratocumulus structure over thousand kilometers, the magnitude of cloud processes involves around $10^{14}$ orders and it is hard for a single model to incorporate all the related processes. Models with aqueous processes can be divided into two groups: process model with explicit aerosol microphysics and complex aqueous chemical mechanisms, and large-scale model with simplified representation of cloud properties and processes. 
+One of the topics for the thesis is to investigate the impact if
+aqueous phase chemistry on aerosol mixing state. The previous section
+discussed different approaches to simulate aerosol composition and
+represent mixing state. This section summarizes how aqueous phase
+chemistry mechanisms are incorporated into models. From particle
+activation at nanometer scale to stratocumulus structures over
+thousand kilometers, cloud processes cover around $10^{14}$ orders of
+magnitude, and it is infeasible for a single model to incorporate all
+the related processes. Models with aqueous processes can be divided
+into two groups: process model with explicit aerosol microphysics and
+complex aqueous chemical mechanisms, and
+large-scale model with simplified representation of cloud properties
+and processes.
 
-For process models, such as box and parcel models, aerosol microphysics are well-resolved. Droplet activation is explicitly described by using K$\rm \ddot{o}$hler theory. Specifically, particles with critical supersaturation lower than maximum supersaturation reached in the environment are activated as droplets \citep{rothenberg2016metamodeling, ching2012impacts}. Detail aqueous chemistry processes can be incorporated to these cloud parcel models. An example is the cloud parcel model SPACCIM coupled with detail aqueous scheme CAPRAM (492 species and 1087 reactions in version 3.0), and it had been testified using FEBUKO observation data \citep{wolke2005spaccim}. Since particle size distributions are commonly described in process models, the modification of particles after cloud processes can also be captured. The limitation of these models is lacking the interactions with cloud macro dynamics.
+For process models, often used as box/parcel models, aerosol
+microphysics is usually well-resolved. Droplet activation is
+explicitly described by using K$\rm \ddot{o}$hler
+theory. Specifically, particles with critical supersaturation lower
+than maximum supersaturation reached in the environment are activated
+as droplets \citep{rothenberg2016metamodeling,
+  ching2012impacts}. Detailed aqueous chemistry processes can be
+incorporated into these cloud parcel models. An example is the cloud
+parcel model SPACCIM coupled with the detailed aqueous scheme CAPRAM
+(492 species and 1087 reactions in version 3.0). It has been
+successfully compared to measurements during the FEBUKO campaign
+\citep{wolke2005spaccim}. Since particle size distributions are
+commonly described in process models, the modification of the size
+distribution after cloud processes can also be captured. The
+limitation of these models is the lack of the interactions with the
+cloud dynamics. 
 
-It is hard to include such detail information for global models with coarse grids. Rather than resolving cloud microphysics through explicit equations, cloud properties are described by using cloud fraction, with other diagnosed meterological parameters, for each grid. Cloud droplet sizes are assumed to be certain sizes. For example, ECHAM5-HAM assumed two bins for the cloud droplets: one bin for particles with lower ion concentration and the other bin for high ion concentration. As for the effects of cloud droplets representation on cloud chemistry, \citet{barth2006importance}, by camparing sectional and single-size droplet parcel model, found simplified cloud droplet size representation will lead to biases in simulated formic acid and formaldehyde concentration. Simplified aqueous mechanisms are also used and the acidity, which is an important factor for aqueous chemistry, are fixed at constant value. For example, GEOS-Chem used a pH of 4.5 for $\rm SO_2$ oxidation reaction by $\rm O_3$\citep{park2004natural}. Furthermore, assumptions should be made to consider the redistribution of species produced from aqueous reactions. For example, in CMAQ, all the non-volatile aqueous-formed species are added to accumulation mode after cloud dissipates \citep{binkowski2003models, fahey2017framework}. 
+It is hard to include such detailed process information in global
+models where computational efficiency is very important. Rather than
+resolving cloud microphysics explixcitly, cloud properties are
+described in a highly parameterized way, by using cloud fraction, with
+other diagnosed meterological parameters, for each grid box. Cloud
+droplet sizes distributions are usually assumed. For example,
+ECHAM5-HAM assumed two bins for the cloud droplets: one bin for
+particles with lower ion concentration and the other bin for high ion
+concentration. As for the effects of cloud droplets representation on
+cloud chemistry, \citet{barth2006importance}, by comparing sectional
+and single-size droplet parcel model, found simplified cloud droplet
+size representation will lead to biases in simulated formic acid and
+formaldehyde concentration. Simplified aqueous mechanisms are also
+used and the acidity, which is an important factor for aqueous
+chemistry, are fixed at constant value. For example, GEOS-Chem used a
+pH of 4.5 for $\rm SO_2$ oxidation reaction by $\rm
+O_3$\citep{park2004natural}. Furthermore, assumptions need to be made
+to considering the distribution of species produced from aqueous
+reactions. For example, in CMAQ, all the non-volatile aqueous-formed
+species are added to accumulation mode after cloud dissipates
+\citep{binkowski2003models, fahey2017framework}.
  
 %\begin{table}
 %\setlength\extrarowheight{5pt}
@@ -280,19 +796,82 @@ It is hard to include such detail information for global models with coarse grid
 %   \end{tabular}
 % \end{table}
 \section{Research questions and thesis organization}
-Aerosol particles affect climate forcing through directly altering radiation and indirectly interactions with clouds. These effects are dependent on particle chemical species, in other words, the chemical species mixing state of the aerosol population. The objective of this dissertation includes two parts: quantifying the cloud chemical processes, and quantifying the effects of aerosol mixing state for its optical properties.
+Aerosol particles affect climate forcing through directly altering
+radiation and indirectly interactions with clouds. These effects are
+dependent on the particles' chemical composition, in other words, the
+chemical species mixing state of the aerosol population. The objective
+of this dissertation includes two parts: quantifying cloud chemical
+processes and their impact on mixing state, and quantifying the
+effects of aerosol mixing state on aerosol optical properties. 
 
-For the first part, I will focus on the following scientific questions: (1.1) Is particle-resolved approach capable of simulating the complicated aqueous processes? (1.2) To what extent does cloud processing change the aerosol mixing state of the population that entered the cloud?  (1.3) How does this change the cloud condensation number concentration and optical properties? (1.4) What is the implication of coagulation between the interstitial particles and cloud droplets for mixing state of aerosol population? 
+For the first part, I will focus on the following scientific
+questions: (1.1) Is particle-resolved approach capable of simulating
+the complicated aqueous processes? (1.2) To what extent does cloud
+processing change the aerosol mixing state of the population that
+entered the cloud?  (1.3) How does this change the cloud condensation
+number concentration and optical properties? (1.4) What is the
+implication of coagulation between the interstitial particles and
+cloud droplets for mixing state of aerosol population?
 
-For the second part, the following two questions will be addressed: (2.1) What are the errors in aerosol optical properties introduced by internal mixture assumptions used in sectional models? (2.2) Will the optical properties error sectional models amplified or dampen at humidified environment? 
+\textcolor{red}{1.1 is difficult to evaluate -- people might think we
+  should compare more to measurements. I would only have the other
+  three.}
 
-Chapter 2 answers the first question by coupling particle-resolved model PartMC-MOSAIC with aqueous mechanism CAPRAM. This work designed ensemble cases with three levels of initial gas mixing ratio and temperature lapse rates to find out whether particle-resolved approach is capable of simulating the complicated aqueous sulfate formation reactions and quantify the role TMI-catalyzed oxidation pathway for aqueous sulfate formation. The findings will be concluded in the preparing paper ``Sensitivity of sulfate in-cloud chemistry to aerosol acidity variability and mixing state'' for \textit{Aerosol Science and Technology}. 
+For the second part, the following two questions will be addressed:
+(2.1) What are the errors in aerosol optical properties introduced by
+internal mixture assumptions used in sectional models? (2.2) How does
+this error depend on relative humidity and associated water uptake of
+the aerosol?
 
-Chapter 3 investigates the cloud processing effects on aerosol properties. In this work, I used a typical urban plume particle population to experience four cloud cycles to determine the changes of aerosol mixing state and quantify the changes of aerosol microphysical and optical properties after cloud evaporates. Another simulation is conducted to identify the role of coagulation between cloud droplets and interstitial particles. This chapter will answer questions 1.2--1.4. A paper entitled ``The impacts of cloud processing on resuspended aerosol particles after cloud evaporation'', which is in review for \textit{Journal of Geophysical Research-Atmosphere}, summaries the results on the changes of aerosol microphysical properties after cloud processing. Another paper, which is entitled with ``Quantifying the Effects of Cloud Processing on Aerosol Optical Properties Using a Particle-Resolved Model'' about the changes of optical properties after cloud processing, is going to submit to \textit{Aerosol Science and Technology}. 
+Both objectives are addressed with a particle-resolved modeling
+approach. Chapter 2 describes the coupling of the particle-resolved
+model PartMC-MOSAIC with the aqueous mechanism
+CAPRAM. Chapter~\ref{xx} also presents the results from idealized
+model simulations to confirm expected sensitivities of sulfate
+formation to model input parameters. The findings will be concluded in
+the preparing paper ``Sensitivity of sulfate in-cloud chemistry to
+aerosol acidity variability and mixing state'' for \textit{Aerosol
+  Science and Technology}.
 
-Chapter 4 evaluates the error introduced by the internal mixture assumptions used in sectional aerosol models. The error is quantified by comparing the aerosol optical value differences between reference populations created by running particle-resolved model and sensitivity populations with reduced representation of mixing state created by composition-averaging methods. This chapter will answer the two questions in second part and the work is submitted to \textit{Atmospheric Chemistry and Physics}, entitled ``Quantifying the effects of mixing state on aerosol optical properties''.
+\textcolor{red}{not sure about mentioning this paper here. There is a
+  lot of work still to be done to bring this to publication. It's not
+  impossible, just not immediately imminent.}
 
-Chapter 5 summaries the main findings of these works and implications for resolving aerosol mixing state in the future for global models.  
+\textcolor{red}{don't hardcode references to chapters.}
+
+Chapter 3 investigates the cloud processing effects on aerosol
+properties. In this work, I used a typical urban plume particle
+population to experience several idealized cloud cycles to determine
+the changes of aerosol mixing state and quantify the changes of
+aerosol microphysical and optical properties after the cloud
+evaporates. Another simulation is conducted to identify the role of
+coagulation between cloud droplets and interstitial particles. This
+chapter will answer questions 1.2--1.4. A paper entitled ``The impacts
+of cloud processing on resuspended aerosol particles after cloud
+evaporation'', which is in review for \textit{Journal of Geophysical
+  Research-Atmosphere}, summarizes the results on the changes of
+aerosol microphysical properties after cloud processing. Another
+paper, which is entitled with ``Quantifying the Effects of Cloud
+Processing on Aerosol Optical Properties Using a Particle-Resolved
+Model'' about the changes of optical properties after cloud
+processing, is in preparation for \textit{Aerosol Science and
+  Technology}.
+
+Chapter 4 evaluates the error in aerosol absorption and scattering,
+introduced by the internal mixture assumptions used in sectional
+aerosol models. The error is quantified by comparing the aerosol
+optical value differences between reference populations created by
+running particle-resolved model and sensitivity populations with
+reduced representation of mixing state created by
+composition-averaging methods. This chapter will answer the two
+questions pertaining to the second part and a publication is in
+preparation for \textit{Atmospheric Chemistry and Physics}, entitled
+``Quantifying the effects of mixing state on aerosol optical
+properties''.
+
+Chapter 5 summarizes the main findings of this thesis and discusses
+implications for resolving aerosol mixing state in the future for
+global models.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%Chapter 2%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
