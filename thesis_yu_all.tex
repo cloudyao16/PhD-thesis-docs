@@ -2529,8 +2529,8 @@ $\chi$ = 40\% and a median of $-$1.2\%.
 \end{figure}
 
 There are two factors that can affect particle scattering ability
-after composition-averaging, the change of the BC core size and
-corresponding change in coating thicknesses, and the change in the
+after composition-averaging, the change of the BC core size (and the
+corresponding change in coating thickness), and the change in the
 refractive index of the coating. As Fig.~\ref{fig8:scat-exp}(a) shows,
 adding a BC core decreases the scattering ability for particles with
 diameters less than 1200~\unit{nm}, which are the typical size ranges
@@ -2540,7 +2540,8 @@ Fig.~\ref{fig6:scat-err}.
 
 \textcolor{red}{in Figure 4.6.b, this is the overall result, we cannot
   say that the decrease comes from changes in BC core or changes in
-  coating ref. index, correct?}
+  coating ref. index, correct? I'm thinking that 4.6.b should be next
+  to Fig. 4.5 because it highlights one particular point.}
 
 To further explore the effects of coating
 volume shrink, Fig.~\ref{fig8:scat-exp}(b) shows the size-resolved
@@ -2567,18 +2568,20 @@ increment in bin 4 is responsible for this decrease
 	\label{fig8:scat-exp}
 \end{figure}
 
-The change of refractive index is the other factor that affects
-particle scattering. For particles with diameter between 800 and
-1200~\unit{nm}, lower refractive index leads to higher scattering
-ability (Fig.~\ref{fig8:scat-exp}(a)), even though the amplitude is
-smaller than the change brought by adding a BC core. Similar to the BC
-core size change $\Delta D^{\rm core}$, we defined a volume-weighted
-refractive index change, $\Delta{m^{\rm real}}$, to help understand
-the changes in particle scattering ability. The index change is
-defined as:
+The blue lines in Fig.~\ref{fig8:scat-exp}(a) show the scattering
+cross sections for two different real refractive indices. For
+particles with diameters between 800 and 1200~\unit{nm}, a lower
+refractive index leads to a larger scattering cross section
+(Fig.~\ref{fig8:scat-exp}(a)), even though the different is smaller
+than the change caused by adding a BC core. Similar to the BC core
+size change $\Delta D^{\rm core}$ \textcolor{red}{in Figure~\ref{xx}},
+we defined a volume-weighted refractive index change, $\Delta{m^{\rm
+    real}}$, to help understand the changes in scattering. The index
+change is defined as:
 \begin{equation}
     \displaystyle \Delta{m^{\rm real}}=\frac{\sum_{i=1}^{N} V_i {m^{\rm real}}' - \sum_{i=1}^{N} V_i {m^{\rm real}}}{\sum_{i=1}^{N} V_i {m^{\rm real}}},
 \end{equation}
+\textcolor{red}{Is V-i the volume of the coating? Should be, right?}
 where $i$ is the particle index, $V_i$ is the particle volume,
 ${m^{\rm real}}$ is the real part of the coating refractive index of
 the particles in the reference library, and ${m^{\rm real}}'$ is for
@@ -2621,7 +2624,8 @@ $\epsilon(\beta_{\rm abs})$ remained at 13\% and IQR decreased from
 	\caption{Box plot of (a) scattering relative error
           $\epsilon(\beta_{\rm scat})$ and (b) absorption relative
           error $\epsilon(\beta_{\rm abs})$ at three RH levels (0\%,
-          50\% and 90\%). Dots are the populations with values outside Q3 + 1.5IQR. }
+          50\% and 90\%). Dots are the populations with values outside
+          Q3 + 1.5IQR. }
 	\label{fig9:RH90-RH10-opt-scat}
 \end{figure}
 
@@ -2643,36 +2647,49 @@ $\epsilon(\beta_{\rm abs})$ remained at 13\% and IQR decreased from
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.50]{chap4_figs/fig9.pdf}
-	\caption{Box plots of (a) Scattering coefficients $\beta_{\rm scat}$, 
-	(b) Absorption coefficients $\beta_{\rm abs}$ at the RH levels of 0, 50, 90\%. Dark blue is for populations
-	in reference scenario and Dark orange is for sensitivity scenario.}
+	\caption{Box plots of (a) volume scattering coefficients
+          $\beta_{\rm scat}$, (b) volume absorption coefficients
+          $\beta_{\rm abs}$ at the RH levels of 0, 50, 90\%. Dark blue
+          is for populations in reference scenario and Dark orange is
+          for sensitivity scenario.}
 	\label{fig10:RH90-RH10-opt-scat}
 \end{figure}
 
+\textcolor{red}{I don't understand the following paragraph. I think
+  the only thing that we need to say is that the decrease in relative
+  error for scattering for the high relative humidities is due to the
+  considerable increase in the magnitude of the absolute volume
+  scattering coefficient.}
+
+  
 The different response of $\epsilon(\beta_{\rm \rm abs})$ and
 $\epsilon(\beta_{\rm \rm scat})$ after the population become
 humidified is due to changes of the coating species after water
-uptake, and this is examined in Fig.~\ref{fig10:RH90-RH10-opt-scat}. 
-At humidified environment, scattering coefficients increased significantly.
-Compared with median $\beta_{\rm scat}$ = 4.42$\times$
+uptake, and this is examined in Fig.~\ref{fig10:RH90-RH10-opt-scat}.
+At humidified environment, scattering coefficients increased
+significantly.  Compared with median $\beta_{\rm scat}$ = 4.42$\times$
 $10^{-5}$~\unit{m^{-1}}at RH = 10~\%, $\beta_{\rm scat}$ increased to
 5.90$\times$ $10^{-5}$ ~\unit{m^{-1}} and 14.8$\times$ $10^{-5}$
-~\unit{m^{-1}} at RH = 50~\% and at RH = 90~\%, respectively.
-The enhancement ratio, defined by the $\beta_{\rm scat}$ values in higher RH cases
-and dry case, are 1.33 at RH = 50\% and 3.35 at RH = 90\% in our
-scenario populations, which are in accordance with the previous
-studies \citep{Titos2016, Burgos2020}. However, the differences between the 
-reference and sensitivity are small and keep almost unchanged at higher RH 
-environment, which implies the water absorption ability is not affected by species redistribution. 
-The increase of scattering coefficients and insignificant change of the differences explain the decrease of $\epsilon(\beta_{\rm \rm abs})$ with 
-increasing RH. As for absorption coefficients in humidified environment, the differences 
-between reference and sensitivity cases stay the same and the effect of RH in absorption coefficients 
-is minimal. 
+~\unit{m^{-1}} at RH = 50~\% and at RH = 90~\%, respectively.  The
+enhancement ratio, defined by the $\beta_{\rm scat}$ values in higher
+RH cases and dry case, are 1.33 at RH = 50\% and 3.35 at RH = 90\% in
+our scenario populations, which are in accordance with the previous
+studies \citep{Titos2016, Burgos2020}. However, the differences
+between the reference and sensitivity are small and keep almost
+unchanged at higher RH environment, which implies the water absorption
+ability is not affected by species redistribution.  The increase of
+scattering coefficients and insignificant change of the differences
+explain the decrease of $\epsilon(\beta_{\rm \rm abs})$ with
+increasing RH. As for absorption coefficients in humidified
+environment, the differences between reference and sensitivity cases
+stay the same and the effect of RH in absorption coefficients is
+minimal.
 
 \section{Errors in single scattering albedo and implications for directive radiative forcing}
 \label{sec:ssa}
 The changes of scattering and absorption coefficients lead to changes
-in SSA. Combining the definition of SSA, we can calculate the absolute
+in SSA, which is an important quantity that determines radiative
+forcing. With the definition of SSA, we can calculate the absolute
 error $\Delta$SSA as:
 \begin{equation}{\label{eq8:ssa_err}}
 \Delta {\rm SSA} = \frac{\beta_{\rm \rm scat}'}{\beta_{\rm \rm scat}' + \beta_{\rm \rm abs}'} - \frac{\beta_{\rm \rm scat}}{\beta_{\rm \rm scat} + \beta_{\rm \rm abs}} = \frac{\beta_{\rm \rm scat}'\beta_{\rm \rm abs} - \beta_{\rm \rm scat}\beta_{\rm \rm abs}'}{(\beta_{\rm \rm scat}' + \beta_{\rm \rm abs}')(\beta_{\rm \rm scat} + \beta_{\rm \rm abs})}
@@ -2683,25 +2700,25 @@ previous analysis, we know that $\beta_{\rm scat}'$ tends to be lower
 than $\beta_{\rm scat}$ and $\beta_{\rm abs}'$ greater than
 $\beta_{\rm abs}$. Combining these changes with
 equation~\ref{eq8:ssa_err}, these variations will result in negative
-values for $\Delta$~SSA and the relative error $\epsilon(\rm SSA)$,
+values for $\Delta$SSA and the relative error $\epsilon(\rm SSA)$,
 which is confirmed by Fig.~\ref{fig12:ssa-err}.
 
 
 In order to connect $\epsilon(\rm SSA)$ with $\epsilon(\beta_{\rm
   scat})$ and $\epsilon(\beta_{\rm scat})$, we sorted the populations
-by $\epsilon(\rm scat)$ and $\epsilon(\rm abs)$ ranges and calculated
-the mean $\epsilon(\rm SSA)$ for each $\epsilon(\rm
-scat)$-$\epsilon(\rm abs)$ bin. For all three RH levels, $\epsilon(\rm
-SSA)$ was negative, meaning that composition-averaging causes an
-underestimation of SSA. The largest $\epsilon(\rm SSA)$ ( $-22$\%
-occured for the largest underestimation in $\epsilon(\beta_{\rm
-  scat})$ in the RH = 0\% environment. Populations with $\epsilon(\rm
-SSA)$ lower than $-10$\% were related to populations with large
-negative magnitudes of $\epsilon(\beta_{\rm scat})$. Relative errors
-in SSA decreased in more humidified environment, accompanied by
-decreasing errors in scattering coefficients. The median $\epsilon(\rm
-SSA)$ decreased from $-7.5$\% for RH = 0\% to $-2.2$\% in RH =
-90\%. 
+by $\epsilon(\beta_{\rm scat)}$ and $\epsilon(\beta_{\rm abs)}$ ranges
+and calculated the mean $\epsilon(\rm SSA)$ for each
+$\epsilon(\beta_{\rm scat})$-$\epsilon(\beta_{\rm abs)}$ bin. For all
+three RH levels, $\epsilon(\rm SSA)$ was negative, meaning that
+composition-averaging causes an underestimation of SSA. The largest
+$\epsilon(\rm SSA)$ ($-22$\% occured for the largest underestimation
+in $\epsilon(\beta_{\rm scat})$ in the RH = 0\%
+environment. Populations with $\epsilon(\rm SSA)$ lower than $-10$\%
+were related to populations with large negative magnitudes of
+$\epsilon(\beta_{\rm scat})$. Relative errors in SSA decreased in more
+humidified environment, accompanied by decreasing errors in scattering
+coefficients. The median $\epsilon(\rm SSA)$ decreased from $-7.5$\%
+for RH = 0\% to $-2.2$\% in RH = 90\%.
 
 \begin{figure}
 	\centering
@@ -2714,9 +2731,9 @@ SSA)$ decreased from $-7.5$\% for RH = 0\% to $-2.2$\% in RH =
 \end{figure}
 
 The underestimation of SSA can have significant impacts in calculating
-direct radiative forcing.  \citet{mccomiskey2008direct} evaluated the
+direct radiative forcing. \citet{mccomiskey2008direct} evaluated the
 response of directive radiative forcing to changes of several
-measurement quantities, including aerosol optical depth, single
+quantities, including aerosol optical depth, single
 scattering albedo and other related factors. They found the total
 uncertainties in directive radiative forcing ranged from 0.2 to 3.1
 \unit{W\,m^{-2}} and SSA introduced the largest uncertainties. Through
@@ -2741,7 +2758,7 @@ optical properties, thus leading to uncertainties in calculating
 directive radiative forcing. In this study, the errors introduced by
 internal mixture assumptions used in sectional aerosol models were
 systematically quantified. We created a reference scenario library
-with 1809 aerosol populations by performing particle-resolved aerosol model
+with 1800 aerosol populations by performing particle-resolved aerosol model
 simulations with PartMC-MOSAIC. We constructed a sensitivity library
 where particles were internally mixed in a prescribed set of size bins
 by applying composition-averaging. Aerosol populations from the
@@ -2750,39 +2767,41 @@ RH levels to understand the relative role of chemical species and
 water redistribution introduced by the internal mixture assumption.
 
 %Errors in dry environment
-The internal mixture assumption generally lead to an overestimation of
+The internal mixture assumption generally led to an overestimation of
 the volume absorption coefficients and an underestimation of the
-volume scattering coefficients. Populations with higher absorption
-overestimation tend to be more externally mixed (lower $\chi$
-values). The relative error $\epsilon(\beta_{\rm abs})$ reached +70\%
-at $\chi$ = 30\% for dry populations. The magnitude was smaller for
-the scattering error. The coating volume shrink due to the increasing
-BC core and refractive index alteration after species redistribution 
-lead to change of scattering coefficients, and the first factor
-is the major reason for underestimating scattering coefficients. Most
-populations show scattering underestimation after composition averaging, and
-the largest underestimation ($-$32\%) is associated with the less mixed
-populations with $\chi$ = 40\%.
+volume scattering coefficients. The relative errors for
+$\epsilon(\beta_{\rm abs})$ and $\epsilon(\beta_{\rm scat})$ reached
+up to 70\% and $-$32\%, respectively. The relative errors generally
+increased for more externally-mixed populations, although at a given
+value for $\chi$ a range of errors can be found, especially for the
+error in the scattering coefficient. For the error in the absorption
+coefficient, this range can be explained by the magnitude of BC core
+size changes that are induced by composition-averaging. For the error
+in the scattering coefficient, it can be explained by the magnitude of
+the changes in the refractive index of the coating that are induced by
+the composition-averaging.
+
+\textcolor{red}{It occurs to me that the spread in scattering error
+  could also be explained by core size change. did you try coloring
+  figure 4.5 by core size change (same as figure 4.3)?}
 
 %Errors in wet environment
-In a humidified environment, the internal mixture assumption causes a
-redistribution of the dry aerosol species and of aerosol water. The
-bulk aerosol water content was almost identical for the aerosol
-populations in reference and sensitivity libraries. The relative error
-in the volume absorption coefficient $\epsilon(\beta_{\rm abs})$
-displayed a similar pattern for RH of 50\% and 90\% compared to the
-dry environment. The relative error in the volume scattering
-coefficient $\epsilon(\beta_{\rm scat})$ decreased for higher relative
-humidities because of the enhanced scattering ability through
-hygroscopic growth. 
+For the cases with RH of 50\% and 90\%, the bulk aerosol water content
+was almost identical for the aerosol populations in reference and
+sensitivity libraries. The relative error in the volume absorption
+coefficient $\epsilon(\beta_{\rm abs})$ displayed a similar pattern
+for RH of 50\% and 90\% compared to the dry environment. The relative
+error in the volume scattering coefficient $\epsilon(\beta_{\rm
+  scat})$ decreased for higher relative humidities because of the
+enhanced scattering ability through hygroscopic growth.
 
 %Errors in SSA and implication for radiative forcing
 The absorption overestimation and scattering underestimation resulted
-in a decreasing trend in SSA. Populations with the largest
+in an underestimation of SSA. Populations with the largest
 underestimation of SSA were associated with populations with the
 largest underestimation in scattering. At RH = 90\%, decreasing
-scattering error also leads to smaller SSA inaccuracy. Based on
-previous studies in the literatrue these SSA error magnitudes
+relative scattering error also leads to smaller SSA inaccuracy. Based
+on previous studies in the literatrue these SSA error magnitudes
 translate to uncertainty ranges between $-$0.55 and 1.11 \unit{W\,
   m^{-2}} in direct aerosol radiative forcing.
   
@@ -2791,9 +2810,10 @@ It is worth emphasizing that we used Mie theory with core-shell
 configuration to calculate optical properties assuming spherical
 particle shapes. Our results are therefore most representative of
 BC-containing populations, where the BC core is collapsed rather than
-a fractal aggregate \citep{china2013morphology, china2015morphology}. More accurate methods, such as
-discrete dipole approximation (DDA) should be used to represent these
-more irregular particle shapes \citep{scarnato2013effects,
+a fractal aggregate \citep{china2013morphology,
+  china2015morphology}. More accurate methods, such as discrete dipole
+approximation (DDA) should be used to represent these more irregular
+particle shapes \citep{scarnato2013effects,
   curtis2008laboratory,luo2019optical, wu2020light}.
 %\edits{We also
 %  acknowledge that for more bare BC particles, i.e. more
@@ -2804,16 +2824,15 @@ more irregular particle shapes \citep{scarnato2013effects,
 The species complex index should be also explored further. For current
 work, we used refractive index value 1.82 + 0.74$i$ for BC, which is
 close to the medium index suggested by \citet{stier2007aerosol}, but
-it can vary among different measurements.  Furthermore, we did
-  not consider the absorbing abilities of organic carbons, and several
-  studies had lately been conducted to constrain the imaginary index
-  values of brown carbon \citep{liu2020lifecycle}. \citet{Esteve2014}
-has showed the index of organic aerosols are the biggest uncertainties
-in quantifying aerosol absorbing abilities. At last, for current
-aerosol populations, we focused on fine mode particles and ignored sea
-salt and dust particles, and it should also be important to include
-these particles for reducing the uncertainties in direct radiative
-forcing.
+it can vary among different measurements.  Furthermore, we did not
+consider the absorbing abilities of organic carbons, and several
+studies had lately been conducted to constrain the imaginary index
+values of brown carbon \citep{liu2020lifecycle}. \citet{Esteve2014}
+has showed the index of organic aerosols are a large uncertainties in
+quantifying aerosol absorbing abilities. At last, for current aerosol
+populations, we focused on fine mode particles and ignored sea salt
+and dust particles, and it should also be important to include these
+particles for reducing the uncertainties in direct radiative forcing.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%Chapter 5%%%%%%%%%%%
