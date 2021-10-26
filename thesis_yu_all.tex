@@ -555,6 +555,9 @@ Currently, I used monodisperse aerosol populations for analysis and in the futur
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%Chapter 3%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textcolor{red}{Add intro -- this Chapter was submitted to ....}
+
 \chapter{Evaluating the impacts of cloud processing on resuspended aerosol particles after cloud evaporation using a particle-resolved model}
 \label{chap3}
 \section{Introduction}
@@ -1788,8 +1791,10 @@ efficiency of in-cloud coagulation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Quantifying the effects of mixing state on aerosol optical properties}
+\textcolor{red}{Add intro -- This chapter is prepared for submission to ....}
+
 \label{chap4}
-\section{introduction}  %% \introduction[modified heading if necessary]
+\section{Introduction}  %% \introduction[modified heading if necessary]
 Aerosol particles scatter and absorb incoming solar radiation, thereby
 impacting the global radiative balance and surface temperatures
 \citep{mitchell1971effect, charlson1992climate, yu2006review,
@@ -1811,7 +1816,9 @@ spacial and temporal variation in their abundance and composition
 \citep{zhang2007ubiquity, bzdek2012single, LASKIN2006260}, with
 considerable diversity in composition existing within individual
 aerosol populations. The topic of this paper is to quantify the importance
-of diversity in composition for aerosol optical properties. 
+of diversity in composition for aerosol optical properties.
+
+\textcolor{red}{Change ``paper'' to ``chapter''.}
 
 Aerosol composition impacts aerosol optical properties for several
 reasons. First, aerosol species differ in their complex refractive
@@ -1829,14 +1836,20 @@ Lastly, the arrangement of the different aerosol species within a
 particle is important for determining their scattering and
 absorption. For mixed particles without strongly absorbing species,
 i.e. BC, a volume-mixing rule can be used to calculate the refractive
-index of the entire particle. When BC is contained in the particle, a
-core-shell configuration is proven to be more accurate
-\citep{Bond2006}. The absorption enhancement of BC-containing
-particles due to their non-absorbing coatings has been widely
-investigated \citep{Moffet2009,Liu2017,wu2020light, Fierce2020}. It can be 
-more complicated if considering BC shapes. By using discrete dipole approximation
-model, \citet{scarnato2013effects} found, for BC-NACL mixtures, absorption coefficients 
-enhancement is higher for internally mixed compact BC than lacy BC.
+index of the entire particle. When the particle contains BC, assuming
+a core-shell configuration was proven to be more accurate
+\citep{Bond2006} (still assuming sphericity as particle shape). The
+absorption enhancement of BC-containing particles due to their
+non-absorbing coatings has been widely investigated
+\citep{Moffet2009,Liu2017,wu2020light, Fierce2020}. Taking the
+non-shperical shapes of BC-containing particles into account
+complicates matter considerably since Mie calculations cannot be
+applied and more sophisticated optical models need to be used, which
+are computationally much more expensive. By using the Discrete Dipole
+Approximation model, \citet{scarnato2013effects} found that for
+BC-NaCl mixtures absorption coefficients enhancement is higher for
+compact BC particles completely embedded in NaCl than for lacy BC
+particles.
 
 To understand the importance of aerosol composition in calculating
 aerosol optical properties, it is useful to define the term aerosol
@@ -1861,91 +1874,102 @@ understood by three widely-used parameters: absorption cross section,
 scattering cross section and asymmetry parameter \citep{Majdi2020}.
 For example, many 3D models use a modal approach to represent aerosol,
 such as The Community Multiscale Air Quality Modeling System (CMAQ)
-and Modal Aerosol Module (MAM)\citep{Binkowski2007, Appel2017,Liu2012}.
-The modes are externally mixed from each other, whereas
-within each mode, the aerosol is assumed to be internally mixed. For
-BC-containing modes, a core-shell configuration is assumed. \citet{Fierce2016} found,
-neglecting coating diversity for BC-contained particles can overestimate absorption by up to 
-200\%. Another approach are sectional model representations, which track
-size-resolved composition, but not particle composition diversity
-within a certain size, such as TwO-Moment Aerosol Sectional (TOMAS) and
-GLObal Model of Aerosol Processes (GLOMAP)\citep{kodros2018size, spracklen2005global}. 
-Still, mixing state assumptions need to be invoked for each
-size bin. The importance of mixing state had been quantified through optical closure studies. 
-Using the measured aerosol size distribution and composition collected over East China Sea, \citet{koike2014case}
-found neglecting BC mixing state can lead to uncertainty level of $-$18\% to $+$9\% in calculated absorption aerosol optical depth. 
+and Modal Aerosol Module (MAM)\citep{Binkowski2007,
+  Appel2017,Liu2012}.  The modes are externally mixed from each other,
+whereas within each mode, the aerosol is assumed to be internally
+mixed. For BC-containing modes, sphericity and a core-shell
+configuration are assumed, so that Mie calculations can be applied to
+calculate optical properties. \citet{Fierce2016} found that neglecting
+the diversity in coating thickness for BC-containing particles (a
+result of the internal mixture assumption) leads to overestimatd
+absorption enhancement by up to 200\%. Another approach is the
+sectional model representation, which tracks size-resolved
+composition, but not particle composition diversity within a certain
+size, such as TwO-Moment Aerosol Sectional (TOMAS) and the GLObal
+Model of Aerosol Processes (GLOMAP)\citep{kodros2018size,
+  spracklen2005global}.  Still, mixing state assumptions need to be
+invoked for each size bin. The importance of mixing state was
+quantified through optical closure studies.  Using the measured
+aerosol size distributions and composition collected over East China
+Sea, \citet{koike2014case} found that neglecting BC mixing state can
+lead to uncertainty level of $-$18\% to $+$9\% in calculated
+absorption aerosol optical depth. \textcolor{red}{Does neglecting
+  mixing state mean assuming internal mixture?}
 
 The uncertainties in optical properties introduced by mixing state
-assumptions had been also widely evaluated through model sensitivity studies.
-Using the AQMEII-2 model inter-comparison framework, \citet{Curci2015} tested
-the sensitivity of aerosol optical properties to several parameters,
-including aerosol mixing state and size distribution, and they found
-aerosol mixing state is the dominant factor introducing uncertainties,
-explaining 30--35\% of the aerosol optical depth and single scattering
-albedo (SSA) uncertainty. \citet{kodros2018size} also found the
-simulated direct radiative forcing (DRF) can vary from $-1.65$ to
-$-1.34$ W $\rm m^{-2}$ over the pan-Arctic region in spring depending
-on the assumption of internal or external mixture. The variation is
-similar when the assumptions are used to calculate DRF at the top of
-atmosphere \citep{ma2012aerosol}. An open questions of these
-sensitivity studies is that no benchmark simulation exists that
-represents the real mixing state, and therefore the importance of
-mixing state can only be assessed based on differences between varied
-idealized assumptions. By applying a detailed particle-resolved benchmark
-model, \citet{Fierce2017} found simple mixing state assumption can result in 
-artificial redistribution of BC mass between particles and lead to errors in 
-absorption. The redistribution were further confirmed to be main uncertainty sources 
-for the discrepancies between the simulated and lab-observed particle optical values \citep{Fierce2020}.
+assumptions had been also widely evaluated through model sensitivity
+studies.  Using the AQMEII-2 model inter-comparison framework,
+\citet{Curci2015} quantified the sensitivity of aerosol optical
+properties to several parameters, including aerosol mixing state and
+size distribution, and they found that aerosol mixing state is the
+dominant factor introducing uncertainties, explaining 30--35\% of the
+aerosol optical depth and single scattering albedo (SSA)
+uncertainty. \citet{kodros2018size} found that the direct radiative
+forcing (DRF) can vary from $-1.65$ to $-1.34$ W $\rm m^{-2}$ over the
+pan-Arctic region in spring depending on the assumption of internal or
+external mixture. The variation is similar when the assumptions are
+used to calculate DRF at the top of atmosphere
+\citep{ma2012aerosol}. An open questions of these sensitivity studies
+is that no benchmark simulation exists that represents the real mixing
+state, and therefore the importance of mixing state can only be
+assessed based on differences between varied idealized assumptions. By
+applying a detailed particle-resolved benchmark model,
+\citet{Fierce2017} found that simple mixing state assumption can
+result in an artificial redistribution of BC mass between particles
+and lead to errors in absorption. The redistribution was further
+confirmed to be the main source for the discrepancies between the
+simulated and experimentally-determined particle optical properties
+\citep{Fierce2020}.
 
 The goal of this study is to systematically quantify the errors in
 optical properties due to simplified assumptions for mixing state,
 here quantified with the mixing state index $\chi$
-\citet{Riemer2013a}. A similar framework had been used to quantify the
-error in CCN concentration \citep{Ching2017}, showing that CCN error can range from $-40$\% to
-150\% for externally mixed populations when assuming the aerosol was internally mixed, and the error
-depended on supersaturation level and aerosol population mixing state. They found, for a given mixing state and supersaturation level,
-the CCN error was caused by how many particles were artificially activated and unacitvated after mixing state assumptions used. For this work, 
-we want to answer: Given the degree of aerosol mixing state, 
-what is the error in aerosol optical values when assuming internal mixture and what are the reasons?
+\citet{Riemer2013a}. A similar framework was used to quantify the
+error in CCN concentration \citep{Ching2017}, showing that CCN error
+can range from $-40$\% to 150\% when assuming the aerosol was
+internally mixed. The error depended on supersaturation level that CCN
+concentrations were evaluated at, and aerosol mixing state. In this
+chapter, we want to answer: Given the aerosol mixing state, what is
+the error in aerosol optical values when assuming internal mixture and
+what are the reasons?
 
-
-The paper is structured as follows: Model description, scenario design
-and the definition of metrics are given in
-Sect.~\ref{sec:methods}. Section \ref{sec:dry-case} shows the
-relation between the errors in aerosol scattering and absorption and
-mixing state for dry aerosol populations, and section
-\ref{sec:wet-case} further analyzes the errors for the aerosol
-populations at different levels of ambient relative humidity. The
-errors in single scattering albedo and its implications for aerosol
-direct radiative forcing are analyzed in
-Sect. \ref{sec:ssa}. Section \ref{sec:conclusion} summarizes
-the main findings.
+\textcolor{red}{Change ``paper'' and ``section'' to ``Chapter''} The
+paper is structured as follows: Model description, scenario design and
+the definition of metrics are given in
+Sect.~\ref{sec:methods}. Section \ref{sec:dry-case} shows the relation
+between the errors in aerosol scattering and absorption and mixing
+state for dry aerosol populations, and section \ref{sec:wet-case}
+further analyzes the errors for the aerosol populations at different
+levels of ambient relative humidity. The errors in single scattering
+albedo and its implications for aerosol direct radiative forcing are
+analyzed in Sect. \ref{sec:ssa}. Section \ref{sec:conclusion}
+summarizes the main findings.
 
 \section{Model description, scenario libraries and metrics }
 \label{sec:methods}
 \subsection{Particle-resolved model PartMC-MOSAIC}
 The model used to generate the particle populations for this study is
-the particle-resolved model PartMC-MOSAIC, and a comprehensive
-description of the model can be found in \citet{Riemer2009} for PartMC
-and in \citet{Zaveri2008} for MOSAIC. PartMC is a Lagrangian box model
-which tracks the evolution of particles in a fully-mixed computational
+the particle-resolved model PartMC-MOSAIC. A comprehensive description
+of the model can be found in \citet{Riemer2009} for PartMC and in
+\citet{Zaveri2008} for MOSAIC. PartMC is a Lagrangian box model which
+tracks the evolution of particles in a fully-mixed computational
 volume. The processes of emission, coagulation and dilution are
-simulated stochastically \citep{Zaveri2010a, ching2012impacts,
-  tian2014modeling, Fierce2016, curtis2016accelerated,
-  Ching2017}. Gas-phase chemistry and gas-aerosol partitioning are
-incorporated by coupling with the deterministic model
+simulated stochastically. Gas-phase chemistry and gas-aerosol
+partitioning are incorporated by coupling with the deterministic model
 MOSAIC. Specifically, MOSAIC uses the carbon bond based mechanism
 CBM-Z for gas-phase photochemical reactions \citep{zaveri1999new},
 MTEM for calculating electrolyte activity coefficients in aqueous
 inorganic mixtures and MESA for calculating the phase states of the
-particles \citep{zaveri2005computationally}. The secondary organic aerosol (SOA) treatment follows the SORGAM scheme. 
-Aerosol water uptake is calculated using
-Zdanovskii‐Stokes‐Robinson (ZSR) method \citep{Zaveri2008,
-  zdanovskii1948new,stokes1966interactions} based on the composition
-of the inorganic portion of the particles.  By this method, organic
-species are treated as hydrophobic, and do not contribute to water
-uptake. The impact of this assumption on optical properties was
-quantified by \citet{nandy2021water}.
+particles \citep{zaveri2005computationally}. The secondary organic
+aerosol (SOA) treatment follows the SORGAM scheme.  Aerosol water
+uptake is calculated using Zdanovskii‐Stokes‐Robinson (ZSR) method
+\citep{Zaveri2008, zdanovskii1948new,stokes1966interactions} based on
+the composition of the inorganic portion of the particles.  By this
+method, organic species are treated as hydrophobic, and do not
+contribute to water uptake. The impact of this assumption on optical
+properties was quantified by
+\citet{nandy2021water}. \textcolor{red}{If you say this, you need to
+  say briefly what they found!}
 
 \subsection{Scenario library design}
 Following the strategy in \citet{zheng2021estimating} and
@@ -2095,21 +2119,25 @@ particles outside the MOSAIC bin range, especially for the lower
 boundary, and we used an extra bin (bin 0) to preserve the total
 number and mass concentrations.
 
+\textcolor{red}{I think we should always write
+  ``composition-averaging'' (with a dash.}
+
 The changes of two important parameters for aerosol optical properties
 due to composition averaging are illustrated in Fig.~\ref{fig1:scen},
 BC mass fraction and the real part of the refractive index. In the
 reference case, a wide range of BC mass fractions exists within the
 same size bin. After composition averaging, all particles within a
-size bin have the same BC mass fraction.  Since composition averaging
+size bin have the same BC mass fraction.  Since composition-averaging
 preserves the particle diameters, BC and other species are
-redistributed so that all particles within a size bin have the same
+redistributed so that all particles within a size bin obtain the same
 mass fractions. Specifically, if a particle has lower BC mass fraction
 than the average level in the same size bin, BC is added to this
 particle from those with higher BC content. The coating species are
-also redistributed after composition averaging and refractive index
-varies. Hence, comparing optical properties before and after
-composition averaging in the dry population $P_1$ isolates the impact
-of mixing state on aerosol optical properties.
+also redistributed after composition averaging which causes the
+refractive index of the coating to change. Hence, comparing optical
+properties before and after composition averaging in the dry
+population $P_1$ isolates the impact of mixing state on aerosol
+optical properties.
 
 %\textcolor{red}{Should we say something about sensitivity to size
 %  bins? Could we repeat the calculations for 1 bin (complete internal
@@ -2142,7 +2170,7 @@ Section~\ref{sec:wet-case}.
 \caption{Conceptual framework of composition averaging. In the top
   panel, aerosol species and water are shown with different
   colors. Water is in light blue, BC is in black, and other colors are
-  for the other species. The middle and bottom panels are the
+  for the other chemical species. The middle and bottom panels are the
   two-dimensional distributions of BC mass fraction and real part of
   refractive index for a particle population from reference (a,c) and
   sensitivity (b,d) scenario. The plots are colored by number
@@ -2155,20 +2183,22 @@ Section~\ref{sec:wet-case}.
 \label{fig1:scen}
 \end{figure}
 
+\textcolor{red}{I think the red rectangles can be removed.}
 
 \subsection{Mixing state metrics}
 We quantified the optical properties error introduced by simplified
 mixing state representation by using the metrics developed by Riemer
-and West (2013). These metrics include the single-particle diversity
-$D_i$, the average particle species diversity $D_\alpha$ and bulk
-population species diversity $D_\gamma$. For a population with $N$
-particles, total mass $\mu$ and $A$ species, we can calculate those
-metrics from the total mass of particle $i$, $\mu_i$, total mass of
-species $a$ in the population, $\mu^a$, and mass of species $a$ in
-particle $i$, $\mu_i^{a}$, for $i$ = 1, ..., $N$ and $a$ = 1,...,
-$A$. Mass fraction of species $a$ in particle $i$, $p_i^a$, mass
-fraction of particle $i$ in the population, $p_i$ and mass fraction of
-species $a$ in the population, $p^a$ are given by
+and West (2013) \textcolor{red}{citation hardcoded!}. These metrics
+include the single-particle diversity $D_i$, the average particle
+species diversity $D_\alpha$ and bulk population species diversity
+$D_\gamma$. For a population with $N$ particles, total mass $\mu$ and
+$A$ species, we can calculate those metrics from the total mass of
+particle $i$, $\mu_i$, total mass of species $a$ in the population,
+$\mu^a$, and mass of species $a$ in particle $i$, $\mu_i^{a}$, for $i$
+= 1, ..., $N$ and $a$ = 1,..., $A$. Mass fraction of species $a$ in
+particle $i$, $p_i^a$, mass fraction of particle $i$ in the
+population, $p_i$ and mass fraction of species $a$ in the population,
+$p^a$ are given by
 \begin{equation}
 \label{eq:frac}
 \begin{split}
@@ -2214,22 +2244,25 @@ two (surrogate) aerosol species, the maximum value of $D_i$,
 $D_\alpha$ and $D_\gamma$ is 2. For the remainder of the paper, we
 will refer to this index simply as $\chi$.
 
-There were some aerosol populations with unrealistic simulated species concentrations, 
-and we applied upper thresholds which were calculated as the sum of $\rm 75^{th}$ percentile 
-and 1.5 IQR (interquartil range) for each of the aerosol species. 
-At the end, 1809 out of 2500 populations were used for error analysis. 
+Within our ensemble or aerosol populations, some were found with
+higher species concentrations than what would be expected in the
+ambient atmosphere. We applied upper thresholds to eliminate those
+which were calculated as the sum of $\rm 75^{th}$ percentile and 1.5
+IQR (interquartile range) for each of the aerosol species. After this
+procedure, 1809 out of 2500 populations were used for error analysis.
 Figure~\ref{fig2:sce_overview} shows the range of bulk chemical
 species concentrations, mixing state index, and optical properties
-within the selected scenario library. The simulated aerosol bulk species mass
-concentration in the library covered a wide range of urban conditions
-(Fig.\ref{fig2:sce_overview}a), and the values were comparable to the
-measurements in different locations \citep{jimenez2009evolution,lanz2010characterization}. As for the
+within the selected scenario library. The simulated aerosol bulk
+species mass concentration in the library covered a wide range of
+urban conditions (Fig.\ref{fig2:sce_overview}a), and the values were
+comparable to the measurements in different locations
+\citep{jimenez2009evolution,lanz2010characterization}. As for the
 distribution of mixing state, most populations had a mixing state
-index $\chi$ larger than 40\%, with a median value of 85\%.
-The fact that $\chi$ values smaller than 40\% did not occur
-in our scenario library was consistent with the notion that BC rarely
-existed in a completely external mixture. It is frequently co-emitted
-with organic carbon, which form internal mixtures at the time of
+index $\chi$ larger than 40\%, with a median value of 85\%.  The fact
+that $\chi$ values smaller than 40\% did not occur in our scenario
+library was consistent with the notion that BC rarely existed in a
+completely external mixture. It is frequently co-emitted with organic
+carbon, which form internal mixtures at the time of
 emission. Additionally, in urban environments, BC ages quickly,
 forming internal mixtures with secondary species.
 Figure~\ref{fig2:sce_overview}c shows that the single scattering
@@ -2244,8 +2277,8 @@ extremely low (4\%), most populations (72\%) are with SSA larger than
 	\includegraphics[scale=0.5]{chap4_figs/fig3.pdf}
 	\caption{Distribution of (a) bulk species concentration, (b)
           optical mixing state $\chi$ and (c) SSA in the scenario
-          libraries. Error bars in (a) are for $\pm$1 IQR and numbers are the median species
-          concentration.}
+          libraries. Error bars in (a) are for $\pm$1 IQR and numbers
+          are the median species concentration.}
 	\label{fig2:sce_overview}
 \end{figure}
 
@@ -2261,7 +2294,7 @@ effects of chemical species redistribution caused by simplified mixing
 state assumption used in sectional models. Particles were partially or
 fully deliquescent in scenarios $P_2$ and $P_3$, and these populations
 will be further analyzed in Section~\ref{sec:wet-case} to quantify the
-water redistribution effects on aerosol optical properties resulting
+water uptake effects on aerosol optical properties resulting
 from internally mixing hygroscopic and hydrophobic species.
 
 \section{Errors in aerosol absorptivity and scattering for dry particles}
@@ -2339,10 +2372,10 @@ cores (while at the same time decreasing the coating thickness) and
 for other particles it decreases the BC cores sizes (while increasing
 the coating thickness). It is therefore not immediately clear that
 composition-averaging consistently causes overestimation of aerosol
-absorption coefficients. At per-particle scale, 
-for particles of the same diameter, 
-$\sigma_{\rm abs}$ increases with increasing BC core core, even though
-the coating thickness (and hence the absorption enhancement) decreases (Fig.~\ref{fig_sup1}).
+absorption coefficients. At per-particle scale, for particles of the
+same diameter, $\sigma_{\rm abs}$ increases with increasing BC core,
+even though the coating thickness (and hence the absorption
+enhancement) decreases (Fig.~\ref{fig_sup1}).
 
 %It is important to remember that we preserve the particle size when
 %applying composition-averaging. In order to obtain the same species
@@ -2362,14 +2395,19 @@ the coating thickness (and hence the absorption enhancement) decreases (Fig.~\re
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.6]{chap4_figs/fig5.pdf}
-	\caption{Normalized absorption coefficient as a function of BC mass fraction for five
-        monodisperse populations with different sizes. Coating species is ammonium bisulfate of refractive index 1.47.
-        Absorption coefficient values are
-        normalized by $\beta_{\rm abs}$ of the population with $f_{\rm
-          BC} = 1$ (pure BC). Black line is for BC in external
-        mixture. Colored lines are for BC in internal mixture of different sizes. Table on the right
-        sketches three 300~\unit{nm} internal and external populations 
-        with BC mass fraction of 0\%, 50\%, and 100\%. Black is for BC and yellow for coating species.}
+	\caption{Normalized absorption coefficient as a function of BC
+          mass fraction for five monodisperse populations with
+          different sizes. The coating species is ammonium bisulfate
+          with refractive index 1.47. Absorption coefficients are
+          normalized by $\beta_{\rm abs}$ of the population with
+          $f_{\rm BC} = 1$ (pure BC). The black line is for BC in
+          external mixture. Colored lines are for BC in internal
+          mixture of different sizes. Table on the right sketches
+          three 300~\unit{nm} internal and external populations with
+          BC mass fraction of 0\%, 50\%, and 100\%. Black is for BC
+          and yellow for coating species. \textcolor{red}{The figure
+            needs to be rearranged so that it doesn't extend into the
+            margin (Tammy won't accept it)}}
 	\label{fig5:abs-exp}
 \end{figure}
 
@@ -2394,37 +2432,43 @@ Fig.\ref{fig1:scen} shows, there are two major groups of particles in
 the population: Group 1 are particles with higher BC mass fraction,
 and group 2 are particles with lower BC mass. Particles in group 1
 experience decreased absorbing ability because they are losing BC, and
-it's opposite for particles in Group 2.
+vice versa for particles in Group 2.
 
-To further illustrate the effects at population level, we showed the effects of
-composition-averaging on the volume absorption coefficient for a
-simplified case of five monodisperse populations of different sizes, starting out with
-completely externally mixed populations 
-consisting of BC and ammonium bisulfate (Fig.\ref{fig5:abs-exp}). Absorption coefficients are normalized by
-the absorption coefficient for $f_{\rm BC} = 1$ (pure BC). The black line shows the
-normalized volume absorption coefficient for populations when all
-particles are externally mixed for bulk BC mass fractions $f_{\rm BC}$
-varying between 0 and 100\%. For external mixtures, absorption increases linearly with increasing BC
-mass fraction (black line). The linear correlation applies for all the five external mixed populations with
-different diameters, so we can only see one black line in the figure. 
+To further illustrate the effects at the population level, we show the
+effects of composition-averaging on the volume absorption coefficient
+for a simplified case of five monodisperse populations of different
+sizes, starting out with completely externally mixed populations
+consisting of BC and ammonium bisulfate
+(Fig.\ref{fig5:abs-exp}). Absorption coefficients are normalized by
+the absorption coefficient for $f_{\rm BC} = 1$ (pure BC). The black
+line shows the normalized volume absorption coefficient for
+populations when all particles are externally mixed for bulk BC mass
+fractions $f_{\rm BC}$ varying between 0 and 100\%. For external
+mixtures, absorption increases linearly with increasing BC mass
+fraction (black line). The linear relationship applies for all five
+externally-mixed populations with different diameters, so we can only
+see one black line in the figure.
 
 The colored lines represent the internally-mixed monodisperse
 populations (i.e., after composition-averaging) for different
 diameters. These populations all have higher absorption coefficients
 compared to the corresponding externally mixed populations. The effect
 is more pronounced for larger particles and intermediate BC mass
-fractions because of the maximum $\Delta_{\rm core}$ is reached. As the table (Fig.\ref{fig5:abs-exp})shows,
-for a 300~\unit{nm} population, the normalized absorption is 0.76 when the particles are internally mixed, higher 
-than an external mixed population (0.5). Although this example is an idealized case since our our populations
-lie between external and internal mixtures before
-composition-averaging and are polydisperse, this finding confirms that
-assuming internal mixture will always lead to absorption
-overestimation.
+fractions because of the maximum $\Delta_{\rm core}$ is reached. As
+the table (Fig.\ref{fig5:abs-exp})shows, for a 300~\unit{nm}
+population, the normalized absorption is 0.76 when the particles are
+internally mixed, higher than an external mixed population
+(0.5). Although this example is an idealized case since our
+populations lie between external and internal mixtures before
+composition-averaging and are polydisperse, this illustrates that
+assuming internal mixture will lead to absorption overestimation.
 
-The current analysis was based on the populations of the same sizes. Actually, even in the
-same size bins, diameters can vary up to several hundred manometers. Cases with 
-BC redistribution between particles of different sizes were further explored in  
-Fig.~\ref{fig_sup2}. We found internal mixture assumption will still lead to positive biases. 
+The current analysis was based on particles of the same sizes. Hoever,
+even in the same size bins, diameters can vary up to several hundred
+nanometers. Cases with BC redistribution between particles of
+different sizes were further explored in Fig.~\ref{fig_sup2} and
+confirmed that the internal mixture assumption will still lead to
+positive biases.
 
 %The process of composition-averaging is more complicated since the
 %particles within a bin are not monodisperse. BC mass is commonly
@@ -2472,7 +2516,7 @@ resulted in a negative relative error
 $\epsilon(\beta_{\rm abs}$), the magnitudes of $\epsilon(\beta_{\rm
   scat})$ decreased with increasing $\chi$, but were overall smaller,
 with the largest underestimation of $-$32\% for a population with
-$\chi$ = 40\% and a median of $-$1.2\%. 
+$\chi$ = 40\% and a median of $-$1.2\%.
 
 \begin{figure}
 	\centering
@@ -2484,15 +2528,31 @@ $\chi$ = 40\% and a median of $-$1.2\%.
 	\label{fig6:scat-err}
 \end{figure}
 
-There are two factors that can affect particle scattering ability after 
-composition-averaging. First, the redistribution of species after composition-averaging 
-alters particle scattering volume. In previous section, we already concluded 
-that increases in core size were responsible for the overestimation of absorption coefficients.
-The increase of core size implied the shrink of the coating volumes. As Fig.~\ref{fig8:scat-exp}(a) shows, 
-adding BC core can compress the scattering ability for particles with diameters less than 1200~\unit{nm}, which 
-are the typical size ranges of our simulated urban plume particles. That can explain the higher scattering underestimation
-is associated with higher mass concentration in Fig.~\ref{fig6:scat-err}. To further explore the effects of coating volume shrink, Fig.~\ref{fig8:scat-exp}(b) shows the size-resolved scattering coefficients before and after composition-averaging for aerosol populations from scenario 77 at 2h, which produced the largest scattering coefficients underestimation ($-$32\%). We found there is significant decrease of $\sigma_{\rm scat}$ in size range of 400--800~\unit{nm} 
-in the sensitivity populations, and the core ratio increment in bin 4 is responsible for this decrease (Fig.~\ref{fig_sup3}). 
+There are two factors that can affect particle scattering ability
+after composition-averaging, the change of the BC core size and
+corresponding change in coating thicknesses, and the change in the
+refractive index of the coating. As Fig.~\ref{fig8:scat-exp}(a) shows,
+adding a BC core decreases the scattering ability for particles with
+diameters less than 1200~\unit{nm}, which are the typical size ranges
+considered in our study. This explains the larger scattering
+underestimation with higher BC mass concentration in
+Fig.~\ref{fig6:scat-err}.
+
+\textcolor{red}{in Figure 4.6.b, this is the overall result, we cannot
+  say that the decrease comes from changes in BC core or changes in
+  coating ref. index, correct?}
+
+To further explore the effects of coating
+volume shrink, Fig.~\ref{fig8:scat-exp}(b) shows the size-resolved
+scattering coefficients before and after composition-averaging for
+aerosol populations from scenario 77 at 2h, which produced the largest
+scattering coefficients underestimation ($-$32\%). We found there is
+significant decrease of $\sigma_{\rm scat}$ in size range of
+400--800~\unit{nm} in the sensitivity populations, and the core ratio
+increment in bin 4 is responsible for this decrease
+(Fig.~\ref{fig_sup3}).
+
+\textcolor{red}{I can't seem to find a point at -32\% in Fig. 4.5?}
 
 \begin{figure}
 	\centering
@@ -2506,15 +2566,35 @@ in the sensitivity populations, and the core ratio increment in bin 4 is respons
 	\label{fig8:scat-exp}
 \end{figure}
 
-The change of refractive index is the other factor that affects particle scattering ability. For particles with diameter between 800 and 1200~\unit{nm}, lower refractive index leads to higher scattering ability (Fig.~\ref{fig8:scat-exp}(a)), even though the amplitude is smaller than the change brought by coating volume shrink. Similar to BC core size change $\Delta D^{\rm core}$, we defined a volume-weighted index change, $\Delta{m^{\rm real}}$, to help understand the behaviour of particle scattering ability changes. The index was defined as:
+The change of refractive index is the other factor that affects
+particle scattering. For particles with diameter between 800 and
+1200~\unit{nm}, lower refractive index leads to higher scattering
+ability (Fig.~\ref{fig8:scat-exp}(a)), even though the amplitude is
+smaller than the change brought by adding a BC core. Similar to the BC
+core size change $\Delta D^{\rm core}$, we defined a volume-weighted
+refractive index change, $\Delta{m^{\rm real}}$, to help understand
+the changes in particle scattering ability. The index change is
+defined as:
 \begin{equation}
     \displaystyle \Delta{m^{\rm real}}=\frac{\sum_{i=1}^{N} V_i {m^{\rm real}}' - \sum_{i=1}^{N} V_i {m^{\rm real}}}{\sum_{i=1}^{N} V_i {m^{\rm real}}},
 \end{equation}
-where $i$ is the particle index, $V_i$ is the particle volume, 
-${m^{\rm real}}$ is the real part of coating refractive index of the particles in reference library,
-, and ${m^{\rm real}}'$ is for particles sensitivity library. As shown in Fig.~\ref{fig6:scat-err}, aerosol populations with small scattering change are well explained by the small $\Delta{m^{\rm real}}$. For more external mixed populations (with lower $\chi$), large $\Delta{m^{\rm real}}$ is associated with these populations.
+where $i$ is the particle index, $V_i$ is the particle volume,
+${m^{\rm real}}$ is the real part of the coating refractive index of
+the particles in the reference library, and ${m^{\rm real}}'$ is for
+particles in the sensitivity library. As shown in
+Fig.~\ref{fig6:scat-err}, aerosol populations with small errors in
+scattering tend to be associated with small $\Delta{m^{\rm
+    real}}$. For more externally-mixed populations (with lower
+$\chi$), $\Delta{m^{\rm real}}$ tended to be larger.
 
-So, as for the effects of composition-averaging for particle scattering ability, we can conclude that at a given value of $\chi$, the amplitude of $\epsilon(\beta_{\rm scat})$ were connected with the coating volume alteration and coating refractive index changes. Decrease of coating volume after composition-averaging is the major factor for the decrease of scattering coefficients. Populations with large underestimation are those with higher BC mass concentration and large refractive index changes.  
+For the effects of composition-averaging for particle scattering, we
+conclude that at a given value of $\chi$, the magnitude of
+$\epsilon(\beta_{\rm scat})$ was determined by the change in
+core/coating volumes and by changes in the coating refractive
+index. The inccrease of BC core sizes after composition-averaging is
+the major factor for the decrease of the scattering
+coefficients. Populations with large underestimation are those with
+higher BC mass concentrations and large refractive index changes.
 
 \section{The effects of water uptake on aerosol optical properties}
 \label{sec:wet-case}
