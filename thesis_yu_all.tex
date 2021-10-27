@@ -107,12 +107,55 @@ Dr. Matt Dawson\\}
 \frontmatter
 
 \begin{abstract}
-Aerosol particles exert substantial radiative effects on Earth's climate directly by scattering and absorbing incoming solar radiation, and indirectly by interaction with clouds. These climate effects rely on particle size distribution and chemical components, and these properties alter as particles evolve in the air. As an important aging process, cloud processing can change particles through cloud chemistry and in-cloud coagulation. Cloud processes are highly affected by per-particle properties, through determining which particle can be activated and what are the important reactions are involved for each particle with different acidity. It is hard for global or regional models with simplified aerosol representations to accurately capture these processes. 
+Aerosol particles exert substantial radiative effects on the Earth's
+climate directly by scattering and absorbing incoming solar radiation,
+and indirectly by interacting with clouds. These climate effects
+depend on particle size distributions and chemical composition, and
+these properties evolve as particles are transported in the
+atmosphere. As an important aging process, cloud processing can change
+particle size and composition through cloud chemistry and in-cloud
+coagulation. Cloud processes are highly affected by per-particle
+properties, through determining which particles can be activated and
+which reactions occur for each particle depending on its acidity. It
+is challenging for global or regional models with simplified aerosol
+representations to accurately capture these processes.
 
-For the first part of the thesis is to (1) quantify the changes of aerosol mixing state and microphysical properties after cloud processing (2) quantify the role of coagulation between the interstitial particles and cloud droplets for mixing state of the aerosol. By coupling an aqueous chemistry mechanism to particle-resolved model PartMC-MOSAIC, the new model was able to answer these questions by tracking the evolution of compositions and sizes of individual aerosol particles in the cloud without averaging their composition within size bins or modes. I found aqueous-phase chemistry processes cause aerosol populations to be more internally mixed, and CCN concentration increases substantially after cloud processing for supersaturation levels lower than the maximum cloud supersaturation. I also found coagulation within clouds has a negligible impact on aerosol mixing state.
+The aim of the first part of this thesis is to (1) quantify the
+changes of aerosol mixing state and microphysical properties after
+cloud processing (2) quantify the role of coagulation between the
+interstitial particles and cloud droplets for mixing state of the
+aerosol. By coupling an aqueous chemistry mechanism to
+particle-resolved model PartMC-MOSAIC, the new model was able to track
+the evolution of compositions and sizes of individual aerosol
+particles in the cloud without averaging their composition within size
+bins or modes. Aqueous-phase chemistry processes cause aerosol
+populations to be more internally mixed, and CCN concentrations
+increase substantially after cloud processing for supersaturation
+levels lower than the maximum cloud supersaturation. I also found
+coagulation within clouds has a negligible impact on aerosol mixing
+state.
 
-The aim of the second part of the thesis is to systematically quantify the impact of aerosol mixing state on aerosol optical properties and the role of RH. I created a base scenarios with aerosol populations of a wide range of mixing state by running particle-resolved model PartMC-MOSAIC, and the error was quantified by comparing with another sensitivity scenario with the same number and mass size distributions as the base scenarios but with averaged aerosol composition in prescribed size bins. I found particle absorption ability was universally overestimated after using internal mixture assumption in the same size bins, and it can reach up to 70\% for external mixed populations. The error was much smaller for scattering, with a median of $--$1.2\% scattering coefficients underestimation. I also found the RH has insignificant effects on these errors. 
+The aim of the second part of the thesis is to systematically quantify
+the impact of aerosol mixing state on aerosol optical properties and
+the role of RH. I created a reference scenario library with aerosol
+populations of a wide range of mixing states using the
+particle-resolved model PartMC-MOSAIC. The impact of aerosol mixing
+state on optical properties was quantified by comparing the reference
+populations to populations with the same number and mass size
+distributions but with averaged aerosol composition in prescribed size
+bins. Particle absorption coefficients were universally overestimated
+after using internal mixture assumptions, with the overestimation
+reaching up to 70\% for more externally-mixed populations. The error
+was smaller for particle scattering, with a median of $--$1.2\%
+scattering coefficients underestimation. The relative humidity
+(associated and aerosol water uptake) only has a small impact on the
+magnitude of these errors.
 
+\textcolor{red}{given that you quote 70\% error for absorption (which
+  I think is good), I would not quote the median error for
+  scattering. I also would quote ``up to xx'' for scattering. I would
+  also add something about SSA. And the minus sign is just $-$, not
+  $--$!}
 \end{abstract}
 
 \begin{dedication}
