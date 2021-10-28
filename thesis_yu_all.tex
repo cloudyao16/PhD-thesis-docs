@@ -146,7 +146,7 @@ distributions but with averaged aerosol composition in prescribed size
 bins. Particle absorption coefficients were universally overestimated
 after using internal mixture assumptions, with the overestimation
 reaching up to 70\% for more externally-mixed populations. The error
-was smaller for particle scattering, with a median of $--$1.2\%
+was smaller for particle scattering, with a median of $-$1.2\%
 scattering coefficients underestimation. The relative humidity
 (associated and aerosol water uptake) only has a small impact on the
 magnitude of these errors.
@@ -268,7 +268,7 @@ Aqueous environment provides an efficient medium for sulfate formation. Globally
 %Reaction rates of aqueous processes rely on cloud properties and the importance of different pathways differs at various cloud types.  \citet{straub2007chemical}, analyzing the marine stratocumulus cloud samples collected over eastern Pacific Ocean during DYCOMS-II field campaign, found $\rm SO_2$ oxidized by $\rm H_2O_2$ is the dominant reaction for sulfate production.
 Recently, more emphasis transfers to the role of aqueous reactions for SOA formation. Globally, SOA produced from aqueous pathway can reach to 20--30 Tg·$\rm yr^{-1}$. Glyoxal, methylglyoxal, glycolaldehyde and acetic acid can act as the precursors for aqueous SOA \citep{liu2012global}. As for the oxidants, besides hydroxyl radical, which is the dominant oxidant for SOA formation at gas phase, aqueous environment can provide several other efficient oxidants, such as peroxyl radicals, peroxides and triplet excited states of organic compounds ($^{3}\textrm{C}^*$) \citep{mcneill2015aqueous, ervens2011secondary}. Using simulated sunlight UV, \citet{smith2014secondary} found phenols can be rapidly oxidized by $^{3}\textrm{C}^*$ to produce low-volatility SOA . 
 
-Aerosol size distribution evolves after the formation of aqueous inorgaincs and organics. Hoppel minima, which describes the CCN concentration gap between two particle distribution modes peak at 0.02--0.03 and 0.08-0.15~$\rm \mu m$ respectively,  was found by \citet{hoppel1986effect} when analyzing the particles processed by nonprecipitation clouds. This phenomena has further been observed for the particles at different region, such as VOCALS campaign over west Chilean coast at Arica and MASE experiment over central California coast \citep{kleinman2012aerosol, hudson2015cloud}. Besides the aqueous aerosol formation, particle size distribution also changes due to coagulation between interstitial particles and cloud droplets. \citet{pierce2015importance} found this process can reduce total particle number concentration by 10--15\% globally. 
+Aerosol size distribution evolves after the formation of aqueous inorgaincs and organics. Hoppel minima, which describes the CCN concentration gap between two particle distribution modes peak at 0.02--0.03 and 0.08-0.15~$\rm \mu m$ respectively,  was found by \citet{Hoppel1986} when analyzing the particles processed by nonprecipitation clouds. This phenomena has further been observed for the particles at different region, such as VOCALS campaign over west Chilean coast at Arica and MASE experiment over central California coast \citep{kleinman2012aerosol, hudson2015cloud}. Besides the aqueous aerosol formation, particle size distribution also changes due to coagulation between interstitial particles and cloud droplets. \citet{pierce2015importance} found this process can reduce total particle number concentration by 10--15\% globally. 
 
 Evolution of mixing state affects aerosol climate-related properties. \citet{Ching2016} found, for those already aged BC-contained particles, increased BC emission can result in more cloud droplet number concentrations. Optical Aerosol optical properties are altered as mixing state evolves, especially for BC-contained particles. The enhancement of optical absorption abilities of BC-contained particles due to the surrounding coatings are widely confirmed by models and laboratory \citep{Moffet2009,Liu2017,wu2020light,Fierce2020}.
 
@@ -348,14 +348,11 @@ Chapter 5 summaries the main findings of these works and implications for resolv
 %%%%%%%%%Chapter 2%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Particle-resolved modeling of aqueous-phase chemistry}
-
+\label{chap2}
 This chapter presented the application of PartMC as a particle-resolved aqueous-phase chemistry model. In this work, I first described PartMC-MOSAIC model, and the coupled cloud parcel and aqueous chemistry module. Then, I evaluated the coupled model by comparing with other size-resolved and bulk cloud chemistry models. Furthermore, I designed ensemble scenarios to investigate the efficiency of different aqueous sulfate formation pathways. Another group of ensemble scenarios are conducted by adding transition metal ions (TMI) in the population to determine the efficiency of sulfur oxidation reactions catalyzed by TMI. 
 
-\label{chap2:mon}
-%%% Suggested section heads:
 \section{Introduction}
-
-Clouds cover around 70$\%$ of the earth \citep{Stubenrauch2013}. The coexistence of species multi-phases in the cloud provides a favorite medium for the interactions between different phases \citep{Deguillaume2005}. Gas can transfer to the liquid droplets through thermodynamic processes and undergoes heterogeneous chemistry, which in return affect the particle activation potentials \citep{Farmer2015, Henning2014}. Oxidation of dissolved gases in the aqueous phase can contribute to a large fraction of particle species, especially for the secondary inorganic and organic species. Globally, over 50\% of sulfate are produced through aqueous reactions \citep{Philip2014, Roth2016}. The goal of this work is to investigate the roles of different aqueous sulfate formation pathways. 
+Clouds cover around 70$\%$ of the earth \citep{stubenrauch2013assessment}. The coexistence of species multi-phases in the cloud provides a favorite medium for the interactions between different phases \citep{Deguillaume2005}. Gas can transfer to the liquid droplets through thermodynamic processes and undergoes heterogeneous chemistry, which in return affect the particle activation potentials \citep{Farmer2015, Henning2014}. Oxidation of dissolved gases in the aqueous phase can contribute to a large fraction of particle species, especially for the secondary inorganic and organic species. Globally, over 50\% of sulfate are produced through aqueous reactions \citep{Philip2014, Roth2016}. The goal of this work is to investigate the roles of different aqueous sulfate formation pathways. 
 
 Particles with different composition and size experience different net effects from aqueous chemical processing. First, per-particle properties affect cloud processes by determining which particle can be activated as cloud droplets. The activation potential of particles is determined by its size and compositions, and CCN closure studies indicated the simplified assumptions of particle mixture in the population can lead to simulated CCN concentration bias \citep{Broekhuizen2006, Bhattu2015}. Second, particle diversity affects aqueous reaction rates. Aqueous sulfate formation reactions are highly pH-dependent, and the reaction rates for particles with different acidity can vary in several orders. For example, transition metal ions (TMI), including Fe and Mn ions, which are mostly originated from mineral dust \citep{alexander2009transition}, can catalyze aqueous sulfate oxidation reactions. The related pathways can become dominant when pH is larger than 6.0 \citep{Seinfeld2006a}. It had been proved that at some cloud events, $\rm SO_2$ oxidation reactions catalyzed by coarse mineral dust TMI can be more efficient than $\rm H_2O_2$ pathway \citep{Harris2013a, Harris2014}. 
 
@@ -2880,8 +2877,61 @@ particles for reducing the uncertainties in direct radiative forcing.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%Chapter 5%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \chapter{Conclusions}
+\label{chap5}
+\section{Work summary}
+This dissertation describes the work to improve the understanding of aerosol aging processes in clouds and quantify the role of aerosol mixing state in determining its scattering and absorbing abilities. The key questions this work is going to answer are: (1) To what extent does cloud
+processing change the aerosol mixing state of the population that entered the cloud, and what is the role of coagulation between the
+interstitial particles and cloud droplets for mixing state of the aerosol? (2) Given the degree of the aerosol population mixing state, 
+what are the errors in aerosol optical values introduced by internal mixture assumption and what are the causes? 
+
+In answering the first question, I designed cloud simulations by using the newly developed particle-resolved aqueous chemistry model. It is a zero-dimensional adiabatic cloud parcel model with comprehensive aqueous reactions. The model was evaluated by comparing with other state-of-art aerosol models and was proved to be capable of capturing the complex aqueous sulfate reactions (Chapter~\ref{chap2}). I quantified aerosol mixing state changes after aqueous chemistry processes and generalized the findings by using aerosol populations from different urban environment. I also evaluated the role of coagulation between interstitial particles and cloud droplets for aerosol mixing state (Chapter~\ref{chap3}). 
+
+For the second question, I developed a framework to quantify the error in aerosol optical values introduced by simplified aerosol representation (Chapter~\ref{chap4}). I created an an reference aerosol population ensemble with a wide variety of aerosol mixing state by running particle-resolved models. I quantified the errors by creating another sensitivity scenario with aerosol populations of internal mixture assumptions in prescribed size bins, which was accomplished by employing composition-averaging strategy. I developed several metrics to explain the errors. I further explored the impact of water update on the optical value errors by exposing these populations at different RH levels.
+
+\section{Contributions}
+{\bf Quantifying cloud processing effects on aerosol properties.} With the newly coupled particle-resolved aqueous chemistry model, I quantified the 
+changes of aerosol properties after cloud processing at per-particle scale. I found for aerosol populations dominated by fresh emissions, adding secondary species produced from aqueous chemistry increased the particle diversity. But whether the overall population became more or less internally mixed depends on the relative changes average particle diversity ($D_{\alpha}$) and bulk aerosol diversity ($D_{\gamma}$), which determines aerosol mixing state metrics $\chi$. For most of the cases, aqueous chemistry processes resulted in a more interlly-mixed populations, as showed in Fig.~\ref{chap5-fig1}. More cloud cycles further made the populations more internally mixed, but a completely internal mixture was not achieved under current simulation cases. The change in mixing state due to cloud processing depended also on the fraction of particles that formed cloud droplets. In high-emission case, less than 23\% of particles are activated and the mixing state $\chi$ did not reach 90\%. For low-emission case, the activated particle portion can reach to 20\%--75\% and $\chi$ can be over 90\% after cloud processing. I also found, after cloud processing, CCN concentration increased substantially for supersaturation levels lower than the maximum cloud supersaturation. For an aged aerosol population, CCN concentration at supersaturation level 0.02\% increased from 30 to 547 ~\unit{cm^{-3}}. I also proved that coagulation within clouds had a negligible impact on aerosol mixing state. 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.43]{chap5_figs/chap5-fig1.pdf}
+    \caption{Evolution of bulk mixing state
+      $\chi$ ($\%$) at the beginning of cloud cycle 1 and after each
+      of the four cloud cycles.}
+    \label{chap5-fig1}
+\end{figure}
+
+{\bf Systematically quantifying the error in aerosol optical properties.} I quantified the errors introduced by internal mixture assumption used in sectional aerosol models. I found size-resolved aerosol representation generally led to an overestimation of volume absorption coefficients and an underestimation of the volume scattering coefficients, and the errors were larger for externally mixed populations. For absorption, the relative error can reach to +70\% at dry environment and the magnitude was smaller for the scattering error. The amplitude was comparabel to what \citet{Ching2017} found for CCN error, as shown in Fig~\ref{chap5-fig2}. I identified that the increased BC core after composition-averaging was responsible for absorption errors, and it was the coating volume shrink resulting in the scattering coefficients underestimation. I showed RH had little effects in changing the optical value errors brought by internal mixture assumption. 
+
+\begin{figure}[H]
+    %\centering
+    \includegraphics[scale=0.35]{chap5_figs/chap5-fig2.pdf}
+    \caption{Relative error in (a) CCN concentration at supersaturation levels between 0.05\% to 1\%, (b) absorption coefficients and (c) scattering coefficients. (a) is adapted from \citet{Ching2017}. Check Fig.~\ref{fig3:abs-error} and Fig.~\ref{fig6:scat-err} in Chapter~\ref{chap4} for figure (b) and (c) details}
+    \label{chap5-fig2}
+\end{figure}
+
+\section{Future work suggestions}
+{\bf Sensitivity of aqueous sulfate formation to per-particle properties.} I proved the capability of the particle-resolved aqueous chemistry approach 
+to simulate the complex aqueous sulfate reaction systems. Since aqueous sulfate formation is very sensitive to particle acidity, particles with different acidity will experience different sulfate growth rates. So, the work should be further extended to quantify the errors if per-particle properties are not considered. Also, I currently figured out the sulfate formation catelyzed by TMI can be important. But I did not know at which environment this pathway can be efficient. More simulations with varied conditions can be conducted to generalized the cases with efficient TMI-catalyzed sulfate formation. 
+
+{\bf Considering the absorption of organic carbons.} In current work, I did
+  not consider the absorbing abilities of organic carbons, and several
+  studies had lately been conducted to constrain the imaginary index
+  values of brown carbon \citep{liu2020lifecycle}. \citet{Esteve2014}
+has showed the index of organic aerosols are the biggest uncertainties
+in quantifying aerosol absorbing abilities. In the fu
+
+{\bf More accurate representations for BC-contained particles.} Currently, I used refractive index value 1.82 + 0.74$i$ for BC, which is
+close to the medium index suggested by \citet{stier2007aerosol}, but it can vary among different measurements.  Another important factor for ca I used Mie theory with core-shell configuration 
+to calculate optical properties assuming spherical particle shapes. Our results are therefore most representative of
+BC-containing populations, where the BC core is collapsed rather than
+a fractal aggregate \citep{china2013morphology, china2015morphology}. More accurate methods, such as
+discrete dipole approximation (DDA) should be used to represent these
+more irregular particle shapes \citep{scarnato2013effects,curtis2008laboratory,luo2019optical, wu2020light}
+
+{\bf The importance of mixing state representation for dust and sea salt aerosols in determining its radiative abilities.}In current aerosol populations, I focused on fine mode particles over urban regions. Sea salt and dust particles were not included when creating the scenario library populations. Considering the large coverage of ocean and desert, it should also be important to include these particles for reducing the uncertainties in direct radiative forcing.
 
 \appendix
 % Reset the algorithm counter
