@@ -40,7 +40,7 @@
 \usepackage{threeparttablex}
 \usepackage{longtable}
 \usetikzlibrary{shapes,arrows,chains}
-\newcommand{\edits}[1]{{\color{blue} #1}}
+%\newcommand{\edits}[1]{{\color{blue} #1}}
 
 %
 \renewcommand{\topfraction}{0.9}	% max fraction of floats at top
@@ -163,11 +163,11 @@ To my family
 I would like to express my sincere gratitude to my advisor, Prof.\ Nicole Riemer, 
 for her patience and continuous support during my Ph.D journey. She has been encouraging and has allowed me the flexibility to finish the tasks at my  own pace. I learned a lot from her insightful discussion about the research during our weekly individual meeting in the past five years. She is energetic about the research, i.e. the tiny aerosol particles, and I hope one day I could be as enthusiastic as her. I am also thankful to my doctoral committee members, Prof.\ Sonia Lasher-Trapp, Prof.\ Matthew West, and Dr.\ Matt Dawson for their instructions on cloud physics, numerical computing, and cloud chemistry.  
 
-I am lucky to join the Department of atmospheric science family in UIUC. I met lots of new friends and I will miss the spring picnic, fall picnic and Christmas party hold by DASSO. I would also like to thank my current and previous PartMC group members. Special thanks to Jeff Curtis for his coding helps and Joseph Ching for his thoughtful ideas. 
+I am lucky to join the department of atmospheric science family in UIUC. I met lots of friends and I will miss the spring picnic, fall picnic and Christmas party hold by DASSO. I would also like to thank my current and previous PartMC group members. Special thanks to Jeff Curtis for his coding helps and Joseph Ching for his thoughtful ideas. 
 
-I am also thankful to my friends for providing the friendship and I will miss the joyful times we spent together in different trips. I also want to express my special thanks to Shiya Liu, Beixi Jia, Shan Huang, Qing Zhang for lots of interesting and meaningful discussions about social issues.
+I am also thankful to my friends for providing the friendship, especially my roommates Chuan-chieh Chang, Tsu-shun Lin, and Chun-yu Yao. I will miss the joyful times we spent together in different trips. I also thank Saturday Bookclub members for reading and sharing some wonderful books together. I want to express my special thanks to Shiya Liu, Beixi Jia, Shan Huang, and Qing Zhang for lots of interesting and meaningful discussions about social issues. 
 
-Lastly, I especially thank my mom, dad and brother. Thanks for their understanding and unconditional love they provided, especially during the unusual past two years.
+Lastly, I especially thank my mom, dad and brother. Thanks for their understanding and unconditional love, especially during the unusual past two years.
 
 I acknowledge the funding from National Science Foundation under CAREER grant AGS-1254428. 
 
@@ -444,7 +444,7 @@ extremes.
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.60]{chap1_figs/thesis_chap1_fig3.pdf}
+	\includegraphics[scale=0.55]{chap1_figs/thesis_chap1_fig3.pdf}
 	\caption{Aerosol mixing state effects on (a) activation
           ability and (b) optical values. (a) is adapted from
           \cite{Riemer2019}.}
@@ -830,7 +830,7 @@ used and the acidity, which is an important factor for aqueous
 chemistry, are fixed at constant value. For example, GEOS-Chem used a
 pH of 4.5 for $\rm SO_2$ oxidation reaction by $\rm
 O_3$\citep{park2004natural}. Furthermore, assumptions need to be made
-to considering the distribution of species produced from aqueous
+to consider the distribution of species produced from aqueous
 reactions. For example, in CMAQ, all the non-volatile aqueous-formed
 species are added to accumulation mode after cloud dissipates
 \citep{binkowski2003models, fahey2017framework}.
@@ -953,7 +953,7 @@ effects from aqueous-phase chemical processing. First, particle size
 and composition determine which particles can be activated and form
 cloud droplets. Second, some aqueous-phase sulfate formation reactions
 are highly pH-dependent, and the reaction rates for particles with
-different acidity can vary by several orders or magnitude. For
+different acidity can vary by several orders in magnitude. For
 example, transition metal ions (TMI), including Fe and Mn ions, which
 mostly originate from mineral dust \citep{alexander2009transition},
 catalyze aqueous sulfate oxidation reactions. The related pathways
@@ -966,7 +966,7 @@ can be more efficient than the oxidation by $\rm H_2O_2$
 Despite the potential importance of particle heterogeneity in
 aqueous-phase chemistry, most regional or global models use simplified
 assumptions to simulate aqueous processes. The global chemistry
-transport model GEOS-Chem usesless than 10 dissolved species calculate
+transport model GEOS-Chem uses less than 10 dissolved species calculate
 acidity \citep{alexander2012isotopic}. The regional chemical transport
 model CMAQ tracks cloud chemistry processes for three lognormal modes,
 neglecting the heterogeneity within each mode
@@ -979,7 +979,7 @@ used as a cloud parcel model to investigate the impact of aerosol
 mixing state on cloud droplet formation \citep{ching2012impacts,
   Ching2016}. However, the model did not have the capability to
 simulate aerosol aging due to aqueous-phase chemistry within
-clouds. This is the focus of this thesis.
+clouds. This is the focus of this chapter.
 
 The remainder of this chapter is structured as
 follows. Chapter~\ref{chap2.2} describes the PartMC modeling framework
@@ -1020,7 +1020,7 @@ Interactions and Chemistry) is a Lagrangian box model which simulates
 the evolution of individual computational particles in the ambient
 atmosphere. The evolution is simulated assuming a well-mixed
 computational volume and the particles' spatial positions are not
-stored. The composition of each particle are tracked by representing
+stored. The composition of each particle is tracked by representing
 the particle as an $A$-dimension vector $\vec{\mu}^i \in \mathbb{R}^A$
 with components ($\vec{\mu}_1^i,\vec{\mu}_2^i,...,\vec{\mu}_A^i$),
 where $\vec{\mu}_a^i$ is the mass of species $a$ in particle $i$, with
@@ -1188,7 +1188,7 @@ OH, $\rm HO_2$, $\rm NO_3$, $\rm SO_4$, $\rm Cl_2$,$\rm Br_2$ and $\rm
 CO_3$ with inorganic (TMI, $\rm NO_3^-$ , $\rm Cl^-$, $\rm Br^-$) and
 organic reactants with less than two atoms. The constants for
 thermodynamic and kinetic reactions are listed in
-Table~\ref{tab:capram}. 
+Table~\ref{tab:capram} in the appendix. 
 
 When coupling CAPRAM with PartMC, the original gas phase chemistry
 mechanism, regional atmospheric chemistry modeling (RACM), used in
@@ -1229,7 +1229,7 @@ reactions are all set to the same with values used in KS2003, as
 listed in table~\ref{setting}. An important structural difference
 between the models used in KS2003 and the PartMC cloud parcel model is
 that in KS2003, a constant updraft velocity was prescribed. In
-contrast, in PartMCC as mentioned before, we predefined the
+contrast, in PartMC, as mentioned before, we predefined the
 temperature lapse rate. In order to simulate effectively the same
 updraft velocity, we obtained the temperature and pressure values of
 constant updraft velocity at 0.5 m/s from the pyrcel model, a
@@ -1320,7 +1320,7 @@ expected dependence of sulfate formation rates on pH and on the
 presence of TMI.
 
 The reference scenario ensemble exposed the monodisperse aerosol
-populations to different initial conditions denoted as $P_{\rm
+populations to different initial conditions, denoted as $P_{\rm
   ref}$. The initial particle size was 100 \unit{nm}, composed of
 ammonium sulfate. Emission of particle and gases and dilution with
 background air were not included. The initial mixing ratios of $\rm
@@ -1333,7 +1333,7 @@ sulfate formation.  Ammonia also plays an important role in aqueous
 sulfate formation by changing the droplet pH. The range of mixing
 ratios for the different gas phase species are consistent with
 observations in the ambient atmosphere. The $\rm O_3$ and $\rm SO_2$
-values were based on the national wide urban measurements in China
+values were based on the national-wide urban measurements in China
 \citep{wang2014spatial}, and $\rm NH_3$ levels were determined from
 the observations of Houston, U.S. \citep{nowak2010airborne} and Seoul,
 Korea \citep{phan2013analysis}. The values for $\rm H_2O_2$ were based
@@ -1426,7 +1426,7 @@ underlying mechanism.
 %phase and it changes with time.
 
 \begin{figure}[ht]
-    \centering \includegraphics[scale=0.6]{chap2_figs/chap2_fig2_mono_ensemble.pdf}
+    \centering \includegraphics[scale=0.55]{chap2_figs/chap2_fig2_mono_ensemble.pdf}
     \caption{Sulfate time series categorized by five different
       settings in $P_{\rm ref}$: (a) initial $\rm NH_3(g)$ mixing
       ratio, (b) temperature lapse rate, (c) initial $\rm H_2O_2(g)$
@@ -1482,7 +1482,7 @@ SO_2(g)$-limited cases and less dissolved $\rm SO_2$ is responsible
 for this.
 
 \begin{figure}[ht]
-    \centering \includegraphics[scale=0.55]{chap2_figs/chap2_fig4_sulfate_pH_3min.pdf}
+    \centering \includegraphics[scale=0.53]{chap2_figs/chap2_fig4_sulfate_pH_3min.pdf}
     \caption{Correlation between sulfate mixing ratio and acidity at
       3~\unit{min}. (a) is for cases with temperature lapse rate of
       $-0.3$~\unit{K/min}. (b) is for cases with temperature lapse
@@ -1507,7 +1507,7 @@ changes, the behaviour of reactions rates are determined by which
 factor is dominant. 
 
 \begin{figure}[ht]
-    \centering \includegraphics[scale=0.55]{chap2_figs/chap2_fig6_sulfate_pH.pdf}
+    \centering \includegraphics[scale=0.53]{chap2_figs/chap2_fig6_sulfate_pH.pdf}
     \caption{Relationship between aqueous sulfate formation rates and
       particle acidity at $t=3$~min. (a) temperature lapse rate of
       $-0.3$~\unit{K/min}. (b) temperature lapse rate of
@@ -1585,7 +1585,7 @@ contribution ratio changes of different aqueous sulfate pathways after
 adding TMI to the population.
 
 \begin{figure}[ht]
-    \centering \includegraphics[scale=0.55]{chap2_figs/chap2_with_tmi_fixOH_mass.pdf}
+    \centering \includegraphics[scale=0.53]{chap2_figs/chap2_with_tmi_fixOH_mass.pdf}
     \caption{Time series of (a) $\rm Fe^{2+}$, $\rm Fe^{3+}$ and $\rm
       OH(aq)$ (b) Sulfate mixing ratio in $P_{\rm ref}$ and $P_{\rm
         TMI}$. Values are the median of all the cases in the ensemble
@@ -1607,7 +1607,7 @@ ratio can be more than 20\% at the end of simulation.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.6]{chap2_figs/chap2-TMI_contri_factors.pdf}
+    \includegraphics[scale=0.57]{chap2_figs/chap2-TMI_contri_factors.pdf}
     \caption{Mean contribution fraction of different sulfate formation
       pathways in (a)$P_{\rm ref}$ and (b)$P_{\rm TMI}$}
     \label{chap2:iron-contri}
@@ -1795,7 +1795,7 @@ chemistry on mixing state.
 We focused on the following questions: (1) To what extent does cloud
 processing change the aerosol mixing state of the population that
 entered the cloud? (2) How does this change the cloud condensation
-number concentration \edits{and aerosol optical properties?} (3) What
+number concentration and aerosol optical properties? (3) What
 is the role of coagulation between the interstitial particles and
 cloud droplets for mixing state of the aerosol?
 
@@ -2197,11 +2197,8 @@ simulation.
     \label{fig:urban_plume}
 \end{figure}
 
-\textcolor{red}{The next sentence still says Supporting
-  Information!!!!}
-
 The corresponding figure for the low-emission case is shown as
-Figure~\ref{fig:sup1} in the Supporting Information. As expected, for
+Figure~\ref{fig:sup1}. As expected, for
 this case, the aerosol number and mass concentrations and the
 gas-phase concentrations were reduced compared to the high-emission
 case. For example, the maximum aerosol number concentration at
@@ -2211,7 +2208,7 @@ SO_2$ mixing ratio was only 1.2~ppb. The mixing state metrics
   
   \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{chap3_figs/fig_sup2.pdf}
+    \includegraphics[scale=0.5]{chap3_figs/fig_sup1.pdf}
     \caption{Temporal variation of (a) total number concentration, (b)
       mass concentrations of selected aerosol species, (c) mixing
       ratios of selected gas-phase species and (d) aerosol mixing
@@ -2298,7 +2295,7 @@ more moderately polluted urban environments \citep{ahmad2013long}.
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{chap3_figs/fig_sup8.pdf}
+    \includegraphics[scale=0.5]{chap3_figs/fig_sup5.pdf}
     \caption{(a) Maximum supersaturation reached in the cloud parcel
       and (b) cloud droplet number concentration in the four cycles.}
     \label{fig:max_ss-cycle}
@@ -2413,7 +2410,7 @@ secondary aerosol mass to form per droplet.
   
   \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{chap3_figs/fig_sup3.pdf}
+    \includegraphics[scale=0.5]{chap3_figs/fig_sup2.pdf}
     \caption{(a) Number and (b) mass size distribution with respect to
       dry diameter before (grey) and after (blue) the first cloud
       cycle for the low-emission case.  The solid lines are the
@@ -2700,7 +2697,7 @@ The results look qualitatively similar for the low-emission
   
   \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{chap3_figs/fig_sup5.pdf}
+    \includegraphics[scale=0.5]{chap3_figs/fig_sup4.pdf}
     \caption{Normalized CCN spectrum before (grey) and after (blue)
       the first cloud cycle for the low-emission case. Solid lines are
       the mean distributions of all 25 cases at each cycle and the
@@ -2725,7 +2722,7 @@ Increases in CCN/CN ratio are generally attributed to both
   
   \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{chap3_figs/fig_sup7.pdf}
+    \includegraphics[scale=0.5]{chap3_figs/fig_sup3.pdf}
     \caption{Normalized CCN spectrum before (grey) and after (blue)
       the first cloud cycle (high-emission case). The orange line is
       the CCN spectrum when assuming $\kappa$ = 0.1 for sulfate,
@@ -2875,7 +2872,7 @@ coagulation (archetypical Case~4 in \citet{Riemer2013a}).
     \label{fig:coag_ccn_chi}
 \end{figure}
 
-\edits{\subsection{Changes in aerosol scattering and absorption abilities} 
+\subsection{Changes in aerosol scattering and absorption abilities} 
 \label{sec:aq-opt}
 The changes in aerosol size distribution and composition not only
 affect CCN properties, but also aerosol optical properties.  We
@@ -2886,8 +2883,7 @@ coefficients after cloud processing, consistent with the findings by
 \citet{yuskiewicz1999effects} and
 \citet{romakkaniemi2006influence}. The enhancement was more obvious
 for the low-emission case, where the median scattering coefficient
-increased from $1.3\times10^{-4}$ to 10.9$\times
-10^{-4}$~\unit{m^{-1}}.
+increased from $1.3\times10^{-4}$ to 10.9$\times 10^{-4}$~\unit{m^{-1}}.
 
 \begin{figure}[H]
     \centering
@@ -2917,7 +2913,7 @@ smaller particles and they were not affected by cloud processing.
       case and the right column is for low-emission case.}
     \label{fig:bc-2d}
 \end{figure}
-}
+
 %
 \section{Conclusions}
 \label{sec:conclusions}
@@ -3002,20 +2998,20 @@ be noted that our simulations did not take into account the impact of
 phoretic or turbulence effects on coagulation, which could modify the
 efficiency of in-cloud coagulation.
 
-\edits{We also found that cloud processing enhanced particle
+We also found that cloud processing enhanced particle
   scattering due to particle growth, and the effects are more profound
   for high-emission case, with the median scattering coefficient
   increasing from $1.3\times10^{-4}$ to 10.9$\times
   10^{-4}$~\unit{m^{-1}}. For the scenarios considered here, the
   particle absorption did not change, which can be explained by the
-  fact that the cloud droplets only contained small amounts of BC.}
+  fact that the cloud droplets only contained small amounts of BC.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%Chapter 4%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Quantifying the effects of mixing state on aerosol optical properties}
 This chapter develops a framework to systematically quantify the
-errors introduced by simplified aerosol representation.  I first
+aerosol optical value errors introduced by simplified aerosol representation.  I first
 introduce the processes to create reference and sensitivity
 scenarios. Then, I present the errors in aerosol absorbing and
 scattering properties introduced by internal mixture assumptions used
@@ -3073,7 +3069,7 @@ non-shperical shapes of BC-containing particles into account
 complicates matter considerably since Mie calculations cannot be
 applied and more sophisticated optical models need to be used, which
 are computationally much more expensive. By using the Discrete Dipole
-Approximation model, \citet{scarnato2013effects} found that for
+Approximation model, \citet{scarnato2013effects} found
 BC-NaCl mixtures absorption coefficients enhancement is higher for
 compact BC particles completely embedded in NaCl than for lacy BC
 particles.
@@ -3100,9 +3096,8 @@ optical properties are calculated. Optical properties are here
 understood by three widely-used parameters: absorption cross section,
 scattering cross section and asymmetry parameter \citep{Majdi2020}.
 For example, many 3D models use a modal approach to represent aerosol,
-such as The Community Multiscale Air Quality Modeling System (CMAQ)
-and Modal Aerosol Module (MAM)\citep{Binkowski2007,
-  Appel2017,Liu2012}.  The modes are externally mixed from each other,
+such as The Community Multiscale Air Quality Modeling System (CMAQ)\citep{Binkowski2007,
+  Appel2017} and Modal Aerosol Module (MAM)\citep{Liu2012}. The modes are externally mixed from each other,
 whereas within each mode, the aerosol is assumed to be internally
 mixed. For BC-containing modes, sphericity and a core-shell
 configuration are assumed, so that Mie calculations can be applied to
@@ -3154,7 +3149,7 @@ here quantified with the mixing state index $\chi$
 error in CCN concentration \citep{Ching2017}, showing that CCN error
 can range from $-40$\% to 150\% when assuming the aerosol was
 internally mixed. The error depended on supersaturation level that CCN
-concentrations were evaluated at, and aerosol mixing state. In this
+concentrations were evaluated at, and also aerosol mixing state. In this
 chapter, we want to answer: Given the aerosol mixing state, what is
 the error in aerosol optical values when assuming internal mixture and
 what are the reasons?
@@ -3209,7 +3204,7 @@ a total of 100 model simulations. The simulation time for each
 simulation was 24 hours beginning at 6 am local time with hourly
 output. This yielded a total of 2500 particle populations. All
 scenarios were run with 10\,000 computational particles.  To create
-aerosol initial conditions with realistic mixing states we adopted the
+aerosol initial conditions with realistic mixing states, we adopted the
 approach described in \citet{zheng2021estimating}: We carried out a first set of
 simulations, starting with the aerosol initial concentrations set to
 zero for all simulations (the ``initial runs''). We then repeated the
@@ -3703,7 +3698,7 @@ mass fraction $f$, with $f_1$ > $f$ and $f_2$ < $f$. Since the overall
 BC mass is conserved, we need to move BC mass from $N$ particles of
 type $P1$ and $N$ is given by:
 \begin{equation}
-N = \frac{D_2^3(f-f_2)}{D_1^3(f_1-f)}
+N = \frac{D_2^3(f-f_2)}{D_1^3(f_1-f)}.
 \end{equation}
 %\textcolor{red} {This is a bit confusing, because in reality, N is
 %given by whatever there is in the bin? And then f is the parameter
@@ -3713,7 +3708,7 @@ The resulting relative change in absorption coefficient for a
 population with $N$ particles $P_1$ and one particle $P_2$ is defined
 as:
   \begin{equation}{\label{eq7:abs_err}}
-   \epsilon(\beta_{\rm abs}) = \frac{(\sigma_2' + N\sigma_1') - (\sigma_2 + N\sigma_1)}{(\sigma_2 + N\sigma_1)}
+   \epsilon(\beta_{\rm abs}) = \frac{(\sigma_2' + N\sigma_1') - (\sigma_2 + N\sigma_1)}{(\sigma_2 + N\sigma_1)},
   \end{equation}
   where $\sigma_2'$, $\sigma_1'$ are the absorption cross section of
   $P_1$ and $P_2$ after composition-averaging, respectively.  As we
@@ -3978,7 +3973,7 @@ in SSA, which is an important quantity that determines radiative
 forcing. With the definition of SSA, we can calculate the absolute
 error $\Delta$SSA as:
 \begin{equation}{\label{eq8:ssa_err}}
-\Delta {\rm SSA} = \frac{\beta_{\rm \rm scat}'}{\beta_{\rm \rm scat}' + \beta_{\rm \rm abs}'} - \frac{\beta_{\rm \rm scat}}{\beta_{\rm \rm scat} + \beta_{\rm \rm abs}} = \frac{\beta_{\rm \rm scat}'\beta_{\rm \rm abs} - \beta_{\rm \rm scat}\beta_{\rm \rm abs}'}{(\beta_{\rm \rm scat}' + \beta_{\rm \rm abs}')(\beta_{\rm \rm scat} + \beta_{\rm \rm abs})}
+\Delta {\rm SSA} = \frac{\beta_{\rm \rm scat}'}{\beta_{\rm \rm scat}' + \beta_{\rm \rm abs}'} - \frac{\beta_{\rm \rm scat}}{\beta_{\rm \rm scat} + \beta_{\rm \rm abs}} = \frac{\beta_{\rm \rm scat}'\beta_{\rm \rm abs} - \beta_{\rm \rm scat}\beta_{\rm \rm abs}'}{(\beta_{\rm \rm scat}' + \beta_{\rm \rm abs}')(\beta_{\rm \rm scat} + \beta_{\rm \rm abs})},
 \end{equation}
 where $\beta_{\rm scat}'$, $\beta_{\rm abs}'$ are for the scattering
 and absorption coefficients after composition-averaging. Based on the
