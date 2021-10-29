@@ -117,11 +117,11 @@ atmosphere. As an important aging process, cloud processing can change
 particle size and composition through cloud chemistry and in-cloud
 coagulation. Cloud processes are highly affected by per-particle
 properties, through determining which particles can be activated and
-which reactions occur for each particle depending on its acidity. It
+which reactions occur for each particle. It
 is challenging for global or regional models with simplified aerosol
 representations to accurately capture these processes.
 
-The aim of the first part of this thesis is to (1) quantify the
+The aim of the first part of this thesis was to (1) quantify the
 changes of aerosol mixing state and microphysical properties after
 cloud processing (2) quantify the role of coagulation between the
 interstitial particles and cloud droplets for mixing state of the
@@ -133,10 +133,10 @@ bins or modes. Aqueous-phase chemistry processes cause aerosol
 populations to be more internally mixed, and CCN concentrations
 increase substantially after cloud processing for supersaturation
 levels lower than the maximum cloud supersaturation. I also found
-coagulation within clouds has a negligible impact on aerosol mixing
+coagulation within clouds had a negligible impact on aerosol mixing
 state.
 
-The aim of the second part of the thesis is to systematically quantify
+The aim of the second part of the thesis was to systematically quantify
 the impact of aerosol mixing state on aerosol optical properties and
 the role of RH. I created a reference scenario library with aerosol
 populations of a wide range of mixing states using the
@@ -146,9 +146,9 @@ populations to populations with the same number and mass size
 distributions but with averaged aerosol composition in prescribed size
 bins. Particle absorption coefficients were universally overestimated
 after using internal mixture assumptions, with the overestimation
-reaching up to 70\% for more externally-mixed populations. The error
+reaching up to 70\% for externally-mixed populations. The error
 was smaller for particle scattering, with a maximum of $-$32\%
-scattering coefficients underestimation. I also found cases with larger underestimation in single
+scattering coefficients underestimation. I also found case with larger underestimation in single
 scattering albedo ($-$22\%) was associated with the higher scattering underestimation. The relative humidity
 and associated aerosol water uptake only had a small impact on the
 magnitude of these errors.
@@ -160,7 +160,16 @@ To my family
 \end{dedication}
 
 \chapter*{Acknowledgments}
+I would like to express my sincere gratitude to my advisor, Prof. Nicole Riemer, 
+for her patience and continuous support during my Ph.D journey. She has been encouraging and has allowed me the flexibility to finish the tasks at my  own pace. I learned a lot from her insightful discussion about the research during our weekly individual meeting in the past five years. She is energetic about the research, i.e. the tiny aerosol particles, and I hope one day I could be as enthusiastic as her. I am also thankful to my doctoral committee members, Prof. Sonia Lasher-Trapp, Prof. Matthew West, and Dr. Matt Dawson for their instructions on cloud physics, numerical computing, and cloud chemistry.  
 
+I am lucky to join the Department of atmospheric science family in UIUC. I met lots of new friends and I will miss the spring picnic, fall picnic and Christmas party hold by DASSO. I would also like to thank my current and previous PartMC group members. Special thanks to Jeff Curtis for his coding helps and Joseph Ching for his thoughtful ideas. 
+
+I am also thankful to my friends for providing the friendship and I will miss the joyful times we spent together in different trips. I also want to express my special thanks to Shiya Liu, Beixi Jia, Shan Huang, Qing Zhang for lots of interesting and meaningful discussions about social issues.
+
+Lastly, I especially thank my mom, dad and brother. Thanks for their understanding and unconditional love they provided, especially during the unusual past two years.
+
+I acknowledge the funding from National Science Foundation under CAREER grant AGS-1254428. 
 
 % List of acknowledgements:
 %
@@ -260,7 +269,7 @@ presence of water vapor \citep{sipila2010role}, and it can also be
 produced through oxidation of $\rm SO_2$ by OH in gas phase or $\rm
 H_2O_2$ and $\rm O_3$ in the aqueous phase
 \citep{shao2019heterogeneous, zheng2020multiphase}. Nitrate is mainly formed 
-through oxidation of $\rm NO_2$ by OH at daytime and hydrolysis of $\rm N_2O5$ at 
+through oxidation of $\rm NO_2$ by OH at daytime and hydrolysis of $\rm N_2O_5$ at 
 night \citep{alexander2009quantifying}. As for ammonium particulate, 
 it forms when ammonia partitions over the surface of an acidic particle \citep{zhuang1999size}. 
 Black carbon (BC) and primary organic aerosol (POA)
@@ -276,7 +285,7 @@ It is important to note that particles in the atmosphere are commonly
 mixture of different species \citep{laskin2019chemical,o2015chemical}. 
 As an example, Figure~\ref{fig:chap1-mixing} shows
 transmission electron microscopy (TEM) images of particles collected
-in urban Shanghai in 2010.  can Some particles are mixture of two
+in urban Shanghai in 2010. Some particles are mixture of two
 species (a, b, c), while others are mixture of more than three species
 (f, g, h, i).
 
@@ -356,7 +365,7 @@ clouds \citep{jia2019distinct,kleinman2012aerosol}.
 
 The cloud lifetime effect describes the mechanism that the increase of
 aerosol number concentration not only results in smaller cloud
-droplets but that this inhibits the precipitation development. This
+droplets but also inhibits the precipitation development. This
 effect is plausible if only the initiation of precipitation is
 considered. However, several observation and modeling studies
 suggested that it is hard to find clear evidence for this effect due
@@ -404,7 +413,7 @@ fractions can differ between particles.
 
 Hygroscopicity and optical properties, which are important factors for
 droplets formation and the interaction with radiation, are both
-strongly dependint on the chemical species that the particle consists
+strongly dependent on the chemical species that the particle consists
 of. Thus, aerosol population with different mixing states may have
 different climate-related properties, as illustrated in
 Fig.~\ref{fig:chap1-chi-climate}. Figure~\ref{fig:chap1-chi-climate}(a)
@@ -444,7 +453,7 @@ aerosol samples from downtown Toronto at 0.58\% supersaturation, and
 they found the internal mixture assumptions overpredicted CCN
 concentrations by 7--17\%. Using the CCN sampled from 2010 CalNex field campaign,
 \citet{moore2012hygroscopicity} also found internal mixture resulted
-in 30--75\% overprediction of CCN concentration.\citet{ervens2010ccn}
+in 30--75\% overprediction of CCN concentration. \citet{ervens2010ccn}
 conducted a more comprehensive closure study by using aerosol data
 collected from six different locations. They found, for regions that are affected by
 fresh emission, detail size-resolved aerosol information are required to make a reasonable CCN
@@ -476,10 +485,10 @@ without strong absorber, i.e. BC, a volume-mixing rule can be used to
 calculate the overall refractive index of the particle. When the
 particle contains BC, assuming a core-shell configuration has been
 shown to be more accurate \citep{Bond2006} than assuming a well-mixed
-for which a volume-mixing rule can be used. The absorption enhancement
+particle. The absorption enhancement
 of BC-containing particles due to its coatings have been widely
 investigated \citep{Moffet2009,Liu2017, wu2020light}. The distribution
-of the non-absorbing species over the population where found to be the
+of the non-absorbing species over the population were found to be the
 main sources for the discrepancies between the simulated and observed
 optical values \citep{Fierce2016, Fierce2020}. That is, in order to
 simulate absorption enhancement correctly, it is important to know the
@@ -576,12 +585,12 @@ The aerosol size distribution evolves after the formation of aqueous
 inorganic and organic species. The characteristic ``Hoppel minimum''
 describes the gap between two particle distribution modes at
 approximately 0.02--0.03 and 0.08--0.15~$\rm \mu m$
-\citet{Hoppel1986} evident in particle populations processed by
+\citep{Hoppel1986}, evident in particle populations processed by
 non-precipitating clouds. After being described for the first time by
 \citet{Hoppel1986}, this phenomena has further been observed for
 aerosol populations in different regions, such as during the VOCALS
-campaign over west Chilean coast and the MASE campaign at the central
-California coast \citep{kleinman2012aerosol, hudson2015cloud}. Besides
+campaign over west Chilean coast \citep{kleinman2012aerosol} and the MASE campaign at the central
+California coast \citep{hudson2015cloud}. Besides
 the formation of secondary aerosol through aqueous phase reactions,
 particle size distributions also changes due to coagulation between
 interstitial particles and cloud
@@ -682,7 +691,7 @@ mean diameter change as the aerosol evolves.
 	\centering
 	\includegraphics[scale=0.5]{chap1_figs/thesis_chap1_fig5.pdf}
 	\caption{Aerosol numerical approaches:(a) Bulk model, (b) Modal model, (c)
-          Section model, and (d) Particle-resolved model.}
+          Sectional model, and (d) Particle-resolved model.}
 	\label{fig:chap1-aerosol-model}
 \end{figure}
 
@@ -1734,7 +1743,7 @@ aqueous-phase chemistry ocurring within the cloud droplets. This is
 the motivation for this study, where we extended our modeling framework
 to include aqueous-phase chemistry within the cloud droplets that are
 forming on a diverse population of particles, common to urban
-environments. The contribution of this paper is the first study to
+environments. The contribution of this chapter is the first study to
 document quantitatively the impact of aqueous phase
 chemistry on mixing state.
 
@@ -1745,10 +1754,10 @@ number concentration \edits{and aerosol optical properties?} (3) What is the rol
 interstitial particles and cloud droplets for mixing state of the
 aerosol?
 
-Section~\ref{sec:model} describes the model components, the scenario
+Chapter~\ref{sec:model} describes the model components, the scenario
 setup, and the mixing state metrics used in this
-study. Section~\ref{sec:results} presents the analysis of the
-simulation results. Section~\ref{sec:conclusions} summarizes our
+study. Chapter~\ref{sec:results} presents the analysis of the
+simulation results. Chapter~\ref{sec:conclusions} summarizes our
 results.
 %
 
@@ -1814,7 +1823,7 @@ cloud-free air into the cloud, surface tension effects on droplet
 growth, or the loss of droplets from the air parcel owing to
 sedimentation.
 
-The aim of this paper is to investigate impacts of in-cloud
+The aim of this chapter is to investigate impacts of in-cloud
 aqueous-phase chemistry on aerosol mixing state. To this end, we
 coupled the reduced Chemical Aqueous Phase Radical Mechanism (CAPRAM)
 2.4 to PartMC-MOSAIC. The reduced CAPRAM model includes 183 reactions
@@ -1875,7 +1884,7 @@ The urban plume case environment shown here was adopted from
 \citep{Zaveri2010a}, following a Lagrangian box modeling approach,
 where we assumed that the air parcel containing background air moved
 over a polluted urban environment. We refer to this case for the
-remainder of the paper as the ``high-emission'' case. The initial
+remainder of the chapter as the ``high-emission'' case. The initial
 condition of the aerosol consisted of two lognormal modes, with the
 number concentration, geometric mean diameter, standard deviation and
 composition for each mode as listed in Table~\ref{tab:emi}. We used
@@ -1951,7 +1960,7 @@ Table~\ref{tab:emi}. Note that the composition of aerosol
   \citep{liggio2012emissions}. However, since both BC and POA have very
   low hygroscopicities ($\kappa=0$ for BC and 0.001 for POA), we do
   not expect that the exact BC/POA split impacted our results for this
-  paper (however this will be important for optical properties).
+  chapter (however this will be important for optical properties).
 
 The mixing state of the aerosol in this simulation evolved because
 primary aerosol emissions aged owing to formation of secondary aerosol
@@ -1959,7 +1968,7 @@ and to coagulation processes, while fresh emissions continued to enter
 during the first 12 hours of simulation. Overall, this scenario
 mimicked the evolution of an air parcel in a polluted urban area, and
 we summarized the results, including the mixing state evolution, in
-Section~\ref{sec:urban_plume}. The full state, including gas-phase
+Chapter~\ref{sec:urban_plume}. The full state, including gas-phase
 mixing ratios and composition of all computational particles, was
 saved hourly to be used as input for the cloud parcel simulations in
 step 2.
@@ -2030,7 +2039,7 @@ simulation, after cloud evaporation.
 
 \subsection{Mixing state metrics}
 \label{sec:mixing_state_metrics}
-The objective of this paper is to quantify the change of particle
+The objective of this chapter is to quantify the change of particle
 mixing state as a result of cloud processing. The metrics used to
 quantify mixing state were developed by \citet{Riemer2013a}. The
 mixing state metric $\chi$ is calculated by:
@@ -2066,7 +2075,7 @@ externally mixed and intermediate mixing states are common
 sources, $\chi$ is expected to be lower, while $\chi$ is larger in air
 masses dominated by an aged aerosol. 
 
-The mixing state metrics $\chi$ defined in this paper used the
+The mixing state metrics $\chi$ defined in this chapter used the
 abundance of model chemical species as the basis for calculating
 particle mass fractions in
 Equations~(\ref{eq:H-i})--(\ref{eq:H-gamma}), i.e. sulfate, nitrate,
@@ -2084,7 +2093,7 @@ non-hygroscopic species, and of absorbing and non-absorbing species.
 
 This section summarizes the results from the urban plume simulations
 to provide context for the cloud parcel simulations discussed in the
-remainder of the paper. Figure~\ref{fig:urban_plume} shows selected
+remainder of the chapter. Figure~\ref{fig:urban_plume} shows selected
 quantities from the high-emission urban plume simulation. The
 total particle number concentration $N_{\rm a}$ increased initially
 due to the emission of primary particles, reached a maximum of 15,295
@@ -2101,14 +2110,14 @@ precursors, $\rm HNO_3$ and $\rm NH_3$, temperature and RH. Mixing
 ratios of $\rm SO_2$, $\rm O_3$ and $\rm H_2O_2$ are shown in
 Figure~\ref{fig:urban_plume}c for reference because they are directly
 involved in the in-cloud sulfate formation as discussed in
-Section~\ref{sec:cloud}.
+Chapter~\ref{sec:cloud}.
 
 Figure~\ref{fig:urban_plume}b only displays the bulk composition of
 the aerosol, while the mixing state information available from the
 particle-resolved output remains hidden. Figure~\ref{fig:urban_plume}d
 provides insight into the evolution of aerosol mixing state as
 quantified by the mixing state metrics introduced in
-Section~\ref{sec:mixing_state_metrics}. At $t_{\rm u} = 0$, the
+Chapter~\ref{sec:mixing_state_metrics}. At $t_{\rm u} = 0$, the
 particle population was completely internally mixed, and therefore the
 mixing state index $\chi$ was initially 100\%.
 
@@ -2164,7 +2173,7 @@ The corresponding figure for the low-emission case is shown as
 
 \subsection{Aerosol composition changes during cloud processing}
 \label{sec:cloud}
-As described in Section~\ref{sec:urban_plume}, for each hourly output
+As described in Chapter~\ref{sec:urban_plume}, for each hourly output
 from the urban plume simulations, cloud cycles were simulated using
 the same temperature profile, shown in Figure~\ref{fig:env}b.
 Each cloud parcel simulation was exposed to the same cooling
@@ -2278,7 +2287,7 @@ interstitial (not activated) particles and the second peak
 representing the cloud droplets. The interstitial aerosol remained
 unchanged since this simulation did not include coagulation. We will
 investigate the impact of coagulation further in
-Section~\ref{sec:coag}. With increasing liquid water content and
+Chapter~\ref{sec:coag}. With increasing liquid water content and
 aqueous chemistry processes occurring, the cloud droplets continued to
 grow and the droplet mode peaked at 11 $\rm \mu m$ at 20~min.
 
@@ -2497,7 +2506,7 @@ As shown qualitatively in Figure~\ref{fig:su_2d}, cloud processes can
 change the diversity and the mixing state of particle populations. In
 this section we will quantify these changes for our cases more
 precisely using the metrics described in
-Section~\ref{sec:mixing_state_metrics}. Figure~\ref{fig:bulk_chi}
+Chapter~\ref{sec:mixing_state_metrics}. Figure~\ref{fig:bulk_chi}
 shows the evolution of $D_\alpha$, $D_\gamma$ and $\chi$ after each of
 the four cloud cycles. After the first cloud cycle, the average
 particle species diversity $D_\alpha$ increased for aerosols that used
@@ -3076,16 +3085,15 @@ chapter, we want to answer: Given the aerosol mixing state, what is
 the error in aerosol optical values when assuming internal mixture and
 what are the reasons?
 
-\textcolor{red}{Change ``paper'' and ``section'' to ``Chapter''} The
-paper is structured as follows: Model description, scenario design and
+The chapter is structured as follows: Model description, scenario design and
 the definition of metrics are given in
-Sect.~\ref{sec:methods}. Section \ref{sec:dry-case} shows the relation
+Chapter~\ref{sec:methods}. Chapter~\ref{sec:dry-case} shows the relation
 between the errors in aerosol scattering and absorption and mixing
-state for dry aerosol populations, and section \ref{sec:wet-case}
+state for dry aerosol populations, and Chapter~\ref{sec:wet-case}
 further analyzes the errors for the aerosol populations at different
 levels of ambient relative humidity. The errors in single scattering
 albedo and its implications for aerosol direct radiative forcing are
-analyzed in Sect. \ref{sec:ssa}. Section \ref{sec:conclusion}
+analyzed in Chapter~\ref{sec:ssa}. Chapter~\ref{sec:conclusion}
 summarizes the main findings.
 
 \section{Model description, scenario libraries and metrics }
@@ -3133,7 +3141,7 @@ simulations, starting with the aerosol initial concentrations set to
 zero for all simulations (the ``initial runs''). We then repeated the
 same set of simulations, but replaced the aerosol initial condition
 with a randomly sampled population from the initial runs (the
-``restart runs''). For the analysis in this paper, we only used the
+``restart runs''). For the analysis in this chapter, we only used the
 results from the restart runs.
 
 \begin{table}
@@ -3283,7 +3291,7 @@ optical properties.
 
 Since the aerosol water content plays an important role for aerosol
 optical properties, we further calculated water uptake for the
-reference populations and for the composition averaged poplations for
+reference populations and for the composition averaged populations for
 50\% ($P_2$) and for 90\% ($P_3$) relative humidity, respectively.  At
 $\rm RH = 50$\%, depending on the exact composition, some particles
 take up water, and at $\rm RH = 90$\%, most particles take up water,
@@ -3293,8 +3301,8 @@ aerosol mass was conserved by the composition-averaging procedure, the
 water content was re-calculated after composition-averaging and could
 change compared to the reference population. We will discuss the
 impact of composition-averaging for dry conditions in
-Section~\ref{sec:dry-case} and the impact of water uptake in
-Section~\ref{sec:wet-case}.
+Chapter~\ref{sec:dry-case} and the impact of water uptake in
+Chapter~\ref{sec:wet-case}.
 
 \begin{figure}
 \centering
@@ -3315,7 +3323,7 @@ Section~\ref{sec:wet-case}.
   ranges, comparable to the bin structure used in WRF-Chem. Bin 0 is
   the extra bin to preserve the total number concentration. The two
   red rectangles are for the analysis in
-  section~\ref{sec:dry-case}. This population is taken from scenario
+  Chapter~\ref{sec:dry-case}. This population is taken from scenario
   76 at 1~h, with $\chi$=36\%.}
 \label{fig1:scen}
 \end{figure}
@@ -3375,7 +3383,7 @@ non-absorbing species and defined a new index, $\chi_{\rm opt}$. It
 still ranges between 0\% to 100\% and signifies the degree to which
 absorbing and non-absorbing species are mixed. Since we only consider
 two (surrogate) aerosol species, the maximum value of $D_i$,
-$D_\alpha$ and $D_\gamma$ is 2. For the remainder of the paper, we
+$D_\alpha$ and $D_\gamma$ is 2. For the remainder of the chapter, we
 will refer to this index simply as $\chi$.
 
 Within our ensemble or aerosol populations, some were found with
@@ -3427,7 +3435,7 @@ results for the dry population scenarios $P_1$. This quantified the
 effects of chemical species redistribution caused by simplified mixing
 state assumption used in sectional models. Particles were partially or
 fully deliquescent in scenarios $P_2$ and $P_3$, and these populations
-will be further analyzed in Section~\ref{sec:wet-case} to quantify the
+will be further analyzed in Chapter~\ref{sec:wet-case} to quantify the
 water uptake effects on aerosol optical properties resulting
 from internally mixing hygroscopic and hydrophobic species.
 
