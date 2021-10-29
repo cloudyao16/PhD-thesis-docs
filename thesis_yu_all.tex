@@ -113,44 +113,44 @@ climate directly by scattering and absorbing incoming solar radiation,
 and indirectly by interacting with clouds. These climate effects
 depend on particle size distributions and chemical composition, and
 these properties evolve as particles are transported in the
-atmosphere. As an important aging process, cloud processing can change
+atmosphere. As an important aging process, cloud processing changes
 particle size and composition through cloud chemistry and in-cloud
-coagulation. Cloud processes are highly affected by per-particle
-properties, through determining which particles can be activated and
-which reactions occur for each particle. It
-is challenging for global or regional models with simplified aerosol
-representations to accurately capture these processes.
+coagulation. These processes are highly affected by per-particle
+properties, by determining which particles can be activated and which
+reactions occur within each droplet. It is challenging for global or
+regional models with simplified aerosol representations to accurately
+capture these processes.
 
 The aim of the first part of this thesis was to (1) quantify the
 changes of aerosol mixing state and microphysical properties after
 cloud processing (2) quantify the role of coagulation between the
 interstitial particles and cloud droplets for mixing state of the
-aerosol. By coupling an aqueous chemistry mechanism to
+aerosol. By coupling an aqueous chemistry mechanism to the
 particle-resolved model PartMC-MOSAIC, the new model was able to track
 the evolution of compositions and sizes of individual aerosol
 particles in the cloud without averaging their composition within size
-bins or modes. Aqueous-phase chemistry processes cause aerosol
-populations to be more internally mixed, and CCN concentrations
-increase substantially after cloud processing for supersaturation
-levels lower than the maximum cloud supersaturation. I also found
-coagulation within clouds had a negligible impact on aerosol mixing
-state.
+bins or modes. Aqueous-phase chemistry processes caused aerosol
+populations to be more internally mixed, and cloud condensation nuclei
+concentrations increased substantially after cloud processing for
+supersaturation levels lower than the maximum cloud
+supersaturation. Coagulation within clouds had a negligible impact on
+aerosol mixing state.
 
-The aim of the second part of the thesis was to systematically quantify
-the impact of aerosol mixing state on aerosol optical properties and
-the role of RH. I created a reference scenario library with aerosol
-populations of a wide range of mixing states using the
+The aim of the second part of the thesis was to systematically
+quantify the impact of aerosol mixing state on aerosol optical
+properties. To this end, I created a reference scenario library with
+aerosol populations of a wide range of mixing states using the
 particle-resolved model PartMC-MOSAIC. The impact of aerosol mixing
 state on optical properties was quantified by comparing the reference
 populations to populations with the same number and mass size
 distributions but with averaged aerosol composition in prescribed size
 bins. Particle absorption coefficients were universally overestimated
 after using internal mixture assumptions, with the overestimation
-reaching up to 70\% for externally-mixed populations. The error
-was smaller for particle scattering, with a maximum of $-$32\%
-scattering coefficients underestimation. I also found case with larger underestimation in single
-scattering albedo ($-$22\%) was associated with the higher scattering underestimation. The relative humidity
-and associated aerosol water uptake only had a small impact on the
+reaching up to 70\% for externally-mixed populations. In contrast,
+scattering coefficients were underestimated, with a maximum error of
+$-$32\%. Overall, this led to an underestimation in single scattering
+albedo of up to $-$22\%. The environental relative humidity and
+associated aerosol water uptake only had a small impact on the
 magnitude of these errors.
 
 \end{abstract}
@@ -160,8 +160,8 @@ To my family
 \end{dedication}
 
 \chapter*{Acknowledgments}
-I would like to express my sincere gratitude to my advisor, Prof. Nicole Riemer, 
-for her patience and continuous support during my Ph.D journey. She has been encouraging and has allowed me the flexibility to finish the tasks at my  own pace. I learned a lot from her insightful discussion about the research during our weekly individual meeting in the past five years. She is energetic about the research, i.e. the tiny aerosol particles, and I hope one day I could be as enthusiastic as her. I am also thankful to my doctoral committee members, Prof. Sonia Lasher-Trapp, Prof. Matthew West, and Dr. Matt Dawson for their instructions on cloud physics, numerical computing, and cloud chemistry.  
+I would like to express my sincere gratitude to my advisor, Prof.\ Nicole Riemer, 
+for her patience and continuous support during my Ph.D journey. She has been encouraging and has allowed me the flexibility to finish the tasks at my  own pace. I learned a lot from her insightful discussion about the research during our weekly individual meeting in the past five years. She is energetic about the research, i.e. the tiny aerosol particles, and I hope one day I could be as enthusiastic as her. I am also thankful to my doctoral committee members, Prof.\ Sonia Lasher-Trapp, Prof.\ Matthew West, and Dr.\ Matt Dawson for their instructions on cloud physics, numerical computing, and cloud chemistry.  
 
 I am lucky to join the Department of atmospheric science family in UIUC. I met lots of new friends and I will miss the spring picnic, fall picnic and Christmas party hold by DASSO. I would also like to thank my current and previous PartMC group members. Special thanks to Jeff Curtis for his coding helps and Joseph Ching for his thoughtful ideas. 
 
@@ -206,16 +206,17 @@ and transmitted by aerosols
 \citep{prather2020reducing,zhang2020identifying,
   miller2021transmission, greenhalgh2021ten}. However, aerosol
 particles have been recognized as an important component of air
-pollutants even before the Covid-19 pandemic. The health effects of
+pollutants long before the Covid-19 pandemic. The health effects of
 aerosol particles, especially those with diameters less than 2.5~$\rm
 \mu m$ ($\rm PM_{2.5}$), have been investigated for several decades
 \citep{dockery1993association, bell2007spatial, fann2012estimating}.
 Around 141\,000 premature deaths in North America due to
 cardiopulmonary and lung cancer are associated with $\rm PM_{2.5}$
-\citep{anenberg2010estimate}. According to a recent WHO report \citep{world2018air}, 
-ambient air pollution caused around 4.2 million premature deaths, 
-including 300,000 children under age of 5. The majority of these children died as a result of aerosol particle exposure, 
-mainly in low- and middle-income nations.
+\citep{anenberg2010estimate}. According to a recent WHO report
+\citep{world2018air}, ambient air pollution caused around 4.2 million
+premature deaths worldwide, including 300,000 children under the age
+of 5. The majority of these children died as a result of aerosol
+particle exposure, mainly in low- and middle-income nations.
 
 Besides its crucial impacts on health, aerosol particles also impact
 weather and climate through interacting with solar radiation and
@@ -251,13 +252,14 @@ processes, and formulates the research questions of this work.
 %Definition of aerosol particles.
 Aerosol particles can be directly emitted from a variety of sources
 (primary aerosol) , or formed in the atmosphere from gas precursors
-(secondary aerosol). The major components of particles are sulfate, nitrate
-, carbonaceous species, sea salt and mineral dust. These species can originate from
-natural or anthropogenic sources, and the formation pathways also
-depend on the aerosol type. Sea salt particles are generated over
-ocean regions through wave breaking and bubble bursting. Dust is another primary particle type originating mainly
-from desert regions and can impact regions at great distances from the
-source regions through long-range transport
+(secondary aerosol). The major components of particles are sulfate,
+nitrate, ammonium, carbonaceous species, sea salt and mineral
+dust. These species can originate from natural or anthropogenic
+sources, and the formation pathways also depend on the aerosol
+type. Sea salt particles are generated over ocean regions through wave
+breaking and bubble bursting. Dust is another primary particle type
+originating mainly from desert regions and can impact regions at great
+distances from the source regions through long-range transport
 \citep{van2018mysterious,yu2021observation}. The flux of sea salt and
 of mineral dust particles into the atmosphere strongly depends on wind
 speed \citep{monahan1986model, shao2001model, jaegle2011global}.
@@ -268,26 +270,28 @@ example, sulfate can form through nucleation of sulfuric acid in the
 presence of water vapor \citep{sipila2010role}, and it can also be
 produced through oxidation of $\rm SO_2$ by OH in gas phase or $\rm
 H_2O_2$ and $\rm O_3$ in the aqueous phase
-\citep{shao2019heterogeneous, zheng2020multiphase}. Nitrate is mainly formed 
-through oxidation of $\rm NO_2$ by OH at daytime and hydrolysis of $\rm N_2O_5$ at 
-night \citep{alexander2009quantifying}. As for ammonium particulate, 
-it forms when ammonia partitions over the surface of an acidic particle \citep{zhuang1999size}. 
-Black carbon (BC) and primary organic aerosol (POA)
-are usually co-emitted from combustion of fossil fuel and biofuel
-\citep{bond2007historical}. The formation of secondary organic aerosol
-(SOA) involves partitioning of semivolatile species, oligomerization
-and aqueous chemistry \citep{zhu2017mechanism, lim2010aqueous, griffin2013sources,
-  mcneill2015aqueous}. Oligomerization is a process that combines monomers into macromolecular compounds, 
-  and the oligomerization of primary monomers and its decomposition products are proved to be an important pathway for SOA
-  formation \citep{tolocka2004formation}. 
+\citep{shao2019heterogeneous, zheng2020multiphase}. Nitrate is mainly
+formed through oxidation of $\rm NO_2$ by OH at daytime and hydrolysis
+of $\rm N_2O_5$ at night \citep{alexander2009quantifying}. Ammonium
+forms when ammonia partitions to the aerosol phase
+\citep{zhuang1999size}.  Black carbon (BC) and primary organic aerosol
+(POA) are usually co-emitted from combustion of fossil fuel and
+biofuel \citep{bond2007historical}. The formation of secondary organic
+aerosol (SOA) involves partitioning of semivolatile species,
+oligomerization and aqueous chemistry \citep{zhu2017mechanism,
+  lim2010aqueous, griffin2013sources,
+  mcneill2015aqueous}. Oligomerization is a process that combines
+monomers into macromolecular compounds, and the oligomerization of
+primary monomers and its decomposition products are proved to be an
+important pathway for SOA formation \citep{tolocka2004formation}.
 
 It is important to note that particles in the atmosphere are commonly
-mixture of different species \citep{laskin2019chemical,o2015chemical}. 
-As an example, Figure~\ref{fig:chap1-mixing} shows
-transmission electron microscopy (TEM) images of particles collected
-in urban Shanghai in 2010. Some particles are mixture of two
-species (a, b, c), while others are mixture of more than three species
-(f, g, h, i).
+mixture of different species \citep{laskin2019chemical,o2015chemical}.
+As an example, Figure~\ref{fig:chap1-mixing} shows transmission
+electron microscopy (TEM) images of particles collected in urban
+Shanghai in 2010. Many particles are mixture of at least two species
+(a, b, c), while others are mixture of more than three species (f, g,
+h, i).
 
 \begin{figure}
 	\centering
@@ -312,14 +316,17 @@ causes efficient coagulation and results in short lifetime of these
 particles \citep{fushimi2008atmospheric}. Accumulation-mode particles
 contain most of the secondary species, such as sulfate, nitrate and
 organics \citep{zhang2005time}, and they can be produced from the
-growth of nuclei-mode particles by coagulation and
-condensation. These particles can stay longer in the air due to less 
-efficient coagulation and wet removal processes, and the lifetime of these particles
-can be up to one week \citep{feichter2009climate}. As for coarse-mode particles, it is hard to grow
-such large particles directly from accumulation mode
-\citep{friedlander1991scavenging, lee2005size}. They are mostly originated
-from natural sources and produced through mechanical techniques. Rapid gravitational
-settling results in short lifetime for these particles.
+growth of nuclei-mode particles by coagulation and condensation. These
+particles stay longer in the air because the removal processes of
+coagulation and dry deposition are not efficient in this size range.
+The lifetime of these particles can be up to one week
+\citep{feichter2009climate}, with wet deposition being the most
+efficient removal process. As for coarse-mode particles, it is hard to
+grow such large particles directly from the accumulation mode
+\citep{friedlander1991scavenging, lee2005size}. They mostly originate
+from natural sources and produced through mechanical processes. Rapid
+gravitational settling results in a short lifetime for these
+particles.
 
 \section{Aerosol climate forcing}
 \label{cha1-2:aerosl-climate}
@@ -349,28 +356,31 @@ estimated effective radiative forcing from this interaction is
 $-0.45$~\unit{W\;m^{-2}}, similar to the effective direct radiative
 forcing (Fig.~\ref{fig:chap1-aerosol-climate}). There are many
 processes involved in the interactions, which can be summarized by two
-main effects: the cloud albedo and the lifetime
-effects. However, there still exists large uncertainties in quantifying the second effects,
-and it is not included in calculating aerosol-cloud interaction forcings in Fig.~\ref{fig:chap1-aerosol-climate}.
+main effects: the cloud albedo and the lifetime effects. However,
+large uncertainties still exist in quantifying the cloud lifetime
+effects, and they are not included in calculating aerosol-cloud
+interaction forcings in Fig.~\ref{fig:chap1-aerosol-climate}.
 
 Cloud albedo effects, first proposed by \citet{twomey1977influence},
 describe the changes of cloud droplet number concentration and surface
 area as the number concentration of aerosol particles changes, which
 was supported by ambient observations. \citet{kaufman2005effect}, by
-analyzing satellite observations in four regions over Atlantic ocean where 
-clouds are affected by four different types of aerosols, proved that polluted
-clouds are with more smaller droplets. Field observations also confirm that more cloud condensation
-nuclei (CCN) generate more cloud droplets with smaller sizes in liquid
-clouds \citep{jia2019distinct,kleinman2012aerosol}. 
+analyzing satellite observations in four regions over Atlantic ocean
+where clouds are affected by four different types of aerosols, proved
+that polluted clouds contain more smaller droplets. In-situ field
+observations also confirm that more cloud condensation nuclei (CCN)
+generate more cloud droplets with smaller sizes in liquid clouds
+\citep{jia2019distinct,kleinman2012aerosol}.
 
 The cloud lifetime effect describes the mechanism that the increase of
 aerosol number concentration not only results in smaller cloud
-droplets but also inhibits the precipitation development. This
-effect is plausible if only the initiation of precipitation is
+droplets but also inhibits the precipitation development. This effect
+is plausible if only the initiation of precipitation is
 considered. However, several observation and modeling studies
 suggested that it is hard to find clear evidence for this effect due
-to the complex microphysical and macrophysical buffer responses after altering
-aerosol loading in the environment \citep{stevens2009untangling}.
+to the complex microphysical and macrophysical buffer responses after
+altering the aerosol loading in the environment
+\citep{stevens2009untangling}.
 % May do not need to mention this because we are not going to talk about it. 
 %The physical understanding of interactions with liquid cloud improves substantially in past decades, but the interactions with ice and mix-phased clouds is still poor constrained. 
 
@@ -451,14 +461,16 @@ assumptions in mixing state to examine its effects.
 \citet{broekhuizen2006closure} performed such a closure study for
 aerosol samples from downtown Toronto at 0.58\% supersaturation, and
 they found the internal mixture assumptions overpredicted CCN
-concentrations by 7--17\%. Using the CCN sampled from 2010 CalNex field campaign,
-\citet{moore2012hygroscopicity} also found internal mixture resulted
-in 30--75\% overprediction of CCN concentration. \citet{ervens2010ccn}
-conducted a more comprehensive closure study by using aerosol data
-collected from six different locations. They found, for regions that are affected by
-fresh emission, detail size-resolved aerosol information are required to make a reasonable CCN
- prediction, while for regions are with aged aerosols, CCN can be well-predicted with simple
- aerosol representations.
+concentrations by 7--17\%. Using the CCN sampled from 2010 CalNex
+field campaign, \citet{moore2012hygroscopicity} also found that
+internal mixture resulted in 30--75\% overprediction of CCN
+concentration. \citet{ervens2010ccn} conducted a comprehensive closure
+study by using aerosol data collected from six different
+locations. They found, for regions that are affected by fresh
+emission, detailed size-resolved aerosol information are required to
+make a reasonable CCN prediction, while for regions are with aged
+aerosols, CCN can be well-predicted with simple (internally-mixed)
+aerosol representations.
 
 As for the effects on aerosol optical properties, we can apply the
 same strategy as in Fig~\ref{fig:chap1-chi-climate}(a) to explain the
@@ -485,19 +497,23 @@ without strong absorber, i.e. BC, a volume-mixing rule can be used to
 calculate the overall refractive index of the particle. When the
 particle contains BC, assuming a core-shell configuration has been
 shown to be more accurate \citep{Bond2006} than assuming a well-mixed
-particle. The absorption enhancement
-of BC-containing particles due to its coatings have been widely
-investigated \citep{Moffet2009,Liu2017, wu2020light}. The distribution
-of the non-absorbing species over the population were found to be the
-main sources for the discrepancies between the simulated and observed
-optical values \citep{Fierce2016, Fierce2020}. That is, in order to
-simulate absorption enhancement correctly, it is important to know the
-coating thinkness for a given population of BC cores. In particular,
-assuming an internal mixture (where larger BC cores receive thicker
-coatings) leads to a systematic overestimation of the absorption
-enhancement. It can be  more complicated if considering BC shapes. By using discrete dipole approximation
-model, \citet{scarnato2013effects} found, for BC-NACL mixtures, absorption coefficients 
-enhancement is higher for internally mixed compact BC than lacy BC.
+particle. The absorption enhancement of BC-containing particles due to
+its coatings have been widely investigated \citep{Moffet2009,Liu2017,
+  wu2020light}. The distribution of the non-absorbing species over the
+population were found to be the main sources for the discrepancies
+between the simulated and observed optical values \citep{Fierce2016,
+  Fierce2020}. That is, in order to simulate absorption enhancement
+correctly, it is important to know the coating thinkness for a given
+population of BC cores. In particular, assuming an internal mixture
+(where larger BC cores receive thicker coatings) leads to a systematic
+overestimation of the absorption enhancement. Considering the
+non-spherical shapes of BC-containing particles complicates the
+calculation of optical properties considerably. By using the Discrete
+Dipole Approximation (DDA) model, \citet{scarnato2013effects} found
+that for mixed particles containing BC and NaCl, the absorption
+coefficients enhancement is higher for internally mixed compact BC
+than lacy BC. However, the computational cost for DDA calculations is
+much higher than for Mie calculations.
 
 \section{Aerosol mixing state evolution}  
 Aerosol mixing evolution in the atmosphere involves several
@@ -527,21 +543,22 @@ relevant for a cloud-free environment, however, since the global cloud
 coverage is on average more than 70\%
 \citep{stubenrauch2013assessment}, the aerosol evolution in clouds is
 also an important contributor during the lifetime of aerosol
-populations, and motivates the work presented in Chapter~\ref{chap2} and 
-Chapter~\ref{chap3} of this thesis. Figure~\ref{fig:chap1-aq-proc} shows the chemical and
-physical processes particles experience in fogs and clouds. When the
-atmosphere reaches supersaturation, particles with critical
-supersaturation lower than the environment supersaturation are
-activated as cloud droplets and undergo nucleation scavenging. For
-these activated particles, the absorbed water facilitates aqueous
-chemical reactions. Gas species dissolve in the cloud droplet, and if
-both liquid and ice phases exist in the cloud, species partition
-between the two phases and the retention coefficients in the liquid
-phase are varied. When cloud droplets grow to rain droplets, they
-precipitate. During precipitation, small interstitial aerosol
-particles can be collected by these large droplets and impaction
-scavenging occurs. For clouds with strong convection, gas and particle
-species are vertically redistributed by convective transport.
+populations, and motivates the work presented in Chapter~\ref{chap2}
+and Chapter~\ref{chap3} of this thesis. Figure~\ref{fig:chap1-aq-proc}
+shows the chemical and physical processes particles experience in fogs
+and clouds. When the atmosphere reaches supersaturation, particles
+with critical supersaturation lower than the environment
+supersaturation are activated as cloud droplets and undergo nucleation
+scavenging. For these activated particles, the absorbed water
+facilitates aqueous chemical reactions. Gas species dissolve in the
+cloud droplet, and if both liquid and ice phases exist in the cloud,
+species partition between the two phases and the retention
+coefficients in the liquid phase are varied. When cloud droplets grow
+to rain droplets, they precipitate. During precipitation, small
+interstitial aerosol particles can be collected by these large
+droplets and impaction scavenging occurs. For clouds with strong
+convection, gas and particle species are vertically redistributed by
+convective transport.
 
 \begin{figure}
 	\centering
@@ -589,11 +606,11 @@ approximately 0.02--0.03 and 0.08--0.15~$\rm \mu m$
 non-precipitating clouds. After being described for the first time by
 \citet{Hoppel1986}, this phenomena has further been observed for
 aerosol populations in different regions, such as during the VOCALS
-campaign over west Chilean coast \citep{kleinman2012aerosol} and the MASE campaign at the central
-California coast \citep{hudson2015cloud}. Besides
-the formation of secondary aerosol through aqueous phase reactions,
-particle size distributions also changes due to coagulation between
-interstitial particles and cloud
+campaign over west Chilean coast \citep{kleinman2012aerosol} and the
+MASE campaign at the central California coast
+\citep{hudson2015cloud}. Besides the formation of secondary aerosol
+through aqueous phase reactions, particle size distributions also
+changes due to coagulation between interstitial particles and cloud
 droplets. \citet{pierce2015importance} found that this process can
 reduce total particle number concentration by 10--15\% globally.
 
@@ -885,12 +902,12 @@ Model'' about the changes of optical properties after cloud
 processing, is in preparation for \textit{Aerosol Science and
   Technology}.
 
-Chapter~\ref{chap4} evaluates the error in aerosol absorption and scattering,
-introduced by the internal mixture assumptions used in sectional
-aerosol models. The error is quantified by comparing the aerosol
-optical value differences between reference populations created by
-running particle-resolved model and sensitivity populations with
-reduced representation of mixing state created by
+Chapter~\ref{chap4} evaluates the error in aerosol absorption and
+scattering, introduced by the internal mixture assumptions used in
+sectional aerosol models. The error is quantified by comparing the
+aerosol optical value differences between reference populations
+created by running particle-resolved model and sensitivity populations
+with reduced representation of mixing state created by
 composition-averaging methods. This chapter will answer the two
 questions pertaining to the second part and a publication is in
 preparation for \textit{Atmospheric Chemistry and Physics}, entitled
@@ -905,31 +922,31 @@ global models.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Particle-resolved modeling of aqueous-phase chemistry}
 \label{chap2}
-This chapter presented the application of PartMC as a particle-resolved
+This chapter presents the application of PartMC as a particle-resolved
 cloud parcel model that includes aqueous-phase chemistry. I first
-described the PartMC model framework, and the coupled cloud parcel and
+describe the PartMC model framework, and the coupled cloud parcel and
 aqueous chemistry module as it was used in both this chapter and
-Chapter~\ref{chap3}. Then, I presented a comparison to other size-resolved and bulk
-cloud chemistry models. Furthermore, I showed results from an ensemble
-of idealized scenarios that were designed to confirm the sensitivity
-of aqueous sulfate formation to the concentrations of oxidants and to
-transition metal ions.
+Chapter~\ref{chap3}. Then, I present a comparison to other
+size-resolved and bulk cloud chemistry models. Furthermore, I show
+results from an ensemble of idealized scenarios that were designed to
+confirm the sensitivity of aqueous sulfate formation to the
+concentrations of oxidants and to transition metal ions.
 
 \label{chap2:mon}
 %%% Suggested section heads:
 \section{Introduction}
 
-Clouds cover around 70$\%$ of the earth \citep{stubenrauch2013assessment} and create an
-environment for multiphase reactions to occur
-\citep{Deguillaume2005}. Gas phase species are taken up by cloud
-droplets and undergo aqueous-phase chemistry. Oxidation of dissolved
-gases in the aqueous phase can contribute to a large fraction of
-secondary inorganic and organic aerosol. Globally, over 50\% of
-sulfate is produced through aqueous reactions in clouds
-\citep{Philip2014, Roth2016}. If the cloud evaporates, an aerosol
-population is released that has different cloud condensation nuclei
-properties and optical properties compared to the aerosol that formed
-the cloud \citep{Farmer2015, Henning2014}.
+Clouds cover around 70$\%$ of the earth
+\citep{stubenrauch2013assessment} and create an environment for
+multiphase reactions to occur \citep{Deguillaume2005}. Gas phase
+species are taken up by cloud droplets and undergo aqueous-phase
+chemistry. Oxidation of dissolved gases in the aqueous phase can
+contribute to a large fraction of secondary inorganic and organic
+aerosol. Globally, over 50\% of sulfate is produced through aqueous
+reactions in clouds \citep{Philip2014, Roth2016}. If the cloud
+evaporates, an aerosol population is released that has different cloud
+condensation nuclei properties and optical properties compared to the
+aerosol that formed the cloud \citep{Farmer2015, Henning2014}.
 
 Particles with different composition and size experience different
 effects from aqueous-phase chemical processing. First, particle size
@@ -957,10 +974,12 @@ neglecting the heterogeneity within each mode
 particle-resolved model PartMC-MOSAIC \citep{Riemer2009, Zaveri2010a},
 which tracks individual computational particles. The model has been
 widely used to study aerosol aging processes in a cloud-free
-environment \citep{Zaveri2010a,fierce2015explaining}. It has also been used as a cloud parcel model to investigate the impact of
-aerosol mixing state on cloud droplet formation \citep{ching2012impacts, Ching2016}. However, the model did not have
-the capability to simulate aerosol aging due to aqueous-phase
-chemistry within clouds. This is the focus of this thesis.
+environment \citep{Zaveri2010a,fierce2015explaining}. It has also been
+used as a cloud parcel model to investigate the impact of aerosol
+mixing state on cloud droplet formation \citep{ching2012impacts,
+  Ching2016}. However, the model did not have the capability to
+simulate aerosol aging due to aqueous-phase chemistry within
+clouds. This is the focus of this thesis.
 
 The remainder of this chapter is structured as
 follows. Chapter~\ref{chap2.2} describes the PartMC modeling framework
@@ -1171,14 +1190,15 @@ organic reactants with less than two atoms. The constants for
 thermodynamic and kinetic reactions are listed in
 Table~\ref{tab:capram}. 
 
-When coupling CAPRAM with PartMC, the original gas phase chemistry mechanism, regional atmospheric chemistry modeling
-(RACM), used in CAPRAM 2.4 was replaced with CBM-Z in PartMC-MOSAIC. It is worth 
-noting that MOSAIC is not running when we have aqueous chemistry. In the current setting,
-aqueous chemistry, and the evaporation and
+When coupling CAPRAM with PartMC, the original gas phase chemistry
+mechanism, regional atmospheric chemistry modeling (RACM), used in
+CAPRAM 2.4 was replaced with CBM-Z in PartMC-MOSAIC. It is worth
+noting that MOSAIC is not running when we have aqueous chemistry. In
+the current setting, aqueous chemistry, and the evaporation and
 condensation of gases (other than water vapor) to aqueous particles
-are enabled for particles with liquid water mass larger than 5
-$\times$ $\rm 10^{-16}$ kg, which corresponds to solution droplets of
-1 $\rm \mu m$ in diameter.  
+are enabled for particles with liquid water mass larger than $5\times$
+$\rm 10^{-16}$ kg, which corresponds to solution droplets of 1 $\rm
+\mu m$ in diameter.
 
 We used the CVODE \cite{Cohen1996} solver of the SUNDIALS
 \cite{Hindmarsh2005} package to solve the mass transfer and aqueous
@@ -1187,15 +1207,16 @@ Differentiation Formulas (BDF) and Newton Iteration, which is suitable
 for mathematically stiff systems, such as those treating multi-phase
 chemistry.  To reduce the stiffness of the system, the Henry's Law
 partitioning of the strong acids $\rm H_2SO_4$, HCl, and $\rm HNO_3$
-were combined with their first acid dissociation step. The coupling work 
-was accomplished by Matt Dawson and the codes was available online (https://github.com/compdyn/partmc/tree/aqchem).
+were combined with their first acid dissociation step. The coupling
+work was accomplished by Dr.\ Matt Dawson and the codes are available
+online (https://github.com/compdyn/partmc/tree/aqchem).
 
 \section{Sulfate mechanism verification}
 \label{chap2.3}
 Before applying the comprehensive particle-resolved aqueous chemistry
 model to study the role of different aqueous sulfate pathways, I first
 evaluated it by comparing with the results in
-\cite{kreidenweis2003modification}(hereafter, KS2003). In KS2003,
+\cite{kreidenweis2003modification} (hereafter, KS2003). In KS2003,
 several bulk and size-resolved aqueous chemistry models were used to
 simulate aqueous sulfate formation in an adiabatic cloud parcel. They
 found significant differences in $\rm SO_2$ oxidation rates between
@@ -1210,10 +1231,10 @@ between the models used in KS2003 and the PartMC cloud parcel model is
 that in KS2003, a constant updraft velocity was prescribed. In
 contrast, in PartMCC as mentioned before, we predefined the
 temperature lapse rate. In order to simulate effectively the same
-updraft velocity, we obtained the temperature and pressure values of constant
-updraft velocity at 0.5 m/s from the pyrcel model, a zero-dimensional
-adiabatic cloud parcel model \citep{rothenberg2016metamodeling}, with the timestep
-of every 60s.
+updraft velocity, we obtained the temperature and pressure values of
+constant updraft velocity at 0.5 m/s from the pyrcel model, a
+zero-dimensional adiabatic cloud parcel model
+\citep{rothenberg2016metamodeling}, with the timestep of every 60s.
 
 \begin{table}[ht]
 \centering
@@ -1238,21 +1259,20 @@ of every 60s.
 \end{table}
 
 Figure~\ref{chap2:ks2003}(a) shows the simulated cloud liquid water
-content (LWC). PartMC simulated a somewhat larger increase in LWC
-changing rate and it may result from the different cloud parcel model
-settings. As mentioned before, we prescribed a constant temperature
-lapse rate. But for models used in KS2003, a constant updraft velocity
-was described. In current simulation, the input temperature profile
+content (LWC). PartMC simulated a somewhat larger increase in LWC,
+which is a result from the different cloud parcel model setups. As
+mentioned before, we prescribed a constant temperature lapse rate
+whereas for models used in KS2003, a constant updraft velocity was
+described. In the simulation shown here, the input temperature profile
 produced updraft velocity close to 0.5~\unit{m/s}, but still with some
-fluctuations around 0.1~\unit{m/s}, and this can be the main reason
-for the LWC differences. 
+fluctuations, which is the main reason for the LWC differences.
 
 Another possible factor is the treatment of droplet surface
-temperature $T$, which is used to calculate droplet growth rate and it
-is common for models to assume $T$ equals to environment temperature
-$T_\infty$. But in our model, we did not use this assumption and the
-different treatments may also result in the calculated LWC
-differences. Actually, it turned out this assumption is not making a difference. 
+temperature $T$, which is used to calculate the droplet growth
+rate. In the models used in KS2003 it was assumed that $T$ equals the
+environment temperature $T_\infty$, whereas in our model this
+assumption was not used. However, upon further investigation, it
+turned out that this assumption did not cause the differences in LWC.
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.5]{chap2_figs/chap2_fig1_profile.pdf}
@@ -1302,26 +1322,29 @@ presence of TMI.
 The reference scenario ensemble exposed the monodisperse aerosol
 populations to different initial conditions denoted as $P_{\rm
   ref}$. The initial particle size was 100 \unit{nm}, composed of
-ammonium sulfate. Emission and dilution were not included. The initial
-mixing ratios of $\rm O_3$, $\rm H_2O_2$, $\rm NH_3$ and $\rm SO_2$,
-were perturbed at low, medium and high polluted levels, as listed in
-table~\ref{TMI-setting}. Gas $\rm SO_2$ was selected because it provides the sources of S(IV). 
-The gas species $\rm O_3$ and $\rm H_2O_2$ were selected because they are the important oxidants for sulfate formation.
-Ammonia also plays an important role in aqueous sulfate formation by changing environment pH.
-The range of mixing ratios for the different gas phase
-species are consistent with observations in the ambient
-atmosphere. The $\rm O_3$ and $\rm SO_2$ values were based on the
-national wide urban measurements in China \citep{wang2014spatial}, and
-$\rm NH_3$ levels were determined from the observations of Houston,
-U.S. \citep{nowak2010airborne} and Seoul, Korea
-\citep{phan2013analysis}. The values for $\rm H_2O_2$ were based on
-the measurements in Guangzhou, China \citep{hua2008atmospheric}. The
-three different cooling rates provided conditions with different
-liquid water content. The corresponded cloud updraft velocity were
-1.1, 1.5 and 1.8~\unit{m\;s^{-1}} respectively, which represented the
-conditions of strong convective stratus
-\citep{peng2005importance}. It is worth mentioned that updraft velocities can change 
-during the simulation period due to droplets formation. A total of $3^5$ = 243 cases were run using all possible
+ammonium sulfate. Emission of particle and gases and dilution with
+background air were not included. The initial mixing ratios of $\rm
+O_3$, $\rm H_2O_2$, $\rm NH_3$ and $\rm SO_2$, were perturbed at low,
+medium and high polluted levels, as listed in
+table~\ref{TMI-setting}. Gas phase $\rm SO_2$ was selected because it
+provides the source of S(IV). The gas species $\rm O_3$ and $\rm
+H_2O_2$ were selected because they are the important oxidants for
+sulfate formation.  Ammonia also plays an important role in aqueous
+sulfate formation by changing the droplet pH. The range of mixing
+ratios for the different gas phase species are consistent with
+observations in the ambient atmosphere. The $\rm O_3$ and $\rm SO_2$
+values were based on the national wide urban measurements in China
+\citep{wang2014spatial}, and $\rm NH_3$ levels were determined from
+the observations of Houston, U.S. \citep{nowak2010airborne} and Seoul,
+Korea \citep{phan2013analysis}. The values for $\rm H_2O_2$ were based
+on the measurements in Guangzhou, China
+\citep{hua2008atmospheric}. The three different cooling rates provided
+conditions with different liquid water content. The corresponded cloud
+updraft velocity were 1.1, 1.5 and 1.8~\unit{m\;s^{-1}} respectively,
+which represented the conditions of strong convective stratus
+\citep{peng2005importance}. It is worth mentioned that updraft
+velocities can change during the simulation period due to droplets
+formation. A total of $3^5$ = 243 cases were run using all possible
 combinations of input values to create this ensemble of scenarios.
 
 \begin{table}[ht]
@@ -1345,8 +1368,8 @@ $\frac{dT}{dt}$ &$-$0.3 &$ -$0.4&$-$0.5\\
 The initial RH was 99\% and each simulation time was 20~minutes. As
 shown in Fig.~\ref{chap2:ensemrh}, cases with larger cooling rate
 experienced more rapid increase of liquid water content, while the
-maximum supersaturation was close for all cases. Cloud droplets formed
-in the first minute and the maximum supersaturation was 0.2\%.
+maximum supersaturation was similar for all cases. Cloud droplets
+formed in the first minute and the maximum supersaturation was 0.2\%.
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.55]{chap2_figs/chap2_mono_lwc_rh.pdf}
@@ -1359,53 +1382,66 @@ To explore the sensitivity of sulfate formation to the presence of
 TMI, another scenario ensemble was created, denoted as $P_{\rm TMI}$,
 by adding $\rm Fe(II)$ and $\rm Fe(III)$ in the initial aerosol
 population, with mass fractions of $\rm Fe(II)$ and $\rm Fe(III)$ to
-be 0.05 and 0.01. We selected these two Fe mass fraction values to produce 
-Fe molar concentration consistent with previous studies \citep{Deguillaume2005}. 
-Otherwise the setup was the same as for $P_{\rm ref}$, which
-resulted in another 243 cases for $P_{\rm TMI}$. An important lesson
-of the $P_{\rm TMI}$ simulations was that aqueous hydroxide needs to
-be present for TMI oxidation pathways to proceed, with typical
-concentrations on the order of $\rm 10^{-13}$~\unit{M}
-\citep{deguillaume2004role}. Since OH was quickly depleted, additional
-OH was supplied as emissions at the rate of $2\times 10^{-8}$
-\unit{mole/m^2/s} to maintain the level of OH in the aqueous phase.
+be 0.05 and 0.01. We selected these two Fe mass fraction values to
+produce Fe molar concentration consistent with previous studies
+\citep{Deguillaume2005}.  Otherwise the setup was the same as for
+$P_{\rm ref}$, which resulted in another 243 cases for $P_{\rm
+  TMI}$. An important lesson of the $P_{\rm TMI}$ simulations was that
+aqueous hydroxide needed to be present for TMI oxidation pathways to
+proceed, with typical concentrations on the order of $\rm
+10^{-13}$~\unit{M} \citep{deguillaume2004role}. Since OH was quickly
+depleted in our initial setup, additional OH was supplied as emissions
+at the rate of $2\times 10^{-8}$ \unit{mole/m^2/s} to maintain the
+level of OH in the aqueous phase.
 
 \subsection{Monodisperse aerosol simulation results}
 This section explores the sensitivity of sulfate formation to selected
 input parameters by analyzing the 243 aerosol populations in $P_{\rm
   ref}$.  Figure~\ref{chap2:ens_three} shows the sulfate mixing ratio
-for all scenarios, stratified by the five different input parameters, including
-$\rm NH_3$, $\rm H_2O_2$, $\rm O_3$, $\rm SO_2$, and temperature lapse rate. 
+for all scenarios, stratified by the five different input parameters,
+including $\rm NH_3$, $\rm H_2O_2$, $\rm O_3$, $\rm SO_2$, and the
+temperature lapse rate.
 
 A clear separation exists between the cases with different initial
 ammonia gas mixing ratio, where higher sulfate production is
 associated with higher initial ammonia mixing ratio. However, this
-separation is not as clear for the other four parameters. Cases with
-higher sulfate formation are seen with all the four levels of
-temperature lapse rate, $\rm H_2O_2(g)$ and $\rm O_3(g)$ mixing
-ratio. But we can also found, the highest sulfate producing rates are associated
-with high $\rm O_3$ and $\rm SO_2$ conditions. This phenomena indicates that the ammonia gas phase mixing
+separation is not as clear for the other four parameters. This
+reflects the fact that the sulfate production rates change over time
+within the cloud droplets as the concentrations of aqueous-phase
+species involved in sulfate production also change. While the initial
+conditions of $\rm H_2O_2$ and $\rm O_3$ play some role, they do not
+entirely determine the outcome. Cases with higher sulfate formation
+(the blue curves in Figure~\ref{chap2:ens_three}a) are seen with all
+levels of temperature lapse rate, $\rm H_2O_2(g)$ and $\rm O_3(g)$
+mixing ratio. However, the highest sulfate mixing ratios are
+associated with high initial $\rm O_3$ and $\rm SO_2$ mixing
+ratios. This phenomenon indicates that the ammonia gas phase mixing
 ratio is a determining factor for aqueous sulfate formation in the
-simulated scenarios under consideration. Next, we will look into the underlying mechanism. It is worth mention that we currently analyzed the sulfate production rates by connecting with
-the initial gas mixing ratios. However, aqueous sulfate formation 
-rates depend on what is actually in the aqueous phase and it changes with time. 
+simulated scenarios under consideration. Next, we will look into the
+underlying mechanism.
+%It is
+%worth mention that we currently analyzed the sulfate production rates
+%by connecting with the initial gas mixing ratios. However, aqueous
+%%sulfate formation rates depend on what is actually in the aqueous
+%phase and it changes with time.
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.6]{chap2_figs/chap2_fig2_mono_ensemble.pdf}
     \caption{Sulfate time series categorized by five different
       settings in $P_{\rm ref}$: (a) initial $\rm NH_3(g)$ mixing
       ratio, (b) temperature lapse rate, (c) initial $\rm H_2O_2(g)$
-      mixing ratio, (d) initial $\rm O_3(g)$ mixing ratio, and (e) initial $\rm SO_2(g)$ mixing ratio. The
-      three colors and symbols are for the low, medium and high levels
-      of each parameter.}
+      mixing ratio, (d) initial $\rm O_3(g)$ mixing ratio, and (e)
+      initial $\rm SO_2(g)$ mixing ratio. The three colors and symbols
+      are for the low, medium and high levels of each parameter.}
     \label{chap2:ens_three}
 \end{figure}
 
-Gas $\rm SO_2$ is highly soluble to water and it dissolves rapidly. The dissolved
-$\rm SO_2$ in the cloud droplets can appear in three S(IV) forms: $\rm
-SO_2\cdot H_2O$, $\rm HSO_3^-$ and $\rm SO_3^{2-}$. S(IV) is then
-oxidized to S(VI) (sulfate). Here, I analyzed four key oxidation
-pathways which transfer the S(IV) species to S(VI):
+Gas $\rm SO_2$ is highly soluble to water and it dissolves
+rapidly. The dissolved $\rm SO_2$ in the cloud droplets can appear in
+three S(IV) forms: $\rm SO_2\cdot H_2O$, $\rm HSO_3^-$ and $\rm
+SO_3^{2-}$. S(IV) is then oxidized to S(VI) (sulfate). Here, I
+analyzed four key oxidation pathways which transfer the S(IV) species
+to S(VI):
 \begin{align}
 \centering
     &\ce{HSO3^- + H2O2{(aq)} + H^+ -> SO4^{2-} + 2H^+ + [H2O](aq)}\\
@@ -1415,7 +1451,8 @@ pathways which transfer the S(IV) species to S(VI):
     &\ce{S(IV) + \frac{1}{2}O2 ->[TMI] S(VI)}
 \end{align}
 This section will focus on the discussion of the first three oxidation
-pathways and transition pathway reaction~\ref{eq:chem-eq} will be discussed in next section.
+pathways and transition pathway reaction~\ref{eq:chem-eq} will be
+discussed in next section.
 
 Figure~\ref{chap2:su-acidity} shows the relationship between sulfate
 mixing ratio and particle acidity at 3~\unit{min}. For the cases with
@@ -1433,12 +1470,12 @@ that for cases with 10~\unit{ppb} $\rm SO_2$, $\rm H_2O_2$ reaction
 rates are almost constant at all $\rm NH_3$ levels. The different
 responses of $\rm O_3$ and $\rm H_2O_2$ pathways are consistent with
 the descriptions in \citet{Seinfeld2016}. For $\rm O_3$ pathways, high
-pH leads to high S(IV) solubility and reaction rates increased (the cases in the
-red boxes of Fig~\ref{chap2:reac-rates}). The
-reactions are self-limiting because the produced sulfate will increase
-acidity and decrease pH. In contrast, the $\rm H_2O_2$ pathway is
-insensitive to pH because of the canceling effects between increased
-S(IV) concentration and reduced reaction constants. For the cases with
+pH leads to high S(IV) solubility and reaction rates increased (the
+cases in the red boxes of Fig~\ref{chap2:reac-rates}). The reactions
+are self-limiting because the produced sulfate will increase acidity
+and decrease pH. In contrast, the $\rm H_2O_2$ pathway is insensitive
+to pH because of the canceling effects between increased S(IV)
+concentration and reduced reaction constants. For the cases with
 2~\unit{ppb} initial $\rm SO_2$, the reaction rates are smaller for
 the cases with higher $\rm NH_3$ and pH. These are $\rm
 SO_2(g)$-limited cases and less dissolved $\rm SO_2$ is responsible
@@ -1476,14 +1513,14 @@ factor is dominant.
       $-0.3$~\unit{K/min}. (b) temperature lapse rate of
       $-0.4$~\unit{K/min}. (c) temperature lapse rate of
       $-0.5$~\unit{K/min}. Symbol types are for different oxidation
-      pathways: circle is for $\rm H_2O_2+ HSO_3^-$, diamond is for
+      pathways: circle is for $\rm H_2O_2+ HSO_3^-$, square is for
       $\rm O_3+ HSO_3^-$ and triangle is for $\rm O_3+
-      SO_3^{2-}$. Color is for $\rm SO_2(g)$ level and Symbol size
+      SO_3^{2-}$. Color is for $\rm SO_2(g)$ level and symbol size
       represents $\rm NH_3(g)$ level. All the cases in the figure are
       with $\rm O_3(g) = 50$~\unit{ppb} and $\rm H_2O_2(g) =
-      0.5$~\unit{ppb}. Red boxes are for the aerosol
-      populations with only differences in $\rm NH_3(g)$ and are
-      analyzed for detail in the text.}
+      0.5$~\unit{ppb}. Red boxes are for the aerosol populations with
+      only differences in $\rm NH_3(g)$ and are analyzed in more
+      detail in the text.}
     \label{chap2:reac-rates}
 \end{figure}
 
@@ -1569,8 +1606,10 @@ contribution from TMI pathway after 4~\unit{min}, and the contribution
 ratio can be more than 20\% at the end of simulation.
 
 \begin{figure}[ht]
-    \centering \includegraphics[scale=0.6]{chap2_figs/chap2-TMI_contri_factors.pdf}
-    \caption{Mean contribution fraction of different sulfate formation pathways in (a)$P_{\rm ref}$ and (b)$P_{\rm TMI}$}
+    \centering
+    \includegraphics[scale=0.6]{chap2_figs/chap2-TMI_contri_factors.pdf}
+    \caption{Mean contribution fraction of different sulfate formation
+      pathways in (a)$P_{\rm ref}$ and (b)$P_{\rm TMI}$}
     \label{chap2:iron-contri}
 \end{figure}
 
@@ -1584,12 +1623,13 @@ TMI pathways can be important, and PartMC is able to capture this.
 
 \section{Conclusion}
 \label{chap2.6}
-For the work presented in this chapter, we used particle-resolved model
-PartMC as cloud parcel model with a comprehensive aqueous chemistry
-module CAPRAM2.4 to investigate the role of different aqueous sulfate
-formation pathways.  The model was evaluated by results from
-size-resolved and bulk aqueous models from the literature, and our
-model reproduced similar $\rm SO_2$(g) and acidity profiles.
+For the work presented in this chapter, we used the particle-resolved
+model PartMC as cloud parcel model with a comprehensive aqueous
+chemistry module CAPRAM2.4 to investigate the role of different
+aqueous sulfate formation pathways. The model was evaluated using
+results from size-resolved and bulk aqueous models from the
+literature, and our model reproduced similar $\rm SO_2$(g) and acidity
+profiles.
 
 We designed an ensemble of scenarios to investigate the response of
 sulfate formation to varying input parameters. As expected, cases with
@@ -1604,30 +1644,35 @@ the sulfate production, and the fraction was consistent with the
 values found by \citet{alexander2009transition}.
 
 %%%Future work%%%
-Currently, We used monodisperse aerosol populations for analysis. In
-the future, we can generalize our findings by more realistic
-aerosol populations, such as populations with several lognormal
-distribution. Also, I used rather simple way to represent TMI and
-OH(g) concentrations. On the one hand, Fe from different sources have different
-solubility \citep{desboeufs2005dissolution}, it would be better to
-connect Fe soluble fraction and OH(g) emitting rates with aerosol
-sources to confirm the conditions most favorable for TMI-catalyzed
-reactions. On the other hand, the need for OH emissions is an artefact of not having entrainmentor 
-gas-phase chemistry happening at the same time. If we had entrainment, 
-then fresh OH would be supplied from outside the
-cloud and if we had gas-phase chemistry going on, OH would
-be produced. However, the way we did it right now is that we start
-with a given gas initial condition and that gets used up and only aqueous chemistry is going on. 
-Current work can be extended by considering entrainment or gas-phase chemistry happening with cloud chemistry at the same time .
+The representation of TMI oxidation processes is rather simple in this
+current setup. Iron from different sources has different solubility
+\citep{desboeufs2005dissolution}. It would be therefore be better to
+connect the soluble fraction of iron to its sources to investigate the
+conditions most favorable for TMI-catalyzed reactions more
+realistically. Further, the need for ``OH emissions'' is an artefact
+of not having entrainment or gas-phase chemistry ocurring when aqueous
+phase chemistry is simulated. If we had entrainment, then fresh OH any
+be supplied from outside the cloud, and similarly, if we had gas-phase
+chemistry enabled, OH may be produced in the gas phase and could
+partition with the aqueous phase. In future model development, both
+processes should be considered to be included.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%Chapter 3%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Evaluating the impacts of cloud processing on resuspended aerosol particles after cloud evaporation using a particle-resolved model}
 
-This chapter quantified the changes of aerosol properties after cloud processing using a particle-resolved aqueous chemistry model. Model details, mixing state metrics and cloud parcel simulation design were introduced first. Then, I analyzed the changes in number and mass distribution changes after cloud processing. At the end, I quantified the changes in aerosol mixing state, CCN concentration and aerosol optical properties after cloud processing. The first part about cloud processing effects on aerosol mixing state was in revision for \textit{Journal of Geophysical
-  Research-Atmosphere} and the second part about the changes in aerosol optical values was in preparation for \textit{Aerosol Science and
-  Technology}. 
+This chapter quantifies the changes of aerosol properties after cloud
+processing using the particle-resolved aqueous chemistry model. First
+I introduce model details, mixing state metrics and cloud parcel
+simulation design. Then, I present the changes in number and mass
+distribution changes after cloud processing. Finally, I discuss the
+changes in aerosol mixing state, CCN concentration and aerosol optical
+properties after cloud processing. The first part about cloud
+processing effects on aerosol mixing state is currently under review
+with \textit{Journal of Geophysical Research-Atmosphere}, and the
+second part about the changes in aerosol optical values is in
+preparation for \textit{Aerosol Science and Technology}.
   
 \label{chap3}
 \section{Introduction}
@@ -1676,9 +1721,9 @@ and their ability to act as cloud condensation and ice nuclei
 \citep{Broekhuizen2006,Bhattu2015,Knopf2018}.
 
 Mixing state is, on the one hand, a factor in determining which
-  particles activate and form cloud droplets, thereby determining
-  cloud properties \citep{ching2012impacts,Ching2016}. On the other hand, mixing
-  state can be modified by in-cloud processes. For example,
+particles activate and form cloud droplets, thereby determining cloud
+properties \citep{ching2012impacts,Ching2016}. On the other hand,
+mixing state can be modified by in-cloud processes. For example,
 observations using online single-particle mass spectrometry during the
 HCCT-2010 field campaign showed that cloud residuals contain more
 sulfate and nitrate compared to the below-cloud aerosol
@@ -1750,9 +1795,9 @@ chemistry on mixing state.
 We focused on the following questions: (1) To what extent does cloud
 processing change the aerosol mixing state of the population that
 entered the cloud? (2) How does this change the cloud condensation
-number concentration \edits{and aerosol optical properties?} (3) What is the role of coagulation between the
-interstitial particles and cloud droplets for mixing state of the
-aerosol?
+number concentration \edits{and aerosol optical properties?} (3) What
+is the role of coagulation between the interstitial particles and
+cloud droplets for mixing state of the aerosol?
 
 Chapter~\ref{sec:model} describes the model components, the scenario
 setup, and the mixing state metrics used in this
@@ -1772,9 +1817,9 @@ for Simulating Aerosol Interactions and Chemistry, \citep{Riemer2009,
 per-particle composition of a large ensemble of computational
 particles in a well-mixed computational volume. In contrast to
 Lagrangian droplet models that have become popular in the cloud
-microphysics community \citep{Shima2009,Grabowski2019}, PartMC-MOSAIC 
-does not track the position of particles and droplets within the computational
-volume.
+microphysics community \citep{Shima2009,Grabowski2019}, PartMC-MOSAIC
+does not track the position of particles and droplets within the
+computational volume.
 
 The particle number concentration changes due to coagulation, emission
 and dilution, which are simulated by using a stochastic Monte Carlo
@@ -2152,14 +2197,17 @@ simulation.
     \label{fig:urban_plume}
 \end{figure}
 
+\textcolor{red}{The next sentence still says Supporting
+  Information!!!!}
+
 The corresponding figure for the low-emission case is shown as
-  Figure~\ref{fig:sup1} in the Supporting Information. As expected, for this case,
-  the aerosol number and mass concentrations and the gas-phase
-  concentrations were reduced compared to the high-emission case. For
-  example, the maximum aerosol number concentration at $t=12$~h only
-  reached to about 1000~$\rm cm^{-3}$ and the maximum $\rm SO_2$
-  mixing ratio was only 1.2~ppb. The mixing state metrics (Figure~\ref{fig:sup1}d)
-  ranged between 40\% and 78\%.
+Figure~\ref{fig:sup1} in the Supporting Information. As expected, for
+this case, the aerosol number and mass concentrations and the
+gas-phase concentrations were reduced compared to the high-emission
+case. For example, the maximum aerosol number concentration at
+$t=12$~h only reached to about 1000~$\rm cm^{-3}$ and the maximum $\rm
+SO_2$ mixing ratio was only 1.2~ppb. The mixing state metrics
+(Figure~\ref{fig:sup1}d) ranged between 40\% and 78\%.
   
   \begin{figure}
     \centering
@@ -2226,15 +2274,15 @@ time.  After 20~min, as the RH dropped below 100\%, the cloud droplet
 number concentration declined faster and the cloud evaporated.
 
 The CDNC is comparatively high for the example shown in
-  Figure~\ref{fig:cloud_env}, since we started out with a large
-  aerosol number concentration of over 15,000~$\rm cm^{-3}$. CDNC of
-  this magnitude were observed, for example, during the IMPACT field
-  campaign \citep{brenguier2011cloud}.  Using aerosols from other plume
-  hours as inputs yielded CDNC below 2000 $\rm cm^{-3}$, as shown in
-  Figure~\ref{fig:max_ss-cycle} (but always larger than 1000~$\rm cm^{-3}$). For the
-  low-emission case, the CDNC were much lower, between 100 and 640 $\rm
-  cm^{-3}$, consistent with observations in more moderately polluted
-  urban environments \citep{ahmad2013long}.
+Figure~\ref{fig:cloud_env}, since we started out with a large aerosol
+number concentration of over 15,000~$\rm cm^{-3}$. CDNC of this
+magnitude were observed, for example, during the IMPACT field campaign
+\citep{brenguier2011cloud}.  Using aerosols from other plume hours as
+inputs yielded CDNC below 2000 $\rm cm^{-3}$, as shown in
+Figure~\ref{fig:max_ss-cycle} (but always larger than 1000~$\rm
+cm^{-3}$). For the low-emission case, the CDNC were much lower,
+between 100 and 640 $\rm cm^{-3}$, consistent with observations in
+more moderately polluted urban environments \citep{ahmad2013long}.
 
 \begin{figure}
     \centering
@@ -2355,13 +2403,13 @@ the mass increased most in the first cycle. The dry mass
 \end{figure}
 
 The size distributions for the low-emission case are shown in
-  Figure~\ref{fig:sup2}. The average mode diameter of the cloud droplet mode after
-  the first cycle is somewhat larger ($\sim0.35$~$\rm \mu m$) than in the
-  high-emission case even though the gas-phase precursor
-  concentrations were lower. This can be explained by the fact that
-  the CDNC was substantially lower than in the high-emission case, and
-  the gas-phase concentrations were still high enough to allow more
-  secondary aerosol mass to form per droplet.
+Figure~\ref{fig:sup2}. The average mode diameter of the cloud droplet
+mode after the first cycle is somewhat larger ($\sim0.35$~$\rm \mu m$)
+than in the high-emission case even though the gas-phase precursor
+concentrations were lower. This can be explained by the fact that the
+CDNC was substantially lower than in the high-emission case, and the
+gas-phase concentrations were still high enough to allow more
+secondary aerosol mass to form per droplet.
   
   \begin{figure}
     \centering
@@ -2688,27 +2736,27 @@ Increases in CCN/CN ratio are generally attributed to both
     \label{fig:sup-new-kappa}
 \end{figure}
 
-It is worth mentioning that our conclusion that CCN
-  concentration increased after cloud processing is based on the
-  changes of critical supersaturation. Previous studies showed that
-  cloud processing can lead in fact to lower cloud droplet number
-  concentrations in subsequent cloud cycles. While an increase in
-  particle size due to aqueous-phase chemistry lowers the critical
-  supersaturation of these particles, this will suppress the
-  environmental supersaturation in the subsequent cloud cycle, overall
-  reducing cloud droplet number concentration
-  \cite{choularton1997effect, feingold2000does,
-    romakkaniemi2006influence,
-    ivanova2008aerosol,bower1999modelling}. In our study, the maximum
-  environmental supersaturation indeed decreased in the following
-  cycles because of the presence of the larger, cloud-processed
-  particles (Figure~\ref{fig:max_ss-cycle}a), and the cloud droplet concentrations
-  accordingly decrease in the following cycles (Figure~\ref{fig:max_ss-cycle}b). This is
-  consistent with \citet{feingold2000does}, where decreased cloud
-  droplet number concentration in the subsequent cloud cycles was
-  found for the environments with larger updraft velocity ($>$ 0.1~$\rm m
-  \, s^{-1}$) and does not contradict our current findings that
-  processed particles have a higher activation potential.
+It is worth mentioning that our conclusion that CCN concentration
+increased after cloud processing is based on the changes of critical
+supersaturation. Previous studies showed that cloud processing can
+lead in fact to lower cloud droplet number concentrations in
+subsequent cloud cycles. While an increase in particle size due to
+aqueous-phase chemistry lowers the critical supersaturation of these
+particles, this will suppress the environmental supersaturation in the
+subsequent cloud cycle, overall reducing cloud droplet number
+concentration \cite{choularton1997effect, feingold2000does,
+  romakkaniemi2006influence,
+  ivanova2008aerosol,bower1999modelling}. In our study, the maximum
+environmental supersaturation indeed decreased in the following cycles
+because of the presence of the larger, cloud-processed particles
+(Figure~\ref{fig:max_ss-cycle}a), and the cloud droplet concentrations
+accordingly decreased in the following cycles
+(Figure~\ref{fig:max_ss-cycle}b). This is consistent with
+\citet{feingold2000does}, where decreased cloud droplet number
+concentration in the subsequent cloud cycles was found for the
+environments with larger updraft velocity ($>$ 0.1~$\rm m \, s^{-1}$)
+and does not contradict our current findings that processed particles
+have a higher activation potential.
 
 
 \begin{figure}
@@ -2829,27 +2877,44 @@ coagulation (archetypical Case~4 in \citet{Riemer2013a}).
 
 \edits{\subsection{Changes in aerosol scattering and absorption abilities} 
 \label{sec:aq-opt}
-The changes in aerosol size distribution and components affect aerosol optical properties. 
-We analyzed the aerosol optical ability changes in high-emission and low-emission cases after first cloud cycle. As shown in 
-Figure~\ref{fig:cloud-opt}, all populations are experiencing enhanced scattering ability after cloud processing, in consistent with the findings
-by \citet{yuskiewicz1999effects} and \citet{romakkaniemi2006influence}. The enhancement was more obvious for low-emission case, where median scattering coefficient increased from $1.3\times10^{-4}$ to 10.9$\times 10^{-4}$~\unit{m^{-1}}. 
+The changes in aerosol size distribution and composition not only
+affect CCN properties, but also aerosol optical properties.  We
+analyzed the aerosol optical properties changes in the high-emission
+and low-emission cases after the first cloud cycle. As shown in
+Figure~\ref{fig:cloud-opt}, all populations have larger scattering
+coefficients after cloud processing, consistent with the findings by
+\citet{yuskiewicz1999effects} and
+\citet{romakkaniemi2006influence}. The enhancement was more obvious
+for the low-emission case, where the median scattering coefficient
+increased from $1.3\times10^{-4}$ to 10.9$\times
+10^{-4}$~\unit{m^{-1}}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{chap3_figs/fig14.pdf}
-    \caption{Optical value changes after cloud processing. (a) is for scattering coefficient $\beta_{\rm scat}$. (b) is for absorption coefficient $\beta_{abs}$. Each point is for a urban plume case and color is for the plume hour of the case. Circle is for high-emission case and triangle is for low-emission case.}
+    \caption{Optical properties befor and after cloud processing. (a)
+      Scattering coefficient $\beta_{\rm scat}$. (b) Absorption
+      coefficient $\beta_{abs}$. Circles are for high-emission case and
+      triangles are for low-emission case. The color indicates the plume
+      hour. }
     \label{fig:cloud-opt}
 \end{figure}
 
-As for absorption coefficients, there is no significant changes after cloud processing, and this can be explained by the less BC-containing particles were activated. As shown in Figure~\ref{fig:bc-2d}, in both high-emission and low-emission case, the activated particles are all with less than 10\% of BC.Those with with BC fraction are smaller particles and they did not grow during the cloud processing. 
+The absorption coefficients do not change after cloud processing.
+This can be explained by the fact that only few BC-containing
+particles were activated. As shown in Figure~\ref{fig:bc-2d}, in both
+the high-emission and low-emission case, the activated particles are
+contain less than 10\% of BC. Particles with larger BC fraction are
+smaller particles and they were not affected by cloud processing.
  
  \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{chap3_figs/fig15.pdf}
     \caption{Two-dimensional number concentration distribution
-      $n(D_{\rm p}, w_{\rm bc})$ before cloud processing (a,b) and 
-      after cloud processing (c,d) for aerosol populations from $t_{\rm u}$=12~\unit{h}. 
-      The left column is for high-emission case and the right column is for low-emission case.}
+      $n(D_{\rm p}, w_{\rm bc})$ before cloud processing (a,b) and
+      after cloud processing (c,d) for aerosol populations from
+      $t_{\rm u}$=12~\unit{h}.  The left column is for high-emission
+      case and the right column is for low-emission case.}
     \label{fig:bc-2d}
 \end{figure}
 }
@@ -2937,16 +3002,25 @@ be noted that our simulations did not take into account the impact of
 phoretic or turbulence effects on coagulation, which could modify the
 efficiency of in-cloud coagulation.
 
-\edits{We also found cloud processing enhance particle scattering abilities due to particle growth, and 
-the effects are more profound for high-emission case, with median scattering coefficient increasing from $1.3\times10^{-4}$ to 10.9$\times 10^{-4}$~\unit{m^{-1}}. The effects are minimal in changing aerosol absorption abilities, and less activated BC-containing particles can be the reason.}
+\edits{We also found that cloud processing enhanced particle
+  scattering due to particle growth, and the effects are more profound
+  for high-emission case, with the median scattering coefficient
+  increasing from $1.3\times10^{-4}$ to 10.9$\times
+  10^{-4}$~\unit{m^{-1}}. For the scenarios considered here, the
+  particle absorption did not change, which can be explained by the
+  fact that the cloud droplets only contained small amounts of BC.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%Chapter 4%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Quantifying the effects of mixing state on aerosol optical properties}
-This chapter developed a framework to systematically quantify the errors introduced by simplified aerosol representation. 
-I first introduced the processes to create reference and sensitivity scenarios. Then, I analyzed the errors in aerosol absorbing and scattering optical abilities introduced by internal mixture assumptions used by size-bin aerosol models. The work is in
-preparation for \textit{Atmospheric Chemistry and Physics}.
+This chapter develops a framework to systematically quantify the
+errors introduced by simplified aerosol representation.  I first
+introduce the processes to create reference and sensitivity
+scenarios. Then, I present the errors in aerosol absorbing and
+scattering properties introduced by internal mixture assumptions used
+by sectional aerosol models. The work is in preparation for
+\textit{Atmospheric Chemistry and Physics}.
 
 \label{chap4}
 \section{Introduction}  %% \introduction[modified heading if necessary]
@@ -3242,9 +3316,11 @@ coefficients at wavelength $\lambda$ are given as
     \beta_{\rm abs}(\lambda)  &= \beta_{\rm ext}(\lambda) - \beta_{\rm scat}(\lambda),
 \end{align}
 
-where $i$ is the particle index, $n_i$ is the number concentration associated with particle $i$ and $N$ is the number of computational
-particles in the population. We determined the optical properties of all particle populations of our
-scenario libraries using these equations. 
+where $i$ is the particle index, $n_i$ is the number concentration
+associated with particle $i$ and $N$ is the number of computational
+particles in the population. We determined the optical properties of
+all particle populations of our scenario libraries using these
+equations.
 
 \subsection{Quantifying the impact of mixing state through composition-averaging}
 To quantify the impacts of mixing state on aerosol optical properties,
@@ -3601,14 +3677,14 @@ populations (i.e., after composition-averaging) for different
 diameters. These populations all have higher absorption coefficients
 compared to the corresponding externally mixed populations. The effect
 is more pronounced for larger particles and intermediate BC mass
-fractions because of the maximum $\Delta_{\rm core}$ is reached. As
-the table (Fig.\ref{fig5:abs-exp})shows, for a 300~\unit{nm}
-population, the normalized absorption is 0.76 when the particles are
-internally mixed, higher than an external mixed population
-(0.5). Although this example is an idealized case since our
-populations lie between external and internal mixtures before
-composition-averaging and are polydisperse, this illustrates that
-assuming internal mixture will lead to absorption overestimation.
+fractions because the maximum $\Delta_{\rm core}$ is reached. As the
+table (Fig.\ref{fig5:abs-exp}) shows, for a 300~\unit{nm} population,
+the normalized absorption is 0.76 when the particles are internally
+mixed, higher than an external mixed population (0.5). Although this
+example is an idealized case since our populations lie between
+external and internal mixtures before composition-averaging and are
+polydisperse, this illustrates that assuming internal mixture will
+lead to absorption overestimation.
 
 The current analysis was based on particles of the same sizes. However,
 even in the same size bins, diameters can vary up to several hundred
@@ -3769,12 +3845,12 @@ Fig.~\ref{fig6:scat-err}.
 	\label{fig8:scat-exp}
 \end{figure}
 
-To further explore the effects of coating
-volume changes, Fig.~\ref{fig6:scat-err}(b) shows the size-resolved
-scattering coefficients before and after composition-averaging for
-aerosol populations from scenario 77 at 2h, which produced the largest
-scattering coefficients underestimation ($-$32\%). We found there is
-significant decrease of $\sigma_{\rm scat}$ in size range of
+To further explore the effects of coating volume changes,
+Fig.~\ref{fig6:scat-err}(b) shows the size-resolved scattering
+coefficients before and after composition-averaging for the aerosol
+populations from scenario 77 at 2h, which produced the largest
+scattering coefficients underestimation ($-$32\%). There is a
+significant decrease of $\sigma_{\rm scat}$ in the size range of
 400--800~\unit{nm} in the sensitivity populations, and the core ratio
 increment in bin 4 is responsible for this decrease
 (Fig.~\ref{fig_sup3}).
@@ -3787,15 +3863,15 @@ increment in bin 4 is responsible for this decrease
 	\label{fig_sup3}
 \end{figure}
 
-The blue lines in Fig.~\ref{fig8:scat-exp} show the scattering
-cross sections for two different real refractive indices. For
-particles with diameters between 800 and 1200~\unit{nm}, a lower
-refractive index leads to a larger scattering cross section, even though the different is smaller
-than the change caused by adding a BC core. Similar to the BC core
-size change $\Delta D^{\rm core}$ {in Figure~\ref{fig3:abs-error}},
-we defined a volume-weighted refractive index change, $\Delta{m^{\rm
-    real}}$, to help understand the changes in scattering. The index
-change is defined as:
+The blue lines in Fig.~\ref{fig8:scat-exp} show the scattering cross
+sections for two different real refractive indices. For particles with
+diameters between 800 and 1200~\unit{nm}, a lower refractive index
+leads to a larger scattering cross section, even though the difference
+is smaller than the change caused by adding a BC core. Similar to the
+BC core size change $\Delta D^{\rm core}$ {in
+  Figure~\ref{fig3:abs-error}}, we defined a volume-weighted
+refractive index change, $\Delta{m^{\rm real}}$, to help understand
+the changes in scattering. The index change is defined as:
 \begin{equation}
     \displaystyle \Delta{m^{\rm real}}=\frac{\sum_{i=1}^{N} V_i {m^{\rm real}}' - \sum_{i=1}^{N} V_i {m^{\rm real}}}{\sum_{i=1}^{N} V_i {m^{\rm real}}},
 \end{equation}
@@ -4166,7 +4242,7 @@ further explorations.
   properties.} I explored the capability of the particle-resolved
 aqueous chemistry approach to simulate the aqueous sulfate reaction
 systems. My simulation results confirm that the sulfate formation
-catelyzed by TMI can be important, but I have not systematically
+catelyzed by TMI can be important, but I have not yet systematically
 quantified the sensitivity of these processes to environmental
 conditions. More simulations with varied conditions should be
 conducted to generalized the cases with efficient TMI-catalyzed
