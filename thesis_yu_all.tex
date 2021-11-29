@@ -156,7 +156,7 @@ magnitude of these errors.
 \end{abstract}
 
 \begin{dedication}
-To my family
+To my family and Siya Liu, for their love and support
 \end{dedication}
 
 \chapter*{Acknowledgments}
@@ -484,7 +484,7 @@ different and can lead to different radiative forcing.
 
 The effects of aerosol mixing state on its optical properties can be
 more complicated if considering aerosol water uptake and particle
-shapes. In a humidified environment, water update of a particle
+shapes. In a humidified environment, water uptake of a particle
 depends strongly on its composition because of the dependence of
 hygroscopicity on the chemical species, which is important for
 scattering \citep{MichelFlores2012, Zieger2013, Titos2014,
@@ -539,7 +539,7 @@ similar, and particle population undergoing coagulation will become
 more internally mixed \citep{Riemer2013a}.
 
 The processes of condensation and coagulation outlined above are
-relevant for a cloud-free environment, however, since the global cloud
+relevant for a cloud-free environment. However, since the global cloud
 coverage is on average more than 70\%
 \citep{stubenrauch2013assessment}, the aerosol evolution in clouds is
 also an important contributor during the lifetime of aerosol
@@ -632,7 +632,12 @@ of mixing state. \citet{Riemer2013a}, based on the theory of
 information-theoretic entropy, developed the index $\chi$ to quantify
 aerosol population mixing state. The index $\chi$ is the ratio between
 average particle diversity $D_{\alpha}$ and bulk diversity
-$D_{\gamma}$. By using particle mass measurement data, these metrics
+$D_{\gamma}$. Average particle diversity $D_{\alpha}$ refers to the average 
+per-particle effective species numbers, and it is determined by the components
+fraction in each particle. Bulk diversity $D_{\gamma}$ describes 
+the effective species number at bulk population, and it is determined by the components
+fraction of the whole population. 
+By using particle mass measurement data, these metrics
 were successfully proved to be capable of explaining the aerosol aging
 processes \citep{Healy2014}. They are also an important framework for
 our analyses presented in Chapter~\ref{chap3} and Chapter~\ref{chap4}.
@@ -782,7 +787,7 @@ is explicitly tracked and the mixing state of aerosol population is
 accurately represented.
 
 \section{Models for aqueous chemistry simulation }
-One of the topics for the thesis is to investigate the impact if
+One of the topics for the thesis is to investigate the impact of
 aqueous phase chemistry on aerosol mixing state. The previous section
 discussed different approaches to simulate aerosol composition and
 represent mixing state. This section summarizes how aqueous phase
@@ -800,7 +805,7 @@ For process models, often used as box/parcel models, aerosol
 microphysics is usually well-resolved. Droplet activation is
 explicitly described by using K$\rm \ddot{o}$hler
 theory. Specifically, particles with critical supersaturation lower
-than maximum supersaturation reached in the environment are activated
+than maximum supersaturation reached in the cloud environment are activated
 as droplets \citep{rothenberg2016metamodeling,
   ching2012impacts}. Detailed aqueous chemistry processes can be
 incorporated into these cloud parcel models. An example is the cloud
@@ -818,10 +823,10 @@ models where computational efficiency is very important. Rather than
 resolving cloud microphysics explixcitly, cloud properties are
 described in a highly parameterized way, by using cloud fraction, with
 other diagnosed meterological parameters, for each grid box. Cloud
-droplet sizes distributions are usually assumed. For example,
+droplet size distributions are usually assumed. For example,
 ECHAM5-HAM assumed two bins for the cloud droplets: one bin for
 particles with lower ion concentration and the other bin for high ion
-concentration. As for the effects of cloud droplets representation on
+concentration \citep{roelofs2006aerosol}. As for the effects of cloud droplets representation on
 cloud chemistry, \citet{barth2006importance}, by comparing sectional
 and single-size droplet parcel model, found simplified cloud droplet
 size representation will lead to biases in simulated formic acid and
@@ -3366,7 +3371,7 @@ reference populations and for the composition averaged populations for
 50\% ($P_2$) and for 90\% ($P_3$) relative humidity, respectively.  At
 $\rm RH = 50$\%, depending on the exact composition, some particles
 take up water, and at $\rm RH = 90$\%, most particles take up water,
-except particles that only contain hydrophobic species, such pure
+except particles that only contain hydrophobic species, such as pure
 black carbon or primary organic carbon. Note that while the dry
 aerosol mass was conserved by the composition-averaging procedure, the
 water content was re-calculated after composition-averaging and could
@@ -4020,14 +4025,11 @@ uncertainties in directive radiative forcing ranged from 0.2 to 3.1
 \unit{W\,m^{-2}} and SSA introduced the largest uncertainties. Through
 perturbation analysis, \citet{loeb2010direct} also found the SSA to be
 the dominant factors for direct radiative forcing uncertainties and
-with SSA perturbed $\pm$ 0.06 over ocean and $\pm$ 0.03 over land, the
+with SSA perturbed $\pm$ 3\% over land, the
 resulted uncertainties in direct aerosol radiative forcing range
-between $-$0.55 and 1.11 \unit{W\,m^{-2}}. Considering the SSA error of
-$-$7.5\% and $-$2.2\% in dry and humidified environment in the current
-simulation, combining the median SSA values (Fig.~\ref{fig_sup4}), these errors
-translate to $-$0.069 and $-$0.021 perturbation level in SSA,
-respectively, and lead to the same order of magnitude of direct
-radiative forcing uncertainties as \citeauthor{loeb2010direct} found.
+between $-$0.59 and + 0.69 \unit{W\,m^{-2}}. Considering the median SSA error of
+$-$7.5\% in dry environment resulting from simplified mixing state representation, this error 
+can interpret to more than +0.69 \unit{W\,m^{-2}} uncertainty in direct radiative forcing .
 
 \begin{figure}[H]
 	\centering
@@ -4183,7 +4185,7 @@ processing, CCN concentration increased substantially for
 supersaturation levels lower than the maximum cloud
 supersaturation. For an aged aerosol population, CCN concentration at
 supersaturation level 0.02\% increased from 30 to 547
-~\unit{cm^{-3}}. In contrast to in-cloud chemistry, coagulation within
+~\unit{cm^{-3}}. In contrast to in-cloud chemistry, Brownian coagulation within
 clouds had a negligible impact on aerosol mixing state.
 
 \begin{figure}[H]
