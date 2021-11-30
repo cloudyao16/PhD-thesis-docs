@@ -188,7 +188,6 @@
         {\lc@selectfont \@thesisname}\\[12pt]
         Submitted in partial fulfillment of the requirements\\
         for the degree of \@degree\ in \@dept\\
-        with a concentration in Computational Science and Engineering\\
         in the \@college\ of the\\
         University of Illinois at Urbana-Champaign, \@degreeyear\vfil}
  \vskip -2ex
