@@ -484,7 +484,7 @@ different and can lead to different radiative forcing.
 
 The effects of aerosol mixing state on its optical properties can be
 more complicated if considering aerosol water uptake and particle
-shapes. In a humidified environment, water \jcedits{uptake} of a particle
+shapes. In a humidified environment, water uptake of a particle
 depends strongly on its composition because of the dependence of
 hygroscopicity on the chemical species, which is important for
 scattering \citep{MichelFlores2012, Zieger2013, Titos2014,
@@ -539,7 +539,7 @@ similar, and particle population undergoing coagulation will become
 more internally mixed \citep{Riemer2013a}.
 
 The processes of condensation and coagulation outlined above are
-relevant for a cloud-free environment. \jcedits{However,} since the global cloud
+relevant for a cloud-free environment. However, since the global cloud
 coverage is on average more than 70\%
 \citep{stubenrauch2013assessment}, the aerosol evolution in clouds is
 also an important contributor during the lifetime of aerosol
@@ -632,12 +632,11 @@ of mixing state. \citet{Riemer2013a}, based on the theory of
 information-theoretic entropy, developed the index $\chi$ to quantify
 aerosol population mixing state. The index $\chi$ is the ratio between
 average particle diversity $D_{\alpha}$ and bulk diversity
-$D_{\gamma}$. \jcedits{Average particle diversity $D_{\alpha}$ refers to the average 
+$D_{\gamma}$. Average particle diversity $D_{\alpha}$ refers to the average 
 per-particle effective species numbers, and it is determined by the components
 fraction in each particle. Bulk diversity $D_{\gamma}$ describes 
 the effective species number at bulk population, and it is determined by the components
-fraction of the whole population.} 
-By using particle mass measurement data, these metrics
+fraction of the whole population. By using particle mass measurement data, these metrics
 were successfully proved to be capable of explaining the aerosol aging
 processes \citep{Healy2014}. They are also an important framework for
 our analyses presented in Chapter~\ref{chap3} and Chapter~\ref{chap4}.
@@ -787,7 +786,7 @@ is explicitly tracked and the mixing state of aerosol population is
 accurately represented.
 
 \section{Models for aqueous chemistry simulation }
-One of the topics for the thesis is to investigate the impact \jcedits{of}
+One of the topics for the thesis is to investigate the impact of
 aqueous phase chemistry on aerosol mixing state. The previous section
 discussed different approaches to simulate aerosol composition and
 represent mixing state. This section summarizes how aqueous phase
@@ -805,7 +804,7 @@ For process models, often used as box/parcel models, aerosol
 microphysics is usually well-resolved. Droplet activation is
 explicitly described by using K$\rm \ddot{o}$hler
 theory. Specifically, particles with critical supersaturation lower
-than maximum supersaturation reached in the \jcedits{cloud} environment are activated
+than maximum supersaturation reached in the cloud environment are activated
 as droplets \citep{rothenberg2016metamodeling,
   ching2012impacts}. Detailed aqueous chemistry processes can be
 incorporated into these cloud parcel models. An example is the cloud
@@ -823,7 +822,7 @@ models where computational efficiency is very important. Rather than
 resolving cloud microphysics explixcitly, cloud properties are
 described in a highly parameterized way, by using cloud fraction, with
 other diagnosed meteorological parameters, for each grid box. Cloud
-droplet \jcedits{size} distributions are usually assumed. For example,
+droplet size distributions are usually assumed. For example,
 ECHAM5-HAM assumed two bins for the cloud droplets: one bin for
 particles with lower ion concentration and the other bin for high ion
 concentration \citep{roelofs2006aerosol}. As for the effects of cloud droplets representation on
@@ -1281,7 +1280,7 @@ turned out that this assumption did not cause the differences in LWC.
 
 \begin{figure}[ht]
     \centering \includegraphics[scale=0.5]{chap2_figs/chap2_fig1_profile.pdf}
-    \caption{\jcedits{Time series} differences of (a) liquid water content
+    \caption{Time series differences of (a) liquid water content
       and (b) Gas $\rm SO_2$ concentration (c) Bulk pH between KS2003 (blue)
       and PartMC (orange).}
     \label{chap2:ks2003}
@@ -1293,7 +1292,9 @@ SO_2$(g) mixing ratio decreasing from 0.2 to 0.025~ppb after 40
 minutes, indicating PartMC is capable of simulating of aqueous sulfate
 formation processes. The bulk acidity calculated by PartMC also shows
 similar profile with the models in KS2003 but with higher values
-(Fig.~\ref{chap2:ks2003}(c)). \jcedits{Even though the oxidation of $\rm SO_2$ to sulfate makes particles more acidic, cloud pH increases in both situations due to more absorbed water.} Considering the different simulation
+(Fig.~\ref{chap2:ks2003}(c)). Even though the oxidation of $\rm SO_2$ 
+to sulfate makes particles more acidic, cloud pH increases in both situations 
+due to more absorbed water. Considering the different simulation
 approaches, we expect some differences between bulk or size-binned
 based pH and our particle-resolved pH.
 
@@ -1879,7 +1880,7 @@ coupled the reduced Chemical Aqueous Phase Radical Mechanism (CAPRAM)
 2.4 to PartMC-MOSAIC. The reduced CAPRAM model includes 183 reactions
 (including Henry's Law partitioning, dissociation reactions,
 photolysis reactions and other aqueous-phase reactions) and 113
-species \citep{Herrmann1999, ervens2003capram}. The mechanism
+species \citep{ervens2003capram}. The mechanism
 treats the reactions of common radicals and radical anions, transition
 metal ions and organics with less than two carbon atoms. The CAPRAM
 mechanism was applied to simulate the cloud processes for the FEBUKO
@@ -1894,7 +1895,7 @@ our scope for this initial study is the in-cloud production of
   mixing state. We did not consider the co-condensation of nitric acid
   gas due to vapor pressure difference discussed by
   \citet{crooks2018parameterisation}. A subset of the most relevant
-Henry's law, aqueous equilibria and chemistry reactions are summarized
+Henry's law constants, aqueous equilibria and chemistry reactions are summarized
 in Table~S1.
 
 The original gas-phase chemistry mechanism Regional Atmospheric
@@ -2599,8 +2600,8 @@ mixed. The first cloud cycle therefore led to a more external
 \begin{figure}
     \centering
     \includegraphics[scale=0.43]{chap3_figs/fig8.pdf}
-    \caption{Evolution of average particle diversity $D_{\alpha}$,
-      bulk particle diversity $D_{\gamma}$ and bulk mixing state
+    \caption{Evolution of (a) average particle diversity $D_{\alpha}$,
+      (b) bulk particle diversity $D_{\gamma}$ and (c) bulk mixing state
       $\chi$ ($\%$) at the beginning of cloud cycle 1 and after each
       of the four cloud cycles (high-emission case).}
     \label{fig:bulk_chi}
@@ -2744,7 +2745,8 @@ supersaturation. Previous studies showed that cloud processing can
 lead in fact to lower cloud droplet number concentrations in
 subsequent cloud cycles. While an increase in particle size due to
 aqueous-phase chemistry lowers the critical supersaturation of these
-particles, this will suppress the environmental supersaturation in the
+particles, their activation and subsequent growth will suppress
+the environmental supersaturation in the
 subsequent cloud cycle, overall reducing cloud droplet number
 concentration \cite{choularton1997effect, feingold2000does,
   romakkaniemi2006influence,
@@ -2756,7 +2758,7 @@ accordingly decreased in the following cycles
 (Figure~\ref{fig:max_ss-cycle}b). This is consistent with
 \citet{feingold2000does}, where decreased cloud droplet number
 concentration in the subsequent cloud cycles was found for the
-environments with larger updraft velocity ($>$ 0.1~$\rm m \, s^{-1}$)
+environments with updraft velocity large than 0.1~$\rm m \, s^{-1}$
 and does not contradict our current findings that processed particles
 have a higher activation potential.
 
@@ -3371,7 +3373,7 @@ reference populations and for the composition averaged populations for
 50\% ($P_2$) and for 90\% ($P_3$) relative humidity, respectively.  At
 $\rm RH = 50$\%, depending on the exact composition, some particles
 take up water, and at $\rm RH = 90$\%, most particles take up water,
-except particles that only contain hydrophobic species, \jcedits{such as} pure
+except particles that only contain hydrophobic species, such as pure
 black carbon or primary organic carbon. Note that while the dry
 aerosol mass was conserved by the composition-averaging procedure, the
 water content was re-calculated after composition-averaging and could
@@ -4022,14 +4024,14 @@ response of directive radiative forcing to changes of several
 quantities, including aerosol optical depth, single
 scattering albedo and other related factors. They found the total
 uncertainties in directive radiative forcing ranged from 0.2 to 3.1
-\unit{W\,m^{-2}} and SSA introduced the largest uncertainties. \jcedits{Through
+\unit{W\,m^{-2}} and SSA introduced the largest uncertainties. Through
 perturbation analysis, \citet{loeb2010direct} also found the SSA to be
 the dominant factors for direct radiative forcing uncertainties and
 with SSA perturbed $\pm$ 3\% over land, the
 resulted uncertainties in direct aerosol radiative forcing range
 between $-$0.59 and + 0.69 \unit{W\,m^{-2}}. Considering the median SSA error of
 $-$7.5\% in dry environment resulting from simplified mixing state representation, this error 
-can interpret to more than +0.69 \unit{W\,m^{-2}} uncertainty in direct radiative forcing.}
+can interpret to more than +0.69 \unit{W\,m^{-2}} uncertainty in direct radiative forcing.
 
 \begin{figure}[H]
 	\centering
@@ -4185,7 +4187,7 @@ processing, CCN concentration increased substantially for
 supersaturation levels lower than the maximum cloud
 supersaturation. For an aged aerosol population, CCN concentration at
 supersaturation level 0.02\% increased from 30 to 547
-~\unit{cm^{-3}}. In contrast to in-cloud chemistry, \jcedits{Brownian coagulation} within
+~\unit{cm^{-3}}. In contrast to in-cloud chemistry, Brownian coagulation within
 clouds had a negligible impact on aerosol mixing state.
 
 \begin{figure}[H]
